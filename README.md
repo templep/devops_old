@@ -16,5 +16,8 @@ topic related to any software bots that help software engineers!
 - https://github.com/eclipse/repairnator
 - https://github.com/yegor256/rultor/
 
+# Introduction
+Software bots are used to automate tasks on project. For exemple, it can automate dependencies update, code fixes, and other. This can be enabled on hole organizations, meaning that developpers can easly access it on each repository. This help improve the quality of software and improve performances of a team.
+
 # Tools
 - [RenovateBot](./renovatebot.md)
