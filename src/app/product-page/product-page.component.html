@@ -1,0 +1,78 @@
+<br />
+<div class="container">
+  <div class="row">
+    <as-split-area [size]=50>
+    <div class="col-sm-4">
+      <div class="product-image">
+        <div class="view hm-zoom z-depth-2" style="cursor: pointer;">
+          <img
+            [src]="product.imageUrl"
+            [alt]="product.name"
+            width="100%"
+            class="img-fluid rounded"
+          />
+        </div>
+      </div>
+    </div>
+    </as-split-area>
+    <div class="col-sm-8">
+      <div class="product-detail">
+        <h5 class="product-head">Détails</h5>
+        <table class="table" style="max-height: 28px;">
+          <tbody>
+          <tr>
+            <th scope="row">Produit</th>
+            <td>{{product.name}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Description</th>
+            <td>{{product.description}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Categorie</th>
+            <td>{{product.category}}</td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="" style="margin-top: 15px;">
+          <ul class="list-group mb-3">
+            <li
+              class="list-group-item d-flex justify-content-between lh-condensed"
+            >
+              <div>
+                <h6 class="my-0">Prix</h6>
+              </div>
+              <span class="text-muted" style="color: crimson !important;">{{product.price}} €</span
+              >
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between lh-condensed"
+            >
+              <div>
+                <h6 class="my-0">Vendeur</h6>
+              </div>
+              <span class="text-muted" style="color: crimson !important;">{{product.seller}}</span>
+            </li>
+          </ul>
+          <button class="btn btn-primary">
+            Ajouter au panier
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <as-split-area [size]=50>
+    <div class="col-sm-4">
+      <div class="product-image">
+        <div class="view hm-zoom z-depth-2" style="cursor: pointer;">
+          <img
+            [src]="product.imageUrl"
+            [alt]="product.name"
+            width="100%"
+            class="img-fluid rounded"
+          />
+        </div>
+      </div>
+    </div>
+  </as-split-area>
+</div>
