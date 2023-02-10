@@ -18,3 +18,4 @@ topic related to any software bots that help software engineers!
 
 # Tools
 - [RenovateBot](./renovatebot.md)
+- [Dependabot](./dependabot.md)
