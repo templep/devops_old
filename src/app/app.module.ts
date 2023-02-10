@@ -14,7 +14,7 @@ import { AngularSplitModule } from "angular-split";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularSplitModule.forRoot()
+    AngularSplitModule
   ],
   providers: [],
   bootstrap: [AppComponent]

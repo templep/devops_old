@@ -1,7 +1,5 @@
-<br />
 <div class="container">
   <div class="row">
-    <as-split-area [size]=50>
     <div class="col-sm-4">
       <div class="product-image">
         <div class="view hm-zoom z-depth-2" style="cursor: pointer;">
@@ -14,7 +12,6 @@
         </div>
       </div>
     </div>
-    </as-split-area>
     <div class="col-sm-8">
       <div class="product-detail">
         <h5 class="product-head">Détails</h5>
@@ -54,25 +51,11 @@
               <span class="text-muted" style="color: crimson !important;">{{product.seller}}</span>
             </li>
           </ul>
-          <button class="btn btn-primary">
+          <button class="btn btn-primary" style="background-color: {{buttonColor}}" (click)="addToCart()">
             Ajouter au panier
           </button>
         </div>
       </div>
     </div>
   </div>
-  <as-split-area [size]=50>
-    <div class="col-sm-4">
-      <div class="product-image">
-        <div class="view hm-zoom z-depth-2" style="cursor: pointer;">
-          <img
-            [src]="product.imageUrl"
-            [alt]="product.name"
-            width="100%"
-            class="img-fluid rounded"
-          />
-        </div>
-      </div>
-    </div>
-  </as-split-area>
 </div>
