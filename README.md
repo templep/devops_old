@@ -15,3 +15,6 @@ topic related to any software bots that help software engineers!
 - https://github.com/renovatebot
 - https://github.com/eclipse/repairnator
 - https://github.com/yegor256/rultor/
+
+# Tools
+- [Renovabot](./renovabot.md)
