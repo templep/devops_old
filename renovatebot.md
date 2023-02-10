@@ -1,4 +1,10 @@
-# RenovateBot
+<p align="center">
+    <img width="400" alt="renovate.jpeg" src="docs/renovate.jpeg"/>
+</p>
+
+<h1 align="center">RenovateBot</h1>
+
+---
 
 ## Description
 
