@@ -21,3 +21,4 @@ Software bots are used to automate tasks on project. For exemple, it can automat
 
 # Tools
 - [RenovateBot](./renovatebot.md)
+- [Dependabot](./dependabot.md)
