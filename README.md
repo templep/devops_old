@@ -1,4 +1,14 @@
 # UR1/ESIR DevOps Course
+
+## Membres
+
+ADAM Cody
+ALLAIN Arthur
+BRIEND Romain
+GOARDOU Fabien
+KERICHARD Mael
+
+
 This repository contains the material and content of the DevOps course at the engineering school ESIR of the University of Rennes 1. 
 
 ## Year 2022-2023
