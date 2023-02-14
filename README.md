@@ -2,11 +2,11 @@
 
 ## Membres
 
-ADAM Cody
-ALLAIN Arthur
-BRIEND Romain
-GOARDOU Fabien
-KERICHARD Mael
+- ADAM Cody
+- ALLAIN Arthur
+- BRIEND Romain
+- GOARDOU Fabien
+- KERICHARD Mael
 
 topic related to any software bots that help software engineers!
 
