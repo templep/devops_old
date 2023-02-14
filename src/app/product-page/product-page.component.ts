@@ -27,7 +27,7 @@ export class ProductPageComponent implements OnInit {
     const id = uuidv4();
     await Statsig.initialize(
       "client-efYeKem0Qb4EWDtCkdLgp3Bz3g20kflhyCce3H7w7tZ",
-      { userID: id },
+      { userID: "esir-devops" },
       { environment: { tier: "staging" } } // optional, pass options here if needed
     );
     console.log("Statsig initialized");
@@ -38,9 +38,11 @@ export class ProductPageComponent implements OnInit {
   }
 
   addToCart() {
+    console.log("addToCart");
     Statsig.logEvent("add_to_cart", this.product.id, {
       price: this.product.price.toString(),
       item_name: this.product.name,
     });
+
   }
 }
