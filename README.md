@@ -8,7 +8,7 @@
 - GOARDOU Fabien
 - KERICHARD Mael
 
-topic related to any software bots that help software engineers!
+Topic related to any software bots that help software engineers!
 
 - https://youtu.be/BsgnLwPMqWM
 - https://dependabot.com/
