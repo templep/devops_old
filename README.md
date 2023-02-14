@@ -24,7 +24,7 @@ They can be judged in terms of autonomy, intelligence, interactivity, environmen
 
 These bots allow developers to enhance their efficiency and effectiveness.
 
-The bots we used and described during this project are mostly bots helping mostly with coding, collaboration and DevOps. We used Dependabot, Renovabot, Repairnator and ImgBot (a special bot that optimizes images).
+The bots we used and described during this project are mostly bots helping with coding, collaboration and DevOps. We used Dependabot, Renovabot, Repairnator and ImgBot (a special bot that optimizes images).
 
 (source: https://youtu.be/BsgnLwPMqWM)
 
