@@ -1,0 +1,35 @@
+h1{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container {
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.card {
+    background-color: transparent;
+    width: 300px;
+    height: 290px;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* On mouse-over, add a deeper shadow */
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Add some padding inside the card container */
+  .cont{
+    padding: 2px 6px;
+    margin-left: auto;
+    margin-right: auto;
+  }

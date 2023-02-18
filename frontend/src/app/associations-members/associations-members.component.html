@@ -1,0 +1,71 @@
+<h1 >Members of {{name}}</h1>
+<h2>Here you can add, delete or modify the role of members </h2>
+
+<div class="demo-button-container">
+  <button type="button" id="sp" class="btn btn-success" (click)="add()">Add</button>  
+</div>
+
+<div *ngIf="addF" class="container">
+  <form class="row g-3" [formGroup]="addMemberForm" (submit)="ajouter()">  
+    <div class="row-md-3">
+      <label for="inputAddress" class="form-label">Id:</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="1" formControlName="idControl">
+    </div>
+    <div class="row-md-3">
+      <label for="inputAddress" class="form-label">Role</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="Member" formControlName="rolControl">
+    </div>
+    <div class="col-12">
+      <button type="submit" id="sp" class="btn btn-primary" [disabled]="!addMemberForm.valid">Validate</button>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="mod" class="container">
+  <form class="row g-3" [formGroup]="modifRoleForm" (submit)="modifier()">  
+    <div class="row-md-3">
+      <label for="inputAddress" class="form-label">Role:</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="Président" formControlName="roleControl">
+    </div>
+    <div class="col-12">
+      <button type="submit" id="sp" class="btn btn-primary" [disabled]="!modifRoleForm.valid">Validate</button>
+    </div>
+  </form>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+    
+    <ng-container matColumnDef="lastname">
+      <th mat-header-cell *matHeaderCellDef> Lastname </th>
+      <td mat-cell *matCellDef="let user"> {{user.lastname}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="firstname">
+      <th mat-header-cell *matHeaderCellDef> Firstname </th>
+      <td mat-cell *matCellDef="let user"> {{user.firstname}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="age">
+      <th mat-header-cell *matHeaderCellDef> Age </th>
+      <td mat-cell *matCellDef="let user"> {{user.age}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="role">
+        <th mat-header-cell *matHeaderCellDef> Role </th>
+        <td mat-cell *matCellDef="let user"> {{user.role}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let user ; let i=index">
+        <button type="button" id="sp" class="btn btn-success" (click)="modify(i)" >Modify Role</button>
+        <button type="button" id="sp" class="btn btn-danger" (click)="deleteMember(i)" >Delete</button> 
+      </td>
+  </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
+

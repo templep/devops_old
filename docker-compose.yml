@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+  # Our Backend
+  backend:
+    container_name: back
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    command: npm run start:dev
+    volumes:
+      - ./backend/:/albarry/src/app
+      - /backend/src/app/node_modules
+    ports:
+      - 3000:3000
+
+  # Our client service
+  frontend:
+    container_name: angfront
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    command: npm run start
+    volumes:
+      - ./frontend:/albarry/frontend/src/app
+      - /albarry/frontend/src/app/node_modules
+    ports:
+      - 4200:4200
+    depends_on:
+      - backend
+  

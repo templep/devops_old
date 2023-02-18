@@ -1,0 +1,41 @@
+<div class="container">
+    <h1> Welcome on your user page </h1> 
+    <div class="card">
+      <div class="cont">
+        <h2 *ngIf="!modificationsOn">My Informations</h2>
+        <h3 *ngIf="!modificationsOn">Id : {{id}}</h3>
+        <h4 *ngIf="!modificationsOn" >Lastname : {{lastname}}</h4>
+        <h4 *ngIf="!modificationsOn">Firstname : {{firstname}}</h4>
+        <h4 *ngIf="!modificationsOn">Age : {{age}}</h4> 
+        <button id="bt" type="button" class="btn btn-success" (click)="modify()"  *ngIf="!modificationsOn">Modify your informations</button> 
+      </div>
+      
+    </div> 
+    <div *ngIf="modificationsOn"class="container">
+      <h4>Please enter new informations</h4>
+      <form class="row g-3" [formGroup]="profileForm" (submit)="submit()">
+    
+        <div class="row-md-3" >
+          <label for="inputEmail4" class="form-label">Lastname:</label>
+          <input type="email" class="form-control" id="inputEmail" formControlName="lastname" placeholder={{lastname}}>
+        </div>
+    
+        <div class="row-md-3">
+          <label for="inputAddress" class="form-label">Firstname:</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder={{firstname}} formControlName="firstname">
+        </div>
+        <div class="row-md-3">
+          <label for="inputAddress2" class="form-label">Age</label>
+          <input type="text" class="form-control" id="inputAddress2" placeholder={{age}} formControlName="age" >
+        </div>
+        <div class="row-md-3">
+          <label for="inputAddress2" class="form-label">password</label>
+          <input type="password" class="form-control" id="inputAddress2" placeholder="******" formControlName="password" >
+        </div>
+        <div class="col-12">
+          <button id="btn" type="submit" class="btn btn-primary" [disabled]="!profileForm.valid">Validate</button>
+        </div>
+      </form>
+      </div>
+
+</div>

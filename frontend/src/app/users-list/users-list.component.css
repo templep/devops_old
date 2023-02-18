@@ -1,0 +1,36 @@
+table {
+    margin-left: 2px;
+    margin-right: 2px;
+    width: auto;
+    border-color:aquamarine;
+}
+
+.demo-table {
+    width: 100%;
+  }
+
+#position{
+    margin: 2%;
+    width: 5%;   
+}
+#ad{
+  margin: 1%;
+  width: 5%;   
+}
+
+#sp{
+  margin: 1%;   
+}
+
+h1{
+    margin: 2%;
+    width: 75%; 
+}
+
+.demo-button-container {
+    padding-bottom: 16px;
+  }
+  
+  .demo-button + .demo-button {
+    margin-left: 8px;
+  }
