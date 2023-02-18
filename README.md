@@ -9,13 +9,11 @@ Dans ce dernier, nous réaliserons au sein d'un projet au choix, toute la démar
 Nous avons pour ce faire à notre disposition toute une flopée d'outils (chacun entrant dans une catégorie)
 
 # Sommaire
-[1- Présentation du projet](#Présentation du projet)
+[1- Présentation du projet](#Présentationduprojet)
 
-[2- Présentation des pratiques DevOps à mettre en place](#Présentation des pratiques DevOps à mettre en place)
+[2- Présentation des pratiques DevOps à mettre en place](#PrésentationdespratiquesDevOpsàmettreenplace)
 
-[3- Mise en place des pratiques DevOps](#Mise en place des pratiques DevOps)
-
-
+[3- Mise en place des pratiques DevOps](#MiseenplacedespratiquesDevOps)
 
 ## 1- Présentation du projet
 
