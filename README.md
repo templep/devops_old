@@ -9,13 +9,12 @@ Dans ce dernier, nous réaliserons au sein d'un projet au choix, toute la démar
 Nous avons pour ce faire à notre disposition toute une flopée d'outils (chacun entrant dans une catégorie)
 
 # Sommaire
-[1- Présentation du projet](#Présentationduprojet)
 
-[2- Présentation des pratiques DevOps à mettre en place](#PrésentationdespratiquesDevOpsàmettreenplace)
+- [1 - Présentation du projet](#1---présentation-du-projet)
 
-[3- Mise en place des pratiques DevOps](#MiseenplacedespratiquesDevOps)
+- [2 - Sélection des outils](#2---sélection-des-outils)
 
-## 1- Présentation du projet
+# 1 - Présentation du projet
 
 Pour ce tutoriel, nous utiliserons un projet réalisé dans le cadre du cours d'Architecture Logiciel.
 Ce dernier est composé d'un ensemble de microservices interagissants ensemble.
