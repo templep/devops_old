@@ -21,16 +21,16 @@ ImgBot utilizes **lossless compression by default**, ensuring that you only gain
 
 This bot utilizes the [GitHub App](https://github.com/marketplace) model. You can install it on your organization or a single repository.
 
-![Marketplace](./docs/imgbot/marketplace.png)
+<img src="./docs/imgbot/marketplace.png" width="500">
 
 You will then need to select the repositories you want to install ImgBot on.
 
-![Allow access](./docs/imgbot/allow.png)
+<img src="./docs/imgbot/allow.png" width="500">
 
 That's it! ImgBot is now installed on your repository.
 You can know if ImgBot is installed on your repository by looking at **Settings > Integrations > GitHub Apps**.
 
-![Configured](./docs/imgbot/config.png)
+<img src="./docs/imgbot/config.png" width="500">
 
 
 # ⚙️ Configuration
@@ -76,7 +76,7 @@ Once ImgBot is installed, it will automatically optimize your images through a p
 
 Here is an example of a pull request created by ImgBot:
 
-![Pull Request](./docs/imgbot/pr.png)
+<img src="./docs/imgbot/pr.png" width="500">
 
 This example used lossless compression, which is the default setting. If you want to use lossy compression, you can modify the configuration file. The total savings is currently 18.07%.
 
@@ -94,5 +94,5 @@ With the following `.imgbotconfig` file:
 
 Here is the result:
 
-![Aggressive Compression](./docs/imgbot/aggressive.png)
+<img src="./docs/imgbot/aggressive.png" width="500">
 
