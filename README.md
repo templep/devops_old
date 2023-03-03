@@ -31,3 +31,4 @@ The bots we used and described during this project are mostly bots helping with 
 # Tools
 - [RenovateBot](./renovatebot.md)
 - [Dependabot](./dependabot.md)
+- [Imgbot](./imgbot.md)
