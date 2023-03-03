@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "esir-devops"
+  },
+  "targets": {
+    "esir-devops": {
+      "hosting": {
+        "DEVOPSFUZZY": [
+          "esir-devops"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

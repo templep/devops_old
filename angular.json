@@ -103,6 +103,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "DEVOPSFUZZY:build:production",
+            "firebaseProject": "esir-devops",
+            "firebaseHostingSite": "esir-devops"
+          }
         }
       }
     }

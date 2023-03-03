@@ -1,0 +1,45 @@
+image: node:14
+
+cache:
+  paths:
+    - dist/
+    - node_modules/
+
+stages:
+  - install
+  - build
+  - deploy_beta
+  - deploy_prod
+
+install:
+  stage: install
+  script:
+    - npm i --save-dev firebase-tools
+    - npm install
+  artifacts:
+    paths:
+      - node_modules/
+
+build:
+  stage: build
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+
+deploy_beta:
+  only:
+    - develop
+  stage: deploy_beta
+  script:
+    - firebase use staging
+    - firebase deploy --only hosting --token $FIREBASE_TOKEN
+
+deploy_prod:
+  only:
+    - master
+  stage: deploy_prod
+  script:
+    - firebase use prod
+    - firebase deploy --only hosting --token $FIREBASE_TOKEN

@@ -27,13 +27,13 @@ export class ProductPageComponent implements OnInit {
     const id = uuidv4();
     await Statsig.initialize(
       "client-efYeKem0Qb4EWDtCkdLgp3Bz3g20kflhyCce3H7w7tZ",
-      { userID: "esir-devops" },
+      { userID: id },
       { environment: { tier: "staging" } } // optional, pass options here if needed
     );
     console.log("Statsig initialized");
     console.log("id", id);
-    const expConfig = Statsig.getExperiment("product_buy");
-    this.buttonColor = expConfig.get("button_color", "blue");
+    const expConfig = Statsig.getExperiment("ajout_panier");
+    this.buttonColor = expConfig.get("couleur_bouton", "blue");
     console.log("buttonColor", this.buttonColor);
   }
 
