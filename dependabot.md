@@ -9,7 +9,7 @@
 
 ## 🤨 What is Dependabot?
 
-Dependabot is a bot that "Keep your dependencies secure and up-to-date". It is a service that is provided by GitHub and is free for open source projects.
+Dependabot is a bot that "Keep your dependencies secure and up-to-date". It is a service that is provided by GitHub and is free for open-source projects.
 It has 3 main features that can be enabled independently:
 - **Dependabot alerts**: Receive alerts for vulnerabilities that affect your dependencies and manually generate Dependabot pull requests to resolve these vulnerabilities.
 - **Dependabot security updates**: Allow Dependabot to open pull requests automatically to resolve Dependabot alerts.

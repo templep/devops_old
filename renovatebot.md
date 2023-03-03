@@ -8,12 +8,12 @@
 
 ## Description
 
-RenovateBot is used to update dependencies of a project. It creates pull request to allow you to validate the updates.  
-With this app, all your dependencies are up to date and the security and stability of the system is improved. It is a direct alternative to dependabot, but it is more versatile and more widely used.
+RenovateBot is used to update the dependencies of a project. It creates pull requests to allow you to validate the updates.  
+With this app, all your dependencies are up to date and the security and stability of the system are improved. It is a direct alternative to Dependabot, but it is more versatile and more widely used.
 
 ## Installation
 
-Add the RenovateBot app from the Github marketplace. You can set the app on the entire organization, meaning that every repository will have this fonctionnality
+Add the RenovateBot app from the GitHub marketplace. You can set the app on the entire organization, meaning that every repository will have this functionality
 ![Marketplace](./docs/renovatebot/marketplace.png)
 
 ## Usage

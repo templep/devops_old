@@ -1,6 +1,6 @@
 # UR1/ESIR DevOps Course
 
-## Membres
+## Members
 
 - ADAM Cody
 - ALLAIN Arthur
