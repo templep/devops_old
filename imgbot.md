@@ -85,7 +85,7 @@ This example used lossless compression, which is the default setting. If you wan
 
 If you want to save even more space, you can modify the configuration file to use lossy compression.
 
-With the following configuration file:
+With the following `.imgbotconfig` file:
 
 ```json
 {
