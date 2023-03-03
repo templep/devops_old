@@ -54,18 +54,18 @@ Here is an example of a configuration file:
 
 ```json
 {
-    "schedule": "daily",  // daily|weekly|monthly
+    "schedule": "daily",
     "ignoredFiles": [
-        "*.jpg",                   // ignore by extension
-        "image1.png",              // ignore by filename
-        "public/special_images/*", // ignore by folderpath
+        "*.jpg",
+        "image1.png",
+        "public/special_images/*",
     ],
-    "aggressiveCompression": "true", // true|false
-    "compressWiki": "true", // true|false
-    "minKBReduced": 500, // delay new prs until size reduction meets this threshold (default to 10)
+    "aggressiveCompression": "true",
+    "compressWiki": "true",
+    "minKBReduced": 500,
     "prTitle" : "Your own pr title",        
     "prBody" : " Text before optimization ratio {optimization_ratio} Text after optimization ratio 
-                 Text before optimization details {optimization_details} Text after optimization details",
+                 Text before optimization details {optimization_details} Text after optimization details"
 }
 ```
 
