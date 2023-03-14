@@ -41,7 +41,7 @@ Here are the available options (all are optional):
 
 | Name                  | Description                                             | Default | Type       |
 | --------------------- | ------------------------------------------------------- | ------- | ---------- |
-| schedule              | The frequency at which ImgBot will run.                 | `daily` | `daily     | weekly | monthly` |
+| schedule              | The frequency at which ImgBot will run.                 | `daily` | `daily` or `weekly` or `monthly` |
 | ignoredFiles          | A list of files to ignore.                              | `[]`    | `string[]` |
 | aggressiveCompression | Use lossy compression.                                  | `false` | `boolean`  |
 | compressWiki          | Compress images in the wiki of the repo.                | `false` | `boolean`  |
