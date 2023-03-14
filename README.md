@@ -136,7 +136,7 @@ Ils seront utilisés plus tard dans le code et référencés par leur nom (*volu
 
 ### 5.3 - Déploiement des micro-services
 
-Pour chaque micro-service, le code sera donné. Cependant le contenu de ces codes relèvent plus du fonctionnement de l'application que de la mise en place de Terraform, il n'y aura d'explication de ces derniers dans ce document mais le ReadMe du projet d'origine donne toute les explications : https://github.com/Thomega35/TP1_WEB/tree/DockerKiki
+Pour chaque micro-service, le code sera donné. Cependant le contenu de ces codes relèvent plus du fonctionnement de l'application que de la mise en place de Terraform, il n'y aura d'explication de ces derniers dans ce document mais le ReadMe du projet d'origine donne toute les explications (voire : ReadMe.md dans le dossier terraformproject)
 
 Aussi l'ensemble de ce projet Terraform peut-être retrouvé dans le dossier : `terraformproject`
 
@@ -363,7 +363,7 @@ terraform apply
 ```
 
 Il est maintenant possible d'accéder à l'application via l'adresse `http://localhost/`.
-(voire : https://github.com/Thomega35/TP1_WEB/tree/DockerKiki)
+(voire : ReadMe.md dans le dossier terraformproject)
 
 ## 7 - Fonctionnement de Terraform
 
