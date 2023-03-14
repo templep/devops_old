@@ -1,0 +1,83 @@
+# Docker-Compose of the application
+# Launch it with the command : docker-compose up -d
+
+version: "3"
+
+services:
+
+  # MySQL - Mounted on ./MySQLData
+  database:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: test
+      MYSQL_ROOT_PASSWORD: admin
+    volumes:
+      - ./MySQLData:/var/lib/mysql
+
+  # NestJS - Backend of the web application
+  back:
+    build: ./Back
+    image: kiki2956/back
+    depends_on:
+      - database
+  
+  # Angular - Frontend of the web application
+  front:
+    build: ./Front
+    image: kiki2956/front
+    depends_on:
+      - back
+
+  # RabbitMQ - Message Queue - Mounted on ./RabbitMQData
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    environment:
+      - RABBITMQ_DEFAULT_USER=mailuser
+      - RABBITMQ_DEFAULT_PASS=mailpassword
+    volumes:
+      - ./RabbitMQData:/var/lib/rabbitmq
+
+  # Quarkus - Native Java application to send mails when new message are detected on RabbitMQ queue
+  quarkus:
+    image: kiki2956/quarkus-natif
+    depends_on:
+      - rabbitmq
+
+  # Locust - Python testing tool - Mounted on ./Locust/Data
+  locus:
+    image: locustio/locust
+    depends_on:
+      - back
+    volumes:
+      - ./Locust/Data:/mnt/locust
+    command: -f /mnt/locust/locustfile.py --host=http://back:3000
+
+  # Prometheus - Monitoring tool - Mounted on ./Prometheus
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./Prometheus:/etc/prometheus
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --web.external-url=/prometheus/
+      - --web.route-prefix=/
+
+  # Grafana - Visualisation tool - ./Grafana/grafana.ini mounted on /etc/grafana/grafana.ini
+  grafana:
+    image: grafana/grafana-enterprise
+    volumes:
+      - ./Grafana/grafana.ini:/etc/grafana/grafana.ini # Configuration file
+
+  # Nginx - Reverse Proxy
+  nginx:
+    build: ./Nginx
+    image: kiki2956/nginx
+    depends_on:
+      - back
+      - front
+      - locus
+      - prometheus
+      - grafana
+    ports:
+      - 80:80

@@ -1,0 +1,34 @@
+<app-nav></app-nav>
+
+<br><br>
+
+<div class="setterUser">
+    Nom
+    <br>
+    <input type="text" [(ngModel)]="firstName"/>
+    <br>
+    <br>
+    Prénom
+    <br>
+    <br>
+    <input type="text" [(ngModel)]="lastName"/>
+    <br>
+    <br>
+    Age
+    <br>
+    <input type="text" [(ngModel)]="age"/>
+    <br>
+    <br>
+    Email
+    <br>
+    <input type="email" [(ngModel)]="email"/>
+    <br>
+    <br>
+    Password
+    <input type="checkbox" [(ngModel)]="checkedPassword">
+    <br>
+    <input type="password" [(ngModel)]="password" [disabled]="!checkedPassword"/>
+    <br>
+    <br>
+    <button (click)="editProfil()">Modifier</button>
+</div>

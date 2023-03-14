@@ -1,0 +1,17 @@
+<br><br>
+
+<div class="main" align="center">
+    
+    <p>Email : <input type="text" [(ngModel)]="email"></p>
+    <p>Prenom : <input type="text" [(ngModel)]="firstName"></p>
+    <p>Nom : <input type="text" [(ngModel)]="lastName"></p>
+    <p>Age : <input type="number" [(ngModel)]="age"></p>
+    <p>Mot de passe : <input type="password" [(ngModel)]="password"></p>
+
+    <p>
+        <button class="buttons" (click)="goBack()">Annuler</button>
+        <button class="buttons" (click)="createUser()">Creer</button>
+    </p>
+
+</div>
+

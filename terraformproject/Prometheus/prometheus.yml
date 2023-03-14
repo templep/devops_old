@@ -1,0 +1,17 @@
+global:
+
+  scrape_interval:     15s
+  external_labels:
+    monitor: 'codelab-monitor'
+
+scrape_configs:
+
+  # Get Mettrics of Backend
+  - job_name: 'backendmetrics'
+    scrape_interval: 5s
+
+    # Endpoint of backend metrics (See Back folder)
+    metrics_path: /metrics
+
+    static_configs:
+      - targets: ['back:3000']

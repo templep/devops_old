@@ -57,7 +57,6 @@ Terrform fonctionne avec des `providers`. Un provider permet de définir les `re
 Commençons à écrire dans le fichier *main.tf* :
 
 ```terraform
-
 terraform {
   required_providers {
     docker = {
@@ -66,7 +65,6 @@ terraform {
     }
   }
 }
-
 ```
 
 Ce code permet de récupérer le provider Docker en ligne.
@@ -105,7 +103,6 @@ resource "docker_network" "network" {
     subnet = "177.22.0.0/24"
   }
 }
-
 ```
 
 On créer une ressources Docker Network, on lui donne un nom et une IP.
