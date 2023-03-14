@@ -116,7 +116,32 @@ Grâce à ce réseau, les containers pourront communiquer entre eux. Il suffira 
 
 ### 5.2 - Docker Volume
 
+Un volume sert à stocker des données pour qu'elles persistes même si les containers sont supprimés.
+
+Pour les créer, nous utilisons la ressource Docker Volume :
+
+- Volume pour la base de données
+
+```terraform
+resource "docker_volume" "volumeMySQL" {
+  name = "volumeMySQL"
+}
+```
+
+- Volume pour RabbitMQ
+```terraform
+resource "docker_volume" "volumeRabbitMQ" {
+  name = "volumeRabbitMQ"
+}
+```
+
+Ils seront utilisés plus tard dans le code et référencés par leur nom (*volumeMySQL* et *volumeRabbitMQ*).
+
 ### 5.3 - Déploiement des micro-services
+
+Pour chaque micro-service, le code sera donné. Cependant le contenu de ces codes relèvent plus du fonctionnement de l'application que de la mise en place de Terraform, il n'y aura d'explication de ces derniers dans ce document mais le ReadMe du projet d'origine donne toute les explications : https://github.com/Thomega35/TP1_WEB/tree/DockerKiki
+
+Aussi l'ensemble de ce projet Terraform peut-être retrouvé dans le dossier : `terraformproject`
 
 #### 5.3.1 - Database
 
@@ -311,3 +336,26 @@ resource "docker_container" "nginx_container" {
   }
 }
 ```
+
+## 6 - Execution du projet
+
+Maintenant que le `main.tf` est prêt, il ne reste plus qu'à lancer le projet.
+
+On commence par initialiser le projet Terraform :
+
+```bash
+terraform init
+```
+
+Ensuite on peut valider la bonne configuration du projet :
+
+```bash
+terraform validate
+```
+
+Puis on peut formater le code :
+
+```bash
+terraform fmt
+```
+
