@@ -359,3 +359,55 @@ Puis on peut formater le code :
 terraform fmt
 ```
 
+Et enfin on peut créer l'infrastructure :
+
+```bash
+terraform apply
+```
+
+Il est maintenant possible d'accéder à l'application via l'adresse `http://localhost/`.
+(voire : https://github.com/Thomega35/TP1_WEB/tree/DockerKiki)
+
+## 7 - Fonctionnement de Terraform
+
+La force de Terraform est de pouvoir créer des ressources de manière automatisée. Par exemple si vous avez lancé le projet Terraform et que vous souhaitez ajouter un container, il suffit de modifier le fichier `main.tf` et de relancer la commande `terraform apply`. Terraform va alors détecter les changements et va créer les ressources manquantes.
+
+Pour finir voilà quelques commandes utiles pour le fonctionnement de Terraform.
+
+Pour une liste complète des commandes, vous pouvez taper `terraform -h` dans le terminal.
+
+### 7.1 - Terraform init
+
+La commande `terraform init` permet d'initialiser le projet Terraform. Elle va télécharger les plugins nécessaires pour la création de l'infrastructure.
+
+### 7.2 - Terraform validate
+
+La commande `terraform validate` permet de valider la configuration du projet Terraform. Elle va vérifier que la configuration est correcte et qu'il n'y a pas d'erreur de syntaxe.
+
+### 7.3 - Terraform fmt
+
+La commande `terraform fmt` permet de formater le code Terraform. Elle va formater le code pour qu'il soit plus lisible.
+
+### 7.4 - Terraform apply
+
+La commande `terraform apply` permet de créer l'infrastructure. Elle va créer les ressources définies dans le fichier `main.tf`. S'il y a eu des changements dans le fichier `main.tf`, elle va également mettre à jour l'infrastructure.
+
+### 7.5 - Terraform plan
+
+La commande `terraform plan` permet de voir ce que va créer la commande `terraform apply`.
+
+### 7.6 - Terraform show
+
+La commande `terraform show` permet d'afficher les ressources créées par Terraform.
+
+### 7.5 - Terraform destroy
+
+La commande `terraform destroy` permet de détruire l'infrastructure.
+
+### 7.6 - Terraform state
+
+La commande `terraform state` permet de gérer l'état de l'infrastructure. Elle permet de voir l'état actuel de l'infrastructure, de le sauvegarder, de le restaurer, etc.
+
+## 8 - Conclusion
+
+Pour conclure, ce tutoriel a permis de montrer comment créer une infrastructure avec Terraform à partir d'un projet déjà existant. Il a aussi montré comment créer des ressources Docker avec Terraform. Terraform est un outil très puissant et ce tutoriel n'est pas exaustife sur toutes les possibilités qu'il offre.
