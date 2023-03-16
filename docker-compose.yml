@@ -46,7 +46,7 @@ services:
 
   # Our Frontend
   frontend:
-    container_name: angular_frontend
+    container_name: angular_front
     build: 
       context: ./frontend
       dockerfile: Dockerfile
