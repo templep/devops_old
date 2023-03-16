@@ -1,8 +1,23 @@
 version: "3.8"
 services:
+  
+  # Our db service
+  db:
+    container_name: postgres
+    image: postgres:14.0-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=mydb
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
   # Our Backend
   backend:
-    container_name: back
+    container_name: nestjs_backend
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -13,14 +28,31 @@ services:
       - /backend/src/app/node_modules
     ports:
       - 3000:3000
+    environment:
+      - API_PORT=3000
+      - API_HOST= 'http://localhost:'
+      - POSTGRES_CONNECTION= postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=mydb
+      - POSTGRES_PORT=5432
+      - POSTGRES_HOST=db
+      - RABBITMQ_URL=amqp://user:password@rabbitmq:5672/vhost
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
+    depends_on:
+      - db
+      - rabbitmq
 
-  # Our client service
+  # Our Frontend
   frontend:
-    container_name: angfront
+    container_name: angular_frontend
     build: 
       context: ./frontend
       dockerfile: Dockerfile
     restart: unless-stopped
+    environment:
+      RAZZLE_INTERNAL_API_PATH: http://backend:8080/Myapp
     command: npm run start
     volumes:
       - ./frontend:/albarry/frontend/src/app
@@ -29,4 +61,35 @@ services:
       - 4200:4200
     depends_on:
       - backend
-  
+
+  # Our MOM  
+  rabbitmq:
+    container_name: rabbitmq2
+    image: rabbitmq:3-management
+    restart: unless-stopped
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      - RABBITMQ_DEFAULT_USER=user
+      - RABBITMQ_DEFAULT_PASS=password
+      - RABBITMQ_DEFAULT_VHOST=vhost
+
+  # Our Quarkus service
+  quarks:
+    container_name: quarkus
+    build:
+      context: ./Quarkus
+      dockerfile: src/main/docker/Dockerfile.jvm
+    restart: unless-stopped
+    command: java -jar /deployments/quarkus-run.jar
+    environment:
+      -  RABBITMQ_USERNAME=user
+      -  RABBITMQ_PASSWORD=password
+      -  RABBITMQ_VHOST=vhost
+      -  RABBITMQ_PORT=5672
+      -  RABBITMQ_HOST=rabbitmq
+    ports:
+      - 8080:8080
+    depends_on:
+      - rabbitmq

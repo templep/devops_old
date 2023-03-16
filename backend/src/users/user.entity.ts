@@ -9,6 +9,8 @@ export class User{
         firstname: string
         @Column()
         age: number
+        @Column()
+        email:string
         @Column({nullable: true})
         password: string
         

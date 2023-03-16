@@ -9,12 +9,36 @@ import { Member } from './association.member';
 import { RolesService } from 'src/roles/roles.service';
 import { Minute } from 'src/minutes/minute.entity';
 import { MinutesService } from 'src/minutes/minutes.service';
+import { ClientProxy } from '@nestjs/microservices';
 
 @Injectable()
 export class AssociationsService {
+    constructor(
+        @Inject(forwardRef(() => UsersService))
+        private userservice: UsersService,
+        @Inject(forwardRef(() => RolesService))
+        private assos_role:RolesService,
+        @Inject(forwardRef(() => MinutesService))
+        private min_serv:MinutesService,
+        @InjectRepository(Association)
+        private assRepository: Repository<Association>,
+        @Inject('GREETING_SERVICE') private client: ClientProxy
+    ) {}
     //Service ajouté pour des besoins particulier du front
     async getEnt(): Promise<Association[]>{
         return await this.assRepository.find()
+    }
+    //Les addresses mails de l'association
+    async destinatorEmail(idAssociation:number):Promise<string[]>{
+        const assos_tab= await this.assRepository.findOne({where: {id: idAssociation}})
+        const users=await assos_tab.users
+        const email=[]
+        let add=""+users[0].email
+        for(let i=1; i<users.length; i++){
+            add=add+","+users[i].email
+        }
+        email.push(add)
+        return email
     }
     //Service ajouté pour des besoins particulier du front
     async getMembersId(idAssociation:number):Promise<number[]>{
@@ -48,13 +72,13 @@ export class AssociationsService {
             const rol=await this.assos_role.getById(users[i].id, idfind)
             if(rol===null){
                 const role=this.assos_role.create(users[i].id, idfind,'new Member')
-                const new_mbr= new Member(users[i].firstname,users[i].lastname,users[i].age,(await role).name )
+                const new_mbr= new Member(users[i].firstname,users[i].lastname,users[i].age,(await role).name,users[i].email)
                 tab.push(new_mbr)
 
             }
             else{
                 const role=this.assos_role.getById(users[i].id, idfind)
-                const new_mbr= new Member(users[i].firstname,users[i].lastname,users[i].age,(await role).name )
+                const new_mbr= new Member(users[i].firstname,users[i].lastname,users[i].age,(await role).name,users[i].email)
                 tab.push(new_mbr)
 
             }
@@ -140,24 +164,16 @@ export class AssociationsService {
             return await this.assRepository.save(P)
     }
 
-
-
-
-
     async delete(id:number):Promise<Boolean>{
         await this.assRepository.delete(id)
             return true
     }
+
+    async publishMessage(topic:string,message:string,destinators:string) {
+        this.client.emit('mail', {'topic': topic, 'message': message, 'destinator':destinators});
+      }
+
     
-    constructor(
-        @Inject(forwardRef(() => UsersService))
-        private userservice: UsersService,
-        @Inject(forwardRef(() => RolesService))
-        private assos_role:RolesService,
-        @Inject(forwardRef(() => MinutesService))
-        private min_serv:MinutesService,
-        @InjectRepository(Association)
-        private assRepository: Repository<Association>
-    ) {}
+ 
 
 }

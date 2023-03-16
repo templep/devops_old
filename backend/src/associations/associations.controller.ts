@@ -32,12 +32,15 @@ export class AssociationsController {
           } catch (e) {
             throw new HttpException(`Could not find a user with the id ${parameter.id}`, HttpStatus.NOT_FOUND)
           }
-
     }
     
     @Get(':id/members')
     async getMembers(@Param() parameter):Promise<Member[]>{
         return await this.service.getMembers(parameter.id)
+    }
+    @Get(':id/mails')
+    async getMail(@Param() parameter):Promise<string[]>{
+        return await this.service.destinatorEmail(parameter.id)
     }
 
     @Get(':id/minutes')
@@ -69,6 +72,10 @@ export class AssociationsController {
         else{
             throw new HttpException(`Could not find a user with the id ${parameter.id}`, HttpStatus.NOT_FOUND)
         }
+    }
+    @Post('/message')
+    async publishEvent(@Param() parameter,@Body() input: any) {
+      return await this.service.publishMessage(input.topic,input.message,input.destinators);
     }
 
     constructor(

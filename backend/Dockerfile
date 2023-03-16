@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:16
 
 # Specify Working directory inside container
 WORKDIR /albarry/src/app

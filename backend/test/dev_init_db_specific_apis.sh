@@ -36,8 +36,8 @@ delete() {
     request DELETE ${1} ${2} ${3}
 }
 
-post http://localhost:3000/users 201 "firstname=John&lastname=Doe&age=23&password=tokarev123"
-post http://localhost:3000/users 201 "firstname=Janette&lastname=Doe&age=32&password=larson"
+post http://localhost:3000/users 201 "firstname=John&lastname=Doe&age=23&password=tokarev123&email=alvinsmook00@gmail.com"
+post http://localhost:3000/users 201 "firstname=Janette&lastname=Doe&age=32&password=larson&email=guyaboic@gmail.com"
 
 post http://localhost:3000/associations 201 "idUsers[]=1&idUsers[]=2&name=Assoc1"
 post http://localhost:3000/associations 201 "idUsers[]=1&idUsers[]=2&name=Assoc2"

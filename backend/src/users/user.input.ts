@@ -30,4 +30,5 @@ export class UserInput {
         type: String,
     })
     public password: string
+    public email:string
 }

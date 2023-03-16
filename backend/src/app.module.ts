@@ -1,27 +1,45 @@
-import { Module} from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './users/users.module';
 import { AssociationsModule } from './associations/associations.module';
-import { User } from './users/user.entity';
-import { Association } from './associations/association.entity';
+import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
-import { RolesModule } from './roles/roles.module';
-import { Role } from './roles/role.entity';
 import { MinutesModule } from './minutes/minutes.module';
-import { Minute } from './minutes/minute.entity';
-
-@Module({
-
-  imports: [ 
-    TypeOrmModule.forRoot({
-     type: 'sqlite',
-     database: 'mydatabase.db',
-     entities: [User,Association,Role,Minute],
-     synchronize: true,
-   }),
-    UsersModule, AssociationsModule, AuthModule, RolesModule, MinutesModule],
+import { RolesModule } from './roles/roles.module';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ClientsModule, Transport } from '@nestjs/microservices'
+@Module({ 
+  imports:[
+    ConfigModule.forRoot({isGlobal: true, envFilePath: '../.env'}),
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: async (config: ConfigService) => ({
+        type: 'postgres',
+        host: config.get<string>('POSTGRES_HOST'),
+        username: config.get<string>('POSTGRES_USER'),
+        password: config.get<string>('POSTGRES_PASSWORD'),
+        database: config.get<string>('POSTGRES_DB'),
+        port: 5432, 
+        entities: [__dirname + 'dist/*/.entity{.ts,.js}'],
+        synchronize: true,
+        autoLoadEntities: true,
+        logging: true,
+      }), 
+    }),
+    ClientsModule.register([{
+      name: 'GREETING_SERVICE',
+      transport: Transport.RMQ,
+      options: {
+        urls: ['amqp://user:password@rabbitmq:5672/vhost'],
+        queue: 'mail_queue',
+        queueOptions: {
+          durable: false
+        }
+      }
+    }]),
+  UsersModule, AssociationsModule, AuthModule, MinutesModule, RolesModule],
   controllers: [AppController],
   providers: [AppService],
 })
