@@ -26,6 +26,10 @@ L'on dispose donc:
 
 L'ensemble de ses microservice sont déployés au sein de containers docker.
 
+![2020-03-02_16-58-11](https://user-images.githubusercontent.com/107374001/226594474-18af22d8-e68e-4ab1-ab1f-41d0a3f90f1c.png)
+
+
+
 # 2 - Sélection des outils
 
 - [x] Bazel, Build and test software: C'est un outil de contruction et de tests de logiciels open source. Il est généralement utilisé par les grandes entreprises qui réalisent des projet monorepo. On l'utilisera malgré tout dans notre cas afin de le découvrir et de voir quelle sont les champs des posibilités qu'il offre a notre projet.
