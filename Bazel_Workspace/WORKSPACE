@@ -1,0 +1,24 @@
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+# Fetch rules_nodejs from GitHub
+http_archive(
+    name = "rules_nodejs",
+    urls = ["https://github.com/bazelbuild/rules_nodejs/releases/download/5.5.1/rules_nodejs-5.5.1.tar.gz"],
+    sha256 = "ee3280a7f58aa5c1caa45cb9e08cbb8f4d74300848c508374daf37314d5390d6",
+)
+
+# Load rules_nodejs dependencies
+load("@rules_nodejs//:npm/install.bzl/install.bzl", "npm_install")
+
+# Declare any external dependencies here
+# For example, to add the `lodash` package as a dependency:
+# npm_install(
+#     name = "lodash",
+#     version = "4.17.21",
+# )
+
+# Load the NestJS BUILD rules
+load("@io_bazel_rules_nodejs//nestjs:nestjs.bzl", "nestjs_repositories")
+
+# Fetch and load the NestJS BUILD rules
+nestjs_repositories()
