@@ -88,10 +88,17 @@ npm run test auth.controller.fuzz.spec.ts
 
 Dans ce tutoriel, nous avons présenté l'utilisation du fuzzing test à l'aide de la bibliothèque ```fuzzer``` sur un exemple jouet afin de détecter des erreurs ou des comportements inattendus à partir de données d'entrée potentiellement malveillantes.
 
+#### Difficultés rencontrées
+Pour la réalisation de ce tutoriel, plusieurs difficultés ont été rencontrées. En effet, parmi les nombreuses bibliothèques de fuzzing test, pour la plupart, nous avons eu des difficultés à les mettre en place car il n'était pas adapté à notre projet sur lequel on voulait le tester.
+Ensuite, une fois la bibliothèque choisie, il a fallu comprendre comment l'utiliser car la documentation proposée prêtait à confusion.
+
 ### A/B Testing
 
 ### Canary Testing
 
 ## Conclusion
 
+Pour conclure, l'utilisation de ces méthodes de test dans le contexte DevOps permet aux développeurs de minimiser les risques de bugs et de vulnérabilités mais aussi d'optimiser les performances de l'application et de garantir une expérience utilisateur de qualité. Ces techniques améliorent la sécurité et la fiabilité de l'application puisqu'elle se réalise avant la phase de déploiement à grande échelle.
 
+## Auteurs
+Ce projet a été réalisé par Louis MORLOT--PINTA, Tergel TSAGAAN, Bastien SAUVAT, Bastien FAISANT, Jérôme SCHEISSBERG et Arthur MORVAN.
