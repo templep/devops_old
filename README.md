@@ -2,7 +2,7 @@
 This repository contains the material and content of the DevOps course at the engineering school ESIR of the University of Rennes 1. 
 
 ## Membres du groupe
-Louis MORLOT--PINTA | Tergel TSAGAAN | Bastien SAUVAT | Bastien FAISANT | Jérôme SCHEISSBERG | Arthur MORVAN
+Louis MORLOT--PINTA | Tergel TSAGAAN | Bastien SAUVAT | Bastien FAISANT | Jérôme SCHENBERG | Arthur MORVAN
 
 ## Introduction
 Afin d'améliorer la qualité du code et à identifier les problèmes le plus rapidement, les tests tel le ```Fuzzing```, ```A/B Testing``` et le ```Canary testing``` permettent aux développeurs d'accélérer le processus de développement et de déploiement tout en s'assurant que le produit final est de haute qualité. En effet dans ce tutoriel, 3 outils de tests vont être présentés : 
@@ -101,4 +101,4 @@ Ensuite, une fois la bibliothèque choisie, il a fallu comprendre comment l'util
 Pour conclure, l'utilisation de ces méthodes de test dans le contexte DevOps permet aux développeurs de minimiser les risques de bugs et de vulnérabilités mais aussi d'optimiser les performances de l'application et de garantir une expérience utilisateur de qualité. Ces techniques améliorent la sécurité et la fiabilité de l'application puisqu'elle se réalise avant la phase de déploiement à grande échelle.
 
 ## Auteurs
-Ce projet a été réalisé par Louis MORLOT--PINTA, Tergel TSAGAAN, Bastien SAUVAT, Bastien FAISANT, Jérôme SCHEISSBERG et Arthur MORVAN.
+Ce projet a été réalisé par Louis MORLOT--PINTA, Tergel TSAGAAN, Bastien SAUVAT, Bastien FAISANT, Jérôme SCHENBERG et Arthur MORVAN.
