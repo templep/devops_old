@@ -1,0 +1,70 @@
+section.mat-dialog-content {
+  text-align: center;
+  background: linear-gradient(300deg, #ED8F60, #BF406C);
+  width: 400px;
+  height: 175px;
+}
+
+.center {
+  margin: auto;
+}
+
+section.fields {
+  width: 80%;
+  margin-bottom: 2%;
+}
+
+h1 {
+  padding-top: 5%;
+  color: white;
+}
+
+.firstname {
+  margin-top: 5%;
+}
+
+label {
+  color: white;
+  float: left;
+}
+
+input {
+  width: 100%;
+}
+
+
+section.button {
+  padding-top: 2.5%;
+}
+
+button.submit {
+  width: 85px;
+  height: 25px;
+  color: #F1E678;
+  font-size: 110%;
+  text-align: center;
+  border: none;
+  background-size: 1000% 100%;
+  border-radius: 50px;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+button.submit:hover {
+  background-position: 100% 0;
+  transition: all .4s ease-in-out;
+}
+
+button.submit:focus {
+}
+
+button.submit-hover {
+  background-image: linear-gradient(
+    to right,
+    #BF406C,
+    #682A6E,
+    #682A6E,
+    #BF406C
+  );
+}
+

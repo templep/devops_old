@@ -1,0 +1,18 @@
+section.card {
+  display: inline-grid;
+  width: 12.5%;
+  height: 15%;
+  background: linear-gradient(60deg, #ED8F60, #BF406C);
+  border-radius: 25px;
+  margin: 2% auto 2% 2%;
+  cursor: pointer;
+}
+
+label {
+  color: white;
+  font-size: 115%;
+}
+
+.center {
+  margin: auto auto auto auto;
+}

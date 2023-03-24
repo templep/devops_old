@@ -1,0 +1,55 @@
+section.container {
+  width: 300px;
+  height: 90px;
+  background: linear-gradient(120deg, #BF406C, #ED8F60) no-repeat;
+  text-align: center;
+}
+
+.center {
+  margin: auto;
+}
+
+section.label {
+  padding-top: 5%;
+}
+
+label {
+  color: white;
+  font-size: 125%;
+}
+
+section.button {
+  padding-top: 5%;
+}
+
+button.back {
+  width: 85px;
+  height: 25px;
+  color: #F1E678;
+  font-size: 130%;
+  text-align: center;
+  border: none;
+  background-size: 1000% 100%;
+  border-radius: 50px;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+button.back:hover {
+  background-position: 100% 0;
+  transition: all .4s ease-in-out;
+}
+
+button.back:focus {
+}
+
+button.back-hover {
+  background-image: linear-gradient(
+    to right,
+    #682A6E,
+    #BF406C,
+    #BF406C,
+    #682A6E
+  );
+}
+

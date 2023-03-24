@@ -1,0 +1,98 @@
+div {
+  align-items: center;
+  height: 5%;
+  background: linear-gradient(270deg, #BF406C, #682A6E);
+}
+
+section {
+  float: left;
+}
+
+section.logoutSection {
+  float: right;
+  margin-right: 1%;
+  margin-top: 0.5%;
+}
+
+a.logout {
+}
+
+section.labelDiv {
+  padding-top: 0.5%;
+  padding-left: 1%;
+  width: 2%;
+}
+
+label {
+  color: white;
+  font-size: 100%;
+  font-weight: bold;
+}
+
+img {
+  width: 100%;
+  height: 10%;
+}
+
+button.logout {
+  width: 100px;
+  height: 30px;
+  color: #FFFF;
+  font-size: 130%;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+button.logout:hover {
+  background-position: 100% 0;
+  transition: all .4s ease-in-out;
+}
+
+button.logout:focus {
+}
+
+button.logout-hover {
+  background-image: linear-gradient(
+    to right,
+    #682A6E,
+    #2B1F46,
+    #2B1F46,
+    #682A6E
+  );
+}
+
+button.buttonCaterogy {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 110%;
+  padding-left: 5%;
+  padding-top: 0.75%;
+  cursor: pointer;
+}
+
+section.categories {
+  margin-top: 0.75%;
+  margin-left: 7.55%;
+}
+
+button.account {
+  margin-right: 10%;
+  width: 400%;
+  height: 32.5px;
+  cursor: pointer;
+  border: none;
+  background-size: 100%;
+  background: url('../../assets/acount.png') no-repeat;
+}
+
+section.accountSection {
+  float: right;
+  margin-right: 2.5%;
+  margin-top: 0.35%;
+}
+

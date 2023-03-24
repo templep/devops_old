@@ -1,0 +1,63 @@
+section.container {
+  float: right;
+  margin-top: 27.5%;
+  margin-right: 15%;
+  text-align: center;
+}
+
+.center {
+  margin: auto;
+}
+
+h1.title {
+  font-size: 350%;
+  color: white;
+}
+
+p.text {
+  margin-top: 2%;
+  font-size: 140%;
+  color: white;
+}
+
+section.buttons {
+  margin-top: 10%;
+}
+
+a.login {
+  position: absolute;
+}
+
+a.register {
+  position: relative;
+  top: 75px;
+}
+
+button.login {
+  width: 175px;
+  height: 60px;
+  color: #682A6E;
+  font-size: 130%;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+button.login:hover {
+  background-position: 100% 0;
+  transition: all .4s ease-in-out;
+}
+
+button.login-hover {
+  background-image: linear-gradient(
+    to right,
+    #ED8F60,
+    #F1E678,
+    #F1E678,
+    #ED8F60
+  );
+}
+

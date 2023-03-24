@@ -1,0 +1,148 @@
+.main-container {
+  margin: 2.5% 10% 0% 10%;
+}
+
+.categories {
+  margin-bottom: 2%;
+}
+
+section.titlesec {
+  width: 50%;
+}
+
+section.button {
+  margin: 0 auto 5% 2%;
+  display: inline;
+}
+
+.buttons {
+  display: inline-flex;
+  float: right;
+}
+
+button.delete {
+  width: 100px;
+  height: 35px;
+  color: #682A6E;
+  font-size: 100%;
+  text-align: center;
+  border: none;
+  background-size: 1000% 100%;
+  border-radius: 50px;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+button.delete:hover {
+  background-position: 100% 0;
+  transition: all .4s ease-in-out;
+}
+
+button.delete-hover {
+  background-image: linear-gradient(
+    to right,
+    #ED8F60,
+    #F1E678,
+    #F1E678,
+    #ED8F60
+  );
+}
+
+.title {
+  display: inline-flex;
+  width: 50%;
+  color: white;
+}
+
+.userInfos {
+  color: white;
+  font-size: 125%;
+}
+
+.userSection {
+  margin: 0% 0% 1% 2.5%;
+}
+
+.userInformation {
+  margin-bottom: 5%;
+}
+
+.card-list {
+  margin: 2.5% 0% 0% 2.5%;
+}
+
+.cards {
+  width: 15%;
+  height: 235px;
+  display: inline-grid;
+  margin-bottom: 2.5%;
+  margin-right: 5%;
+  cursor: pointer;
+}
+
+.buttonsAsso {
+  margin-bottom: 1%;
+}
+
+.assoInfo {
+  background: linear-gradient(60deg, #ED8F60, #BF406C);
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+}
+
+.assoLabel {
+  font-size: 110%;
+  padding-top: 7%;
+  padding-bottom: 2.5%;
+}
+
+section.buttonAsso {
+  margin: 0% auto 50% 2%;
+  display: inline;
+}
+
+button.deleteAsso {
+  margin-top: 5%;
+  width: 120px;
+  height: 35px;
+  color: #ED8F60;
+  font-size: 90%;
+  text-align: center;
+  border: none;
+  background-size: 1000% 100%;
+  border-radius: 50px;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+button.deleteAsso:hover {
+  background-position: 100% 0;
+  transition: all .4s ease-in-out;
+}
+
+button.deleteAsso-hover {
+  background-image: linear-gradient(
+    to right,
+    #682A6E,
+    #BF406C,
+    #BF406C,
+    #682A6E
+  );
+}
+
+.name {
+  font-size: 150%;
+  font-weight: bold;
+}
+
+section.titleAsso {
+  display: inline-flex;
+  width: 100%;
+}
+
+.deleteAssoButton {
+  font-size: 90%;
+  margin-left: 45%;
+  float: right;
+}

@@ -1,0 +1,62 @@
+section.mat-dialog-content {
+  text-align: center;
+  background: linear-gradient(120deg, #BF406C, #ED8F60);
+  width: 350px;
+  height: 225px;
+}
+
+.center {
+  margin: auto;
+}
+
+section.fields {
+  width: 80%;
+  margin-bottom: 2%;
+}
+
+h1 {
+  padding-top: 3.5%;
+  color: white;
+}
+
+label {
+  color: white;
+  float: left;
+}
+
+input {
+  width: 100%;
+  border: none;
+}
+
+section.button {
+  margin-top: 6%;
+}
+
+button.login {
+  width: 90px;
+  height: 35px;
+  color: #F1E678;
+  font-size: 130%;
+  text-align: center;
+  border: none;
+  background-size: 1000% 100%;
+  border-radius: 50px;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+button.login:hover {
+  background-position: 100% 0;
+  transition: all .4s ease-in-out;
+}
+
+button.login-hover {
+  background-image: linear-gradient(
+    to right,
+    #BF406C,
+    #682A6E,
+    #682A6E,
+    #BF406C
+  );
+}

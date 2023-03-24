@@ -1,0 +1,91 @@
+<app-nav></app-nav>
+
+<section class="main-container">
+
+  <!-- USER INFORMATION -->
+  <section class="categories">
+    <!-- Header -->
+    <section class>
+      <section class="title">
+        <h1>Information</h1>
+      </section>
+      <section class="buttons">
+        <section class="button">
+          <a (click)="editUser()" class="button">
+            <button class="delete delete-hover">EDIT ACCOUNT</button>
+          </a>
+        </section>
+        <section class="button">
+          <a (click)="deleteUser()" class="button">
+            <button class="delete delete-hover">DELETE ACCOUNT</button>
+          </a>
+        </section>
+      </section>
+    </section>
+    <hr>
+  </section>
+  <!-- information -->
+  <section class="userInformation">
+    <section class="usersec">
+      <label class="userInfos" id="firstnameLabel">Firstname : {{user.firstname}}</label>
+    </section>
+    <section class="usersec">
+      <label class="userInfos" id="lastnameLabel">Lastname : {{user.lastname}}</label>
+    </section>
+    <section class="usersec">
+      <label class="userInfos" id="ageLabel">Age : {{user.age}}</label>
+    </section>
+    <section class="usersec">
+      <label class="userInfos" id="passwordLabel">Password : {{user.password}}</label>
+    </section>
+  </section>
+
+  <!-- ASSOCIATIONS INFORMATION -->
+  <section class="categories">
+    <!-- Header -->
+    <section>
+      <section class="titleAsso">
+        <h1 class="title">My associations</h1>
+        <section class="deleteAssoButton">
+          <a (click)="addAssociation()" class="button">
+            <button class="delete delete-hover">ADD ASSOCIATION</button>
+          </a>
+        </section>
+      </section>
+      <hr>
+    </section>
+    <!-- associations cards -->
+    <section class="card-list">
+      <section *ngFor="let data of associations" class="cards">
+        <section class="assoInfo" (click)="expandAssociationInformation(data.id)">
+          <section id="#assoName" class="assoLabel name">
+            <label>{{data.name}}</label>
+          </section>
+          <section class="assoLabel">
+            <label>headcount: {{data.users.length}}</label>
+          </section>
+
+          <section class="buttonsAsso">
+            <section class="buttonAsso">
+              <a (click)="addUsersInAssociation(data.id);$event.stopPropagation()"
+                 class="buttonAsso">
+                <button class="deleteAsso deleteAsso-hover">ADD USER</button>
+              </a>
+            </section>
+            <section class="buttonAsso">
+              <a (click)="editAssociation(data.id);$event.stopPropagation()" class="buttonAsso">
+                <button class="deleteAsso deleteAsso-hover">EDIT<br/>ASSOCIATION</button>
+              </a>
+            </section>
+            <section class="buttonAsso">
+              <a (click)="deleteAssociation(data.id);$event.stopPropagation()" class="deleteAsso">
+                <button class="deleteAsso deleteAsso-hover">DELETE ASSOCIATION</button>
+              </a>
+            </section>
+          </section>
+        </section>
+      </section>
+    </section>
+  </section>
+
+</section>

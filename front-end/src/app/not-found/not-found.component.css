@@ -1,0 +1,23 @@
+section.container {
+    float: right;
+    margin-top: 35%;
+    margin-right: 10%;
+    text-align: center;
+  }
+  
+  .center {
+    margin: auto;
+  }
+  
+  h1.title {
+    font-size: 500%;
+    color: white;
+  }
+  
+  p.text {
+    margin-top: 10%;
+    font-size: 200%;
+    color: white;
+  }
+  
+  
