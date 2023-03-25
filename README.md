@@ -12,7 +12,7 @@ Nous avons pour ce faire à notre disposition toute une flopée d'outils (chacun
 
 - [1 - Présentation du projet](#1---présentation-du-projet)
 
-- [2 - Sélection des outils](#2---sélection-des-outils)
+- [2 - Présentation des outils](#2---présentation-des-outils)
 
 # 1 - Présentation du projet
 
@@ -30,8 +30,11 @@ L'ensemble de ses microservice sont déployés au sein de containers docker.
 
 
 
-# 2 - Sélection des outils
+# 2 - Présentation des outils
 
 - [x] Bazel, Build and test software: C'est un outil de contruction et de tests de logiciels open source. Il est généralement utilisé par les grandes entreprises qui réalisent des projet monorepo. On l'utilisera malgré tout dans notre cas afin de le découvrir et de voir quelle sont les champs des posibilités qu'il offre a notre projet.
 
-- [x] Mutation testing in JS
+- [x] Test Container: Testcontainers for Java is a Java library that supports JUnit tests, providing lightweight, throwaway instances of common databases, Selenium web browsers, or anything else that can run in a Docker container.
+Testcontainers make the following kinds of tests easier:
+    - Mutation Testing
+    - 
