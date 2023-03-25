@@ -94,7 +94,3 @@ services:
     depends_on:
       - rabbitmq
    
-  sonarqube:
-    image: sonarqube:latest
-    ports:
-      - "9000:9000"
