@@ -1,0 +1,11 @@
+load("@rules_java//java:defs.bzl","java_library")
+
+java_library(
+    name = "Consome",
+    srcs = (["src/main/java/org/acme/Consome.java"]),
+)
+
+java_library(
+    name = "GreetingRessource",
+    srcs = (["src/main/java/org/acme/GreetingResource.java"]),
+)
