@@ -14,6 +14,8 @@ Nous avons pour ce faire à notre disposition toute une flopée d'outils (chacun
 
 - [2 - Présentation des outils](#2---présentation-des-outils)
 
+- [3 - Mise en place des outils](#2---mise-en-place-des-outils)
+
 # 1 - Présentation du projet
 
 Pour ce tutoriel, nous utiliserons un projet réalisé dans le cadre du cours d'Architecture Logiciel.
