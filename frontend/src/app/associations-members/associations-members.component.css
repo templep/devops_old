@@ -1,8 +1,11 @@
 #sp{
-    margin: 1%;
-  }
-
-  #nom{
-    margin: 1%;
-    background-size: 16px 80px;
-  }
+  margin: 1%;
+}
+#sm{
+  margin: 0.5%;
+  width: 6%;
+}
+#nom{
+  margin: 1%;
+  background-size: 16px 80px;
+}

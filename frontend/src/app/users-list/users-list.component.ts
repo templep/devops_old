@@ -13,7 +13,7 @@ import{ApiHelperService } from '../services/api-helper.service'
 
 export class UsersListComponent implements OnInit {
   
-  displayedColumns: string[] = ['id', 'lastname', 'firstname', 'age','action'];
+  displayedColumns: string[] = ['id', 'lastname', 'firstname', 'age','email','action'];
   dataSource = [];
   errorMessage:string=''
   addF: boolean = false;
@@ -21,12 +21,14 @@ export class UsersListComponent implements OnInit {
   firstname !: String;
   age !: number;
   password!:string
+  email!:string;
 
   profileForm = new FormGroup({
     firstname: new FormControl(),
     lastname: new FormControl(),
     age: new FormControl(),
-    password:new FormControl()
+    password:new FormControl(),
+    email:new FormControl()
   });
 
   constructor(
@@ -52,6 +54,9 @@ export class UsersListComponent implements OnInit {
     this.profileForm.get('password')?.valueChanges.subscribe(res => {
       this.password = res;
     })
+    this.profileForm.get('email')?.valueChanges.subscribe(res => {
+      this.email = res;
+    })
   }
 
   add() : void {
@@ -59,7 +64,6 @@ export class UsersListComponent implements OnInit {
   }
   deleteUser(id:number){
     // Suppression User
-    if(this.http.delete(`http://localhost:3000/users/${id}`)){
       this.http.delete(`http://localhost:3000/users/${id}`).subscribe(
         response => {
           console.log(response);});
@@ -67,9 +71,9 @@ export class UsersListComponent implements OnInit {
        .catch((error:HttpErrorResponse) => {
          this.errorMessage="error"
        })
-      alert("you have delete the user with the Id: "+id+"")
+      confirm("you will delete the user with the Id: "+id+"")
       window.location.reload()
-     }
+     
 
   }
 
@@ -79,7 +83,7 @@ export class UsersListComponent implements OnInit {
 
   submit(): void{
     if(this.addF){
-      const postRequest = {firstname : this.firstname, lastname : this.lastname, age : this.age,password:this.password};
+      const postRequest = {firstname : this.firstname, lastname : this.lastname, age : this.age,password:this.password,email:this.email};
       this.http.post('http://localhost:3000/users/',postRequest).subscribe(
         res => {
           this.ngOnInit();

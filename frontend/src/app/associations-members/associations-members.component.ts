@@ -27,6 +27,9 @@ export class AssociationsMembersComponent {
   roleF:boolean=false;
   newRole!:string
   userId!:number
+  sendF:boolean=false;
+  message!:string;
+  email!:string;
 
   errorMessage: string | undefined;
 //Modify Role
@@ -34,8 +37,13 @@ export class AssociationsMembersComponent {
     roleControl:new FormControl()
   })
   mod:boolean=false
+//Envoie de message
 
-  //Add Member
+messageForm= new FormGroup({
+  messageControl:new FormControl()
+})
+
+//Add Member
   addF!: boolean
   idMember!:number
   roleName!:string
@@ -64,6 +72,10 @@ export class AssociationsMembersComponent {
     this.http.get<any>('http://localhost:3000/associations/'+this.idassos+'/members').subscribe(res => {
       this.dataSource = res;
   });
+  this.http.get<any>('http://localhost:3000/associations/'+this.idassos+'/mails').subscribe(res => {
+    this.email=res[0]  
+    console.log(this.email)
+});
 
   this.modifRoleForm.get('roleControl')?.valueChanges.subscribe(res => {
     this.newRole= res.toString();
@@ -77,10 +89,17 @@ export class AssociationsMembersComponent {
     this.roleName= res.toString();
   });
 
+  this.messageForm.get('messageControl')?.valueChanges.subscribe(res => {
+    this.message= res.toString();
+  });
+
   }
 
   add() : void {
     this.addF=true;
+  }
+  send() : void {
+    this.sendF=true;
   }
 
   modify(id:number){
@@ -91,7 +110,6 @@ export class AssociationsMembersComponent {
   modifier(){
       let data={name:this.newRole}
       this.http.put('http://localhost:3000/roles/'+this.userId+'/'+this.idassos, data).subscribe(res =>{
-        console.log(res);
         this.ngOnInit();
       });
 
@@ -107,6 +125,15 @@ export class AssociationsMembersComponent {
         console.log(res);
         this.ngOnInit();
       });
+  }
+  envoyer(){
+    const postRequest={topic:"Annonce!!!",message:this.message,destinators:this.email}
+    this.http.post('http://localhost:3000/associations/message',postRequest).subscribe(res =>{
+      });
+      alert("Your message has been sent")
+      window.location.reload()
+      this.ngOnInit();
+
   }
 
   deleteMember(id:number){
