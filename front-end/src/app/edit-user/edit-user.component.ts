@@ -104,7 +104,7 @@ export class EditUserComponent implements OnInit {
       if (typeof (age) == 'number') {
         // send update request
         this.api.put({
-          endpoint: '/users/' + localStorage.getItem('user'),
+          endpoint: 'users/' + localStorage.getItem('user'),
           data: {firstname, lastname, age, password}
         })
         .then(response => {
