@@ -29,7 +29,7 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
         run: |
           docker-compose build
-          docker tag <backend-image-name>:latest <backend-image-name>:${IMAGE_TAG}
+          docker tag <backend-image-name>:latest <node 16>:${IMAGE_TAG}
           docker tag <frontend-image-name>:latest <frontend-image-name>:${IMAGE_TAG}
           docker tag <quarks-image-name>:latest <quarks-image-name>:${IMAGE_TAG}
           docker push <backend-image-name>:${IMAGE_TAG}
