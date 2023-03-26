@@ -8,6 +8,24 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          node-version: 16.x
+      - name: Build and test
+        run: |
+          docker-compose up -d --build
+          docker-compose run backend npm run test
+        env:
+          POSTGRES_PASSWORD: password
+          POSTGRES_USER: postgres
+          POSTGRES_DB: mydb
+          POSTGRES_PORT: 5432
+          POSTGRES_HOST: db
+          RABBITMQ_URL: amqp://user:password@rabbitmq:5672/vhost
+          RABBITMQ_HOST: rabbitmq
+          RABBITMQ_PORT: 5672
 
     services:
       docker:
@@ -18,20 +36,3 @@ jobs:
           --privileged
           --mount type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Build and push Docker images
-        env:
-          DOCKER_BUILDKIT: 1
-          COMPOSE_DOCKER_CLI_BUILD: 1
-          IMAGE_TAG: ${{ github.sha }}
-        run: |
-          docker-compose build
-          docker tag <backend-image-name>:latest <node 16>:${IMAGE_TAG}
-          docker tag <frontend-image-name>:latest <frontend-image-name>:${IMAGE_TAG}
-          docker tag <quarks-image-name>:latest <quarks-image-name>:${IMAGE_TAG}
-          docker push <backend-image-name>:${IMAGE_TAG}
-          docker push <frontend-image-name>:${IMAGE_TAG}
-          docker push <quarks-image-name>:${IMAGE_TAG}
