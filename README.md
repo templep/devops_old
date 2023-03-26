@@ -81,6 +81,20 @@ Pour suivre ce tutoriel, vous aurez besoin de plusieurs outils et technologies :
 
 ## III- Générer la pile de microservices avec JHipster
 
+### III.1- Installer JHipster
 
+JHipster est un générateur d'application Web qui permet de créer rapidement des applications modernes et performantes. Dans ce tutoriel, nous allons utiliser JHipster pour générer une application "Pet Clinic" avec des microservices en Java. Pour installer JHipster, suivez les étapes ci-dessous :
+
+1. Assurez-vous d'avoir une version de Node.js installée sur votre système. Vous pouvez télécharger la dernière version stable à partir du site officiel : https://nodejs.org/en/download/
+
+2. Ouvrez une invite de commande et tapez la commande suivante pour installer JHipster via npm :
+    
+    ```npm install -g generator-jhipster```
+
+3. Vérifiez que JHipster est installé en exécutant la commande suivante :
+    
+    ```jhipster --version```
+
+Maintenant que JHipster est installé, nous pouvons générer notre application "Pet Clinic" avec des microservices en Java.
 
 
