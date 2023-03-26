@@ -76,7 +76,7 @@ services:
       - RABBITMQ_DEFAULT_VHOST=vhost
 
   # Our Quarkus service
-  quarks:
+  quarkus:
     container_name: quarkus
     build:
       context: ./Quarkus
