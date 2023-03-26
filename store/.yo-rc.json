@@ -1,0 +1,69 @@
+{
+  "generator-jhipster": {
+    "applicationIndex": 0,
+    "applicationType": "gateway",
+    "applications": {
+      "invoice": {
+        "applicationIndex": 2,
+        "clientFramework": "no",
+        "serverPort": "8082"
+      },
+      "notification": {
+        "applicationIndex": 3,
+        "clientFramework": "no",
+        "serverPort": "8083"
+      },
+      "product": {
+        "applicationIndex": 1,
+        "clientFramework": "no",
+        "serverPort": "8081"
+      }
+    },
+    "authenticationType": "jwt",
+    "baseName": "store",
+    "blueprints": [],
+    "buildTool": "gradle",
+    "cacheProvider": "no",
+    "clientFramework": "react",
+    "clientPackageManager": "npm",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1679854087819,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "devServerPort": 9060,
+    "dtoSuffix": "DTO",
+    "enableGradleEnterprise": false,
+    "enableHibernateCache": false,
+    "enableSwaggerCodegen": false,
+    "enableTranslation": true,
+    "entities": ["Customer", "ProductCategory", "Notification", "ProductOrder", "Shipment", "OrderItem", "Invoice", "Product"],
+    "entitySuffix": "",
+    "gradleEnterpriseHost": "",
+    "jhiPrefix": "jhi",
+    "jhipsterVersion": "7.9.3",
+    "jwtSecretKey": "NzAzNTU4Mjk5NWVhNDc4MDhhODVmYTZhZDBmNjNiZmFhMTZhNzJiNjkyMDg2YzY4M2MwOGFmY2UyNDczN2Y5YjMwYjllMTY0NjBlNjc5YTNjMjk1NzFhNWRjNjRjMTNkMzJjOWZjM2E5MWRjM2E4ZDMzNDliODA1OWYyY2EyM2U=",
+    "languages": ["en"],
+    "lastLiquibaseTimestamp": 1679854567000,
+    "messageBroker": false,
+    "monorepository": true,
+    "nativeLanguage": "en",
+    "otherModules": [],
+    "packageFolder": "com/akai/developer/store",
+    "packageName": "com.akai.developer.store",
+    "pages": [],
+    "prodDatabaseType": "postgresql",
+    "reactive": true,
+    "searchEngine": false,
+    "serverPort": "8080",
+    "serviceDiscoveryType": false,
+    "skipCheckLengthOfIdentifier": false,
+    "skipClient": false,
+    "skipCommitHook": true,
+    "skipFakeData": false,
+    "skipUserManagement": false,
+    "testFrameworks": [],
+    "websocket": false,
+    "withAdminUi": true
+  }
+}
