@@ -1,1 +1,32 @@
-# 
+# Sommaire Cloud Native Application and Microservices
+
+- [I- Introduction](#i-introduction)
+    - [I.1- Présentation de l'application "Pet Clinic"](#i1-présentation-de-l-application-pet-clinic)
+    - [I.2- Objectifs du tutoriel](#i2---objectifs-du-tutoriel)
+- [II- Prérequis](#ii-prérequis)
+    - [II.1- Configuration de l'environnement de développement](#ii1-configuration-de-l-environnement-de-développement)
+    - [II.2- Outils et technologies nécessaires](#ii2-outils-et-technologies-nécessaires)
+- [III- Créer une pile de microservices Java à l'aide de JHipster](#iii-créer-une-pile-de-microservices-java-à-l-aide-de-jhipster)
+    - [III.1- Installer JHipster](#iii1-installer-jhipster)
+    - [III.2- Générer la pile de microservices avec JHipster](#iii2-générer-la-pile-de-microservices-avec-jhipster)
+    - [III.3- Exploration de la structure de la pile de microservices générée](#iii3-exploration-de-la-structure-de-la-pile-de-microservices-générée)
+    - [III.4- Démarrer la pile de microservices](#iii4-démarrer-la-pile-de-microservices)
+- [IV- Créer un cluster GKE et installer Istio](#iv-créer-un-cluster-gke-et-installer-istio)
+    - [IV.1- Créer un cluster GKE](#iv1-créer-un-cluster-gke)
+    - [IV.2- Installer Istio sur le cluster](#iv2-installer-istio-sur-le-cluster)
+    - [IV.3- Installer des outils d'observabilité](#iv3-installer-des-outils-d-observabilité)
+- [V- Déployer la pile de microservices sur GKE](#v-déployer-la-pile-de-microservices-sur-gke)
+    - [V.1- Créer des manifestes Kubernetes](#v1-créer-des-manifestes-kubernetes)
+    - [V.2- Déployer sur GKE](#v2-déployer-sur-gke)
+- [VI- Surveillance et observabilité](#vi-surveillance-et-observabilité)
+    - [VI.1-  Accéder à Grafana pour visualiser les métriques](#vi1--accéder-à-grafana-pour-visualiser-les-métriques)
+    - [VI.2- Accéder à Kiali pour visualiser la topologie du service mesh](#vi2-accéder-à-kiali-pour-visualiser-la-topologie-du-service-mesh)
+    - [VI.3- Accéder à Zipkin pour visualiser les traces des requêtes](#vi3-accéder-à-zipkin-pour-visualiser-les-traces-des-requêtes)
+- [VII- Nettoyer le cluster GCP](#vii-nettoyer-le-cluster-gcp)
+- [VIII- Conclusion](#viii-conclusion)
+    - [VIII.1- Résumé des étapes](#viii1-résumé-des-étapes)
+    - [VIII.2- Points forts et points faibles](#viii2-points-forts-et-points-faibles)
+    - [VIII.3- Points d'amélioration](#viii3-points-d-amélioration)
+- [IX- Références](#ix-références)
+
+## I- Introduction
