@@ -72,6 +72,8 @@ application {
  * Entities for Store Gateway
  */
 
+
+
 // Customer for the store
 entity Customer {
     firstName String required
@@ -302,15 +304,6 @@ Cette entité représente un client de la boutique en ligne et contient les info
 
 Elle est en relation `OneToOne` avec l'entité `User` via la propriété `user`, qui représente le compte utilisateur associé au client. Cette relation est obligatoire (required).
 
-**User**
-
-Cette entité représente un utilisateur de la boutique en ligne et contient les informations suivantes :
-        
-    * `login`:  nom d'utilisateur (obligatoire)
-    * `password`: mot de passe (obligatoire)
-    * `activated`: indique si le compte est activé ou non (obligatoire)
-
-Elle est en relation `OneToOne` avec l'entité `Customer` via la propriété `customer`, qui représente le client associé au compte utilisateur.
 
 
 

@@ -10,7 +10,6 @@
     - [III.1- Installer JHipster](#iii1-installer-jhipster)
     - [III.2- Générer la pile de microservices avec JHipster](#iii2-générer-la-pile-de-microservices-avec-jhipster)
     - [III.3- Exploration de la structure de la pile de microservices générée](#iii3-exploration-de-la-structure-de-la-pile-de-microservices-générée)
-    - [III.4- Démarrer la pile de microservices](#iii4-démarrer-la-pile-de-microservices)
 - [IV- Créer un cluster GKE et installer Istio](#iv-créer-un-cluster-gke-et-installer-istio)
     - [IV.1- Créer un cluster GKE](#iv1-créer-un-cluster-gke)
     - [IV.2- Installer Istio sur le cluster](#iv2-installer-istio-sur-le-cluster)
@@ -130,9 +129,27 @@ Pour créer le fichier app.jdl, suivez les étapes ci-dessous :
 
 4. Ouvrez le fichier "app.jdl" et collez le code suivant : [app.jdl](docs/app.jdl.md)
 
-#### III.2.3- Générer l'application avec JHipster
+#### III.2.3- Générer l'application avec JHipster à partir du fichier app.jdl
 
+Maintenant que nous avons créé le fichier app.jdl, nous pouvons générer notre application avec JHipster. Pour cela, après avoir ouvert le répertoire "kaia-vente" dans votre éditeur de code préféré, ouvrez une invite de commande et exécutez la commande suivante pour générer l'application "Kaia Vente" :
+    ```jhipster import-jdl app.jdl```
 
+### III.3- Exploration de la structure de la pile de microservices générée
+
+Après avoir généré notre application à partir du fichier app.jdl, nous allons explorer la structure de la pile de microservices générée.
+
+En ouvrant le répertoire "kaia-vente" dans votre éditeur de code préféré, vous devriez voir les répertoires suivants :
+
+- **invoice** : ce microservice gère la facturation des achats effectués sur la plateforme.
+- **notification** : ce microservice gère l'envoi de notifications aux utilisateurs.
+- **product** : ce microservice gère les produits vendus sur la plateforme.
+- **store** : ce microservice gère le magasin en ligne et les achats effectués par les utilisateurs.
+
+En examinant la structure de la pile de microservices, vous remarquerez que chaque microservice est indépendant et peut être déployé séparément. De plus, chaque microservice communique avec les autres microservices via des API REST. Cette architecture de microservices permet une grande flexibilité et une évolutivité facile de l'application.
+
+Vous pouvez maintenant explorer chaque microservice individuellement pour mieux comprendre son fonctionnement et sa contribution à l'application globale.
+
+## IV- Creer un cluster GKE et installer Istio
 
 
 
