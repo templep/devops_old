@@ -11,7 +11,7 @@ application {
   config {
     baseName store
     applicationType gateway
-    packageName com.okta.developer.store
+    packageName com.akai.developer.store
     serviceDiscoveryType no
     authenticationType jwt
     prodDatabaseType postgresql
@@ -27,7 +27,7 @@ application {
   config {
     baseName product
     applicationType microservice
-    packageName com.okta.developer.product
+    packageName com.akai.developer.product
     serviceDiscoveryType no
     authenticationType jwt
     prodDatabaseType postgresql
@@ -42,7 +42,7 @@ application {
   config {
     baseName invoice
     applicationType microservice
-    packageName com.okta.developer.invoice
+    packageName com.akai.developer.invoice
     serviceDiscoveryType no
     authenticationType jwt
     prodDatabaseType postgresql
@@ -56,7 +56,7 @@ application {
   config {
     baseName notification
     applicationType microservice
-    packageName com.okta.developer.notification
+    packageName com.akai.developer.notification
     serviceDiscoveryType no
     authenticationType jwt
     databaseType mongodb
@@ -216,4 +216,103 @@ enum NotificationType {
 microservice Notification with notification
 
 ```
-# 
+# Explication du code
+
+## I. Les microservices
+
+### 1. Microservice Passerelle
+
+La première partie du code concerne la configuration de la passerelle. Elle est définie comme une application de type passerelle, avec les options de configuration suivantes :
+
+    * `baseName`: le nom de base de l'application, dans ce cas `store`.
+    * `applicationType`: le type d'application, dans ce cas `gateway`.
+    * `packageName`: le nom du package, dans ce cas `com.akai.developer.store`.
+    * `serviceDiscoveryType`: le type de découverte de service, dans ce cas `no`.
+    * `authenticationType`: le type d'authentification, dans ce cas `jwt`.
+    * `prodDatabaseType`: le type de base de données, dans ce cas `postgresql`.
+    * `cacheProvider`: le fournisseur de cache, dans ce cas `hazelcast`.
+    * `buildTool`: l'outil de construction, dans ce cas `gradle`.
+    * `clientFramework`: le framework client, dans ce cas `react`.
+
+La passerelle est configurée pour utiliser les entités de toutes les applications. Pour ce faire, nous utilisons l'option `entities *` qui signifie que toutes les entités de toutes les applications seront utilisées.
+
+### 2. Microservice Produit
+
+La deuxième partie du code concerne la configuration du microservice produit. Elle est définie comme une application de type microservice, avec les options de configuration suivantes :
+
+    * `baseName`: le nom de base de l'application, dans ce cas `product`.
+    * `applicationType`: le type d'application, dans ce cas `microservice`.
+    * `packageName`: le nom du package, dans ce cas `com.akai.developer.product`.
+    * `serviceDiscoveryType`: le type de découverte de service, dans ce cas `no`.
+    * `authenticationType`: le type d'authentification, dans ce cas `jwt`.
+    * `prodDatabaseType`: le type de base de données, dans ce cas `postgresql`.
+    * `cacheProvider`: le fournisseur de cache, dans ce cas `hazelcast`.
+    * `buildTool`: l'outil de construction, dans ce cas `gradle`.
+    * `serverPort`: le port du serveur, dans ce cas `8081`.
+
+La passerelle est configurée pour utiliser les entités `Product`, `ProductCategory`, `ProductOrder` et `OrderItem`. Pour ce faire, nous utilisons l'option `entities Product, ProductCategory, ProductOrder, OrderItem` qui signifie que les entités `Product`, `ProductCategory`, `ProductOrder` et `OrderItem` seront utilisées.
+
+### 3. Microservice Facture
+
+La troisième partie du code concerne la configuration du microservice facture. Elle est définie comme une application de type microservice, avec les options de configuration suivantes :
+
+    * `baseName`: le nom de base de l'application, dans ce cas `invoice`.
+    * `applicationType`: le type d'application, dans ce cas `microservice`.
+    * `packageName`: le nom du package, dans ce cas `com.akai.developer.invoice`.
+    * `serviceDiscoveryType`: le type de découverte de service, dans ce cas `no`.
+    * `authenticationType`: le type d'authentification, dans ce cas `jwt`.
+    * `prodDatabaseType`: le type de base de données, dans ce cas `postgresql`.
+    * `buildTool`: l'outil de construction, dans ce cas `gradle`.
+    * `serverPort`: le port du serveur, dans ce cas `8082`.
+
+La passerelle est configurée pour utiliser les entités `Invoice` et `Shipment`. Pour ce faire, nous utilisons l'option `entities Invoice, Shipment` qui signifie que les entités `Invoice` et `Shipment` seront utilisées.
+
+### 4. Microservice Notification
+
+La quatrième partie du code concerne la configuration du microservice notification. Elle est définie comme une application de type microservice, avec les options de configuration suivantes :
+
+    * `baseName`: le nom de base de l'application, dans ce cas `notification`.
+    * `applicationType`: le type d'application, dans ce cas `microservice`.
+    * `packageName`: le nom du package, dans ce cas `com.akai.developer.notification`.
+    * `serviceDiscoveryType`: le type de découverte de service, dans ce cas `no`.
+    * `authenticationType`: le type d'authentification, dans ce cas `jwt`.
+    * `prodDatabaseType`: le type de base de données, dans ce cas `postgresql`.
+    * `buildTool`: l'outil de construction, dans ce cas `gradle`.
+    * `serverPort`: le port du serveur, dans ce cas `8083`.
+
+La passerelle est configurée pour utiliser l'entité `Notification`. Pour ce faire, nous utilisons l'option `entities Notification` qui signifie que l'entité `Notification` sera utilisée.
+
+## II. Les entités
+
+### 1. Entités pour la passerelle de microservices (Store Gateway)
+
+**Customer**
+
+Cette entité représente un client de la boutique en ligne et contient les informations suivantes :
+    
+    * `firstName`: prénom du client (obligatoire)
+    * `lastName`: nom de famille du client (obligatoire)
+    * `gender`: genre du client, représenté par une enum Gender (obligatoire)
+    * `email`: adresse e-mail du client (obligatoire, avec une validation regex)
+    * `phone`: numéro de téléphone du client (obligatoire)
+    * `addressLine1`: première ligne de l'adresse du client (obligatoire)
+    * `addressLine2`: deuxième ligne de l'adresse du client (optionnelle)
+    * `city`: ville du client (obligatoire)
+    * `country`: pays du client (obligatoire)
+
+Elle est en relation `OneToOne` avec l'entité `User` via la propriété `user`, qui représente le compte utilisateur associé au client. Cette relation est obligatoire (required).
+
+**User**
+
+Cette entité représente un utilisateur de la boutique en ligne et contient les informations suivantes :
+        
+    * `login`:  nom d'utilisateur (obligatoire)
+    * `password`: mot de passe (obligatoire)
+    * `activated`: indique si le compte est activé ou non (obligatoire)
+
+Elle est en relation `OneToOne` avec l'entité `Customer` via la propriété `customer`, qui représente le client associé au compte utilisateur.
+
+
+
+
+
