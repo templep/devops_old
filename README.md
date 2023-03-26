@@ -12,9 +12,11 @@ Nous avons pour ce faire à notre disposition toute une flopée d'outils (chacun
 
 - [1 - Présentation du projet](#1---présentation-du-projet)
 
-- [2 - Présentation des outils](#2---présentation-des-outils)
+- [2 - Intégration Continue](#2---Intégration Continue])
 
-- [3 - Mise en place des outils](#3---mise-en-place-des-outils)
+- [3 - Présentation des outils](#3---présentation-des-outils)
+
+- [4 - Mise en place des outils](#4---mise-en-place-des-outils)
 
 # 1 - Présentation du projet
 
@@ -24,15 +26,26 @@ L'on dispose donc:
 
 - D'un backend chargé de toutes les opérations CRUD (Create, Retreive, Update, Delete) sur les membres des associations. Ce dernier est developpé en **NestJs**;
 
+- Une base de données PostgreSQL pour le stockage (une image docker dans notre cas); 
+
 - D'un frontend naturellement pour l'aspect visuel du site web réalisé en **Angular**;
+
+- Un MOM Rabbitmq pour la création d'un queue destinée à être utilisée pour l'envoie des mails;
+
+- Un microservice Quarkus qui implémente le consumer pour la queue Rabbitmq. Ce microservice est chargé de la logique pour l'envoie des mails;
 
 L'ensemble de ses microservice sont déployés au sein de containers docker.
 
-![2020-03-02_16-58-11](https://user-images.githubusercontent.com/107374001/226594474-18af22d8-e68e-4ab1-ab1f-41d0a3f90f1c.png)
+# 2 - Intégration Continue
+
+
+L'intégration continue est une pratique de développement logiciel dans laquelle les membres d'une équipe intègrent leur travail fréquemment, en général chaque personne intègre au moins une fois par jour - ce qui conduit à plusieurs intégrations par jour. Chaque intégration est vérifiée par une construction automatisée (y compris un test) afin de détecter les erreurs d'intégration le plus rapidement possible. De nombreuses équipes estiment que cette approche permet de réduire considérablement les problèmes d'intégration et de développer plus rapidement des logiciels cohérents.
 
 
 
-# 2 - Présentation des outils
+
+
+# 3 - Présentation des outils
 
 - [x] Bazel, Build and test software: C'est un outil de contruction et de tests de logiciels open source. Il est généralement utilisé par les grandes entreprises qui réalisent des projet monorepo. On l'utilisera malgré tout dans notre cas afin de le découvrir et de voir quelle sont les champs des posibilités qu'il offre a notre projet.
 
@@ -49,15 +62,3 @@ Dans l'ensemble, SonarQube est un outil puissant qui permet d'améliorer la qual
 
 
 
-Bazel:
-Set up the workspace
-
-Before you can build a project, you need to set up its workspace. A workspace is a directory that holds your project's source files and Bazel's build outputs. It also contains files that Bazel recognizes as special:
-
-    The WORKSPACE file, which identifies the directory and its contents as a Bazel workspace and lives at the root of the project's directory structure,
-
-    One or more BUILD files, which tell Bazel how to build different parts of the project. (A directory within the workspace that contains a BUILD file is a package)
-
-    Understand the BUILD file
-
-A BUILD file contains several different types of instructions for Bazel. The most important type is the build *rule*, which tells Bazel how to build the desired outputs, such as executable binaries or libraries. Each instance of a build rule in the BUILD file is called a target and points to a specific set of source files and dependencies. A target can also point to other targets.
