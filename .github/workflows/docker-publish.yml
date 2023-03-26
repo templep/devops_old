@@ -1,4 +1,4 @@
-name: Make Docker images
+name: docker CI
 
 on:
   push:
@@ -16,7 +16,7 @@ env:
 
 
 jobs:
-  build-rasa-actions:
+  build-microservices:
     runs-on: ubuntu-latest
     permissions:
       contents: read
