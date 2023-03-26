@@ -12,7 +12,7 @@ Nous avons pour ce faire à notre disposition toute une flopée d'outils (chacun
 
 - [1 - Présentation du projet](#1---présentation-du-projet)
 
-- [2 - Intégration Continue](#2---Intégration Continue])
+- [2 - Intégration Continue](#2---Intégration Continue)
 
 - [3 - Présentation des outils](#3---présentation-des-outils)
 
