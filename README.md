@@ -151,5 +151,13 @@ Vous pouvez maintenant explorer chaque microservice individuellement pour mieux 
 
 ## IV- Creer un cluster GKE et installer Istio
 
+Pour déployer la pile sur Google Kubernetes Engine (GKE), nous devons d'abord créer un cluster GKE et installer Istio sur ce cluster. Commencons donc par créer un cluster GKE à l'aide du SDK Google Cloud.
+
+### IV.1- Créer un cluster GKE
+
+
+
+
+
 
 
