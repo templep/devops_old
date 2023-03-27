@@ -157,6 +157,45 @@ Pour déployer notre pile de microservices sur Google Kubernetes Engine (GKE), n
 
 La première étape consiste à créer un cluster GKE. Pour cela, vous devez disposer d'un compte Google Cloud et avoir installé le Google Cloud SDK.
 
+Pour créer un cluster GKE, suivez les étapes ci-dessous :
+
+1. Ouvrez une invite de commande et connectez-vous à votre compte Google Cloud avec la commande suivante :
+    
+    ```gcloud auth login```
+Cette commande va ouvrir une fenêtre dans votre navigateur web pour que vous puissiez vous connecter à votre compte Google Cloud.
+
+2. Créez un nouveau projet Google Cloud avec la commande suivante :
+    
+    ```gcloud projects create kaia-vente```
+Cette commande va créer un nouveau projet avec le nom "kaia-vente" dans votre compte Google Cloud.
+
+3. Configurez le projet Google Cloud avec la commande suivante :
+    
+    ```gcloud config set project kaia-vente```
+Cette commande va configurer le projet "kaia-vente" comme étant votre projet par défaut.
+
+4. Activez l'API Kubernetes Engine avec la commande suivante :
+    
+    ```gcloud services enable container.googleapis.com```
+Cette commande va activer l'API Kubernetes Engine pour votre projet. Cette API est nécessaire pour créer un cluster GKE. Vous devez necessairement activer la facturation pour votre projet Google Cloud pour pouvoir activer cette API.
+
+5. Fournir la région et la zone où vous souhaitez créer votre cluster GKE avec la commande suivante :
+    
+    ```gcloud config set compute/region europe-west1``` et    
+    ```gcloud config set compute/zone europe-west1-b```
+La première commande va définir la région de votre cluster GKE à "europe-west1" et la deuxième commande va définir la zone de votre cluster GKE à "europe-west1-b". Vous pouvez choisir une région et une zone différente si vous le souhaitez.
+
+6. Créez un nouveau cluster GKE avec la commande suivante :
+    
+    ```gcloud container clusters create kaia-vente --num-nodes=4 --machine-type=n1-standard-2```
+Cette commande va créer un nouveau cluster GKE avec le nom "kaia-vente" avec 4 noeuds et des machines de type n1-standard-2. Vous pouvez ajuster le nombre de noeuds et le type de machines en fonction de vos besoins.
+
+7. Une fois que le cluster est créé, vous pouvez le vérifier en utilisant la commande suivante :
+    
+    ```gcloud container clusters list```
+Cette commande va afficher la liste de tous les clusters GKE dans votre projet Google Cloud, y compris le cluster que vous venez de créer.
+
+
 
 
 
