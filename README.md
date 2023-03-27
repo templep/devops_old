@@ -202,11 +202,26 @@ Cette commande va afficher le nom du contexte Kubernetes actuel. Si le nom du co
 Si cela n'est pas le cas, vous pouvez définir le cluster GKE que vous venez de créer comme contexte Kubernetes actuel avec la commande suivante :
         ```gcloud container clusters get-credentials kaia-vente```
 
-### IV.2- Installer Istio
+### IV.2- Installer Istio sur le cluster
 
+Avant de commencer l'installation d'Istio, il est recommandé de définir la variable d'environnement ISTIO_VERSION avec la version souhaitée d'Istio. Pour cet exemple, nous utiliserons la version 1.13.4 en lançant la commande suivante :
+    ```export ISTIO_VERSION=1.13.4```
 
+Ensuite, nous devons télécharger la dernière version d'Istio à partir du site officiel. Pour cela, nous allons utiliser la commande curl avec l'option -L pour suivre les redirections et exécuter le script d'installation.
+    ```curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.13.4 sh -```
 
+Cela va extraire les fichiers Istio dans un répertoire nommé istio-$ISTIO_VERSION. Nous pouvons nous y rendre en exécutant la commande suivante :
+    ```cd istio-$ISTIO_VERSION```
 
+Maintenant que nous avons accès aux binaires Istio, nous devons ajouter le répertoire bin à notre chemin d'exécution pour pouvoir utiliser la commande istioctl. Nous pouvons ajouter le chemin en utilisant la commande export :
+    ```export PATH=$PWD/bin:$PATH```
+
+Maintenant que nous avons Istio installé et les outils de la CLI configurés, nous pouvons l'installer sur notre cluster GKE. Istio fournit plusieurs profils prêts à l'emploi, tels que **demo**, **production** ou **development**. Pour cet exemple, nous allons utiliser le profil demo en lançant la commande suivante :
+    ```istioctl install --set profile=demo -y```
+Cela va installer Istio sur notre cluster et configurer toutes les ressources nécessaires, comme les CRD (Custom Resource Definitions) et les services Istio. L'option -y permet de répondre automatiquement à toutes les questions pour éviter les interruptions lors de l'installation.
+
+Une fois l'installation terminée, nous devons récupérer l'adresse IP externe de la passerelle d'entrée Istio. Pour cela, nous allons utiliser la commande kubectl :
+    ```kubectl get svc istio-ingressgateway -n istio-system```
 
 
 
