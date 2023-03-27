@@ -1,5 +1,4 @@
 name: Make Docker images
-
 on:
   push:
     paths:
@@ -9,12 +8,9 @@ on:
       - 'Docker-compose'
     branches:
       - main
-
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-
-
 jobs:
   build-rasa-actions:
     runs-on: ubuntu-latest
