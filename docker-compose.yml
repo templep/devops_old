@@ -51,8 +51,6 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     restart: unless-stopped
-    environment:
-      RAZZLE_INTERNAL_API_PATH: http://backend:8080/Myapp
     command: npm run start
     volumes:
       - ./frontend:/albarry/frontend/src/app

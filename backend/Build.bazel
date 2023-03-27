@@ -1,6 +1,42 @@
-load("@npm//@nestjs/bazel:nestjs.bzl", "nestjs_deps")
+load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
+load("@npm//@bazel/typescript:index.bzl", "ts_config", "ts_project")
 
-nestjs_deps()
+# Define a Bazel target for building the application
+# This depends on the `node_modules` directory and the TypeScript compilation target
+# The `public` filegroup is also included to copy the static assets to the build directory
+nodejs_binary(
+    name = "backend",
+    entry_point = "//src/main.ts",
+    data = [
+        "//package.json",
+        "//yarn.lock",
+        ":public",
+    ],
+    args = ["--config=production"],
+    env = {
+        "NODE_ENV": "production",
+    },
+    deps = [
+        "//:src",
+        "@npm//typescript",
+    ],
+)
+
+ts_config(
+    name = "config",
+    src = "tsconfig.json",
+    deps = [],
+)
+
+ts_project(
+    name = "my_code",
+    srcs = glob(["*.ts"]),
+    tsconfig = "config",
+    deps = [],
+)
+
+
+
 
 # Define the Node.js binary that will run the application
 nodejs_binary(
@@ -57,23 +93,4 @@ filegroup(
     srcs = (["public/**"]),
 )
 
-# Define a Bazel target for building the application
-# This depends on the `node_modules` directory and the TypeScript compilation target
-# The `public` filegroup is also included to copy the static assets to the build directory
-nodejs_binary(
-    name = "nest_backend",
-    entry_point = "//src/main.ts",
-    data = [
-        "//package.json",
-        "//yarn.lock",
-        ":public",
-    ],
-    args = ["--config=production"],
-    env = {
-        "NODE_ENV": "production",
-    },
-    deps = [
-        "//:src",
-        "@npm//typescript",
-    ],
-)
+
