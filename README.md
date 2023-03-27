@@ -51,7 +51,7 @@ L'intégration continue est une pratique de développement logiciel dans laquell
 
 - [x] Test Container: Testcontainers est une bibliothèque qui prend en charge les tests, en fournissant des instances légères et jetables de bases de données courantes, de navigateurs Web Selenium, ou de tout autre élément pouvant fonctionner dans un conteneur Docker.
 
-- [x] SonqrQube: SonarQube est une plateforme open-source pour l'inspection continue de la qualité du code. Elle fournit des outils pour analyser le code à la recherche de bogues, de vulnérabilités et d'odeurs de code, ainsi que des métriques pour mesurer la qualité du code et en assurer le suivi dans le temps. SonarQube prend en charge un large éventail de langages de programmation, notamment Java, C#, JavaScript, PHP, Python, etc.
+- [x] SonarQube: SonarQube est une plateforme open-source pour l'inspection continue de la qualité du code. Elle fournit des outils pour analyser le code à la recherche de bogues, de vulnérabilités et d'odeurs de code, ainsi que des métriques pour mesurer la qualité du code et en assurer le suivi dans le temps. SonarQube prend en charge un large éventail de langages de programmation, notamment Java, C#, JavaScript, PHP, Python, etc.
 
 SonarQube peut être intégré à votre pipeline d'intégration continue et de livraison continue (CI/CD) pour analyser automatiquement la qualité du code dans le cadre de votre processus de construction. Il peut également être utilisé par les développeurs pour effectuer une analyse locale du code et recevoir un retour sur la qualité du code avant de valider les modifications.
 
