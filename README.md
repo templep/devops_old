@@ -223,6 +223,23 @@ Cela va installer Istio sur notre cluster et configurer toutes les ressources n�
 Une fois l'installation terminée, nous devons récupérer l'adresse IP externe de la passerelle d'entrée Istio. Pour cela, nous allons utiliser la commande kubectl :
     ```kubectl get svc istio-ingressgateway -n istio-system```
 
+### IV.3- Installer les outils d'observabilité
+
+Pour observer et monitorer les données de télémétrie fournies par Istio, il est recommandé d'installer Grafana, Prometheus, Kiali et Zipkin sur notre cluster. Ces outils sont fournis en tant que modules complémentaires dans Istio et sont préconfigurés pour fonctionner avec les données de télémétrie fournies par Istio.
+
+Nous allons maintenant installer ces outils en exécutant les commandes suivantes depuis le dossier où Istio a été installé :
+```
+cd istio-$ISTIO_VERSION
+kubectl apply -f samples/addons/grafana.yaml
+kubectl apply -f samples/addons/prometheus.yaml
+kubectl apply -f samples/addons/kiali.yaml
+kubectl apply -f samples/addons/extras/zipkin.yaml
+
+```
+
+Une fois l'installation terminée, vous pouvez vérifier que les différents composants sont en cours d'exécution dans l'espace de noms istio-system en exécutant la commande suivante :
+    ```kubectl get pods -n istio-system```
+Cette commande vous permettra de voir les différents composants Istio ainsi que Grafana, Prometheus, Kiali et Zipkin en cours d'exécution.
 
 
 
