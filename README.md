@@ -195,6 +195,15 @@ Cette commande va créer un nouveau cluster GKE avec le nom "kaia-vente" avec 4 
     ```gcloud container clusters list```
 Cette commande va afficher la liste de tous les clusters GKE dans votre projet Google Cloud, y compris le cluster que vous venez de créer.
 
+8. Une fois le cluster créé, il doit être défini automatiquement comme contexte Kubernetes actuel. Vous pouvez le vérifier en exécutant la commande suivante :
+    
+    ```kubectl config current-context```
+Cette commande va afficher le nom du contexte Kubernetes actuel. Si le nom du contexte est "gke_kaia-vente_europe-west1-b_kaia-vente", cela signifie que le cluster GKE que vous venez de créer est défini comme contexte Kubernetes actuel. 
+Si cela n'est pas le cas, vous pouvez définir le cluster GKE que vous venez de créer comme contexte Kubernetes actuel avec la commande suivante :
+        ```gcloud container clusters get-credentials kaia-vente```
+
+### IV.2- Installer Istio
+
 
 
 
