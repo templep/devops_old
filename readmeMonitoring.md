@@ -25,7 +25,7 @@ Ce projet mêle un back et un front permettant l'utilisation d'une plateforme de
 [Tutoriel Prometheus et Grafana - Christian Lempa](https://www.youtube.com/watch?v=9TJx7QTrTyo)
 
 ### Configuration de Prometheus 
-Dans notre projet, nous ajoutons un dossier "docker-grafana", le nom n'est pas important. Dans ce dossier, nous créons un dossier "prometheus", qui lui ne peut-être modifié car il utilise l'outil prometheus. Dans ce dossier "prometheus" nous créons un fichier prometheus.yml contenant le code suivant : 
+Dans notre projet, nous ajoutons un dossier **docker-grafana**, le nom n'est pas important. Dans ce dossier, nous créons un dossier **prometheus**, qui lui ne peut-être modifié car il utilise l'outil prometheus. Dans ce dossier **prometheus** nous créons un fichier **prometheus.yml** contenant le code suivant : 
 ```
     global:
       scrape_interval: 15s 
@@ -39,10 +39,10 @@ Dans notre projet, nous ajoutons un dossier "docker-grafana", le nom n'est pas i
         static_configs:
           - targets: ['node_exporter:9100']
 ```
-Ce fichier permet la configuration de l'utilisation de prometheus. Nous y retrouvons notamment les intervalles d'executions qui vons nous permettre d'obtenir les courbes lors du monitoring par Grafana. Nous configurons prometheus sur le port 9090 pour nous permettre d'extraire les données. 
+Ce fichier permet la configuration de l'utilisation de prometheus. Nous y retrouvons notamment les intervalles d'executions qui vons nous permettre d'obtenir les courbes lors du monitoring par Grafana. Nous configurons prometheus sur le port *9090* pour nous permettre d'extraire les données. 
 
 
-Dans le dossier "docker-grafana", nous créons un fichier "docker-compose.yml", le nom de ce fichier ne peut être modifié. Nous implémentons le code suivant : 
+Dans le dossier **docker-grafana**, nous créons un fichier **docker-compose.yml**, le nom de ce fichier ne peut être modifié. Nous implémentons le code suivant : 
 ```
     version: '3'
 
@@ -93,18 +93,18 @@ Nous observons la catégorie volume qui correspond au stockage de nos informatio
 Pour commencer, il faut lancer le projet avec docker, ici nous nous plaçons dans l'API et nous utilisons la commande suivante : 
 `sudo docker-compose up -d`
 
-Nous nous plaçons dans "docker-grafana", et nous réalisons de nouveau la même commande. 
+Nous nous plaçons dans **docker-grafana**, et nous réalisons de nouveau la même commande. 
 
-Nous allons maintenant à l'adresse : "http://localhost:9090/", nous arrivons sur la page de prometheus. 
+Nous allons maintenant à l'adresse : *http://localhost:9090/*, nous arrivons sur la page de prometheus. 
 ![Image de prometheus](prometheus.png)
 
 Ici, nous pouvons observer la représentation graphique de certaines "metrics". 
 ![Image de prometheus](pro.png)
 
-Pour obtenir une meilleure visualisation, nous utilisons grafana. Pour ouvrir grafana nous ouvrons : "http://localhost:6060/". Nous arrivons sur la page d'accueil de grafana. Nous choisissons : add data source -> prometheus. Nous ajoutons : "http://prometheus:9090/" en tant que source. 
+Pour obtenir une meilleure visualisation, nous utilisons grafana. Pour ouvrir grafana nous ouvrons :*http://localhost:6060/*. Nous arrivons sur la page d'accueil de grafana. Nous choisissons : *add data source -> prometheus*. Nous ajoutons : *http://prometheus:9090/* en tant que source. 
 
 
-Pour visualiser, nous séléctionnons import dashboard. Nous allons sur la page dashboard de grafana et nous recherchons le dashboard node exporter full. Nous récupérons son ID soit 1860 et nous le plaçons dans notre import. Nous ajoutons la source : Prometheus-1 
+Pour visualiser, nous sélectionnons *import dashboard*. Nous allons sur la page dashboard de grafana et nous recherchons le dashboard *node exporter full*. Nous récupérons son ID soit **1860** et nous le plaçons dans notre import. Nous ajoutons la source : **Prometheus-1** 
 ![Image de grafana](grafana.png)
 ## Analyse de résultats
 
