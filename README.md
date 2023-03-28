@@ -121,26 +121,32 @@ Pour faire de l'intégration continue, on a besoin de plusieurs environnements, 
 Une conséquence naturelle de cela est qu'on devra également avoir des scripts qui nous permettent de déployer en production avec la même facilité.Il s'agit également d'une option peu coûteuse puisqu'elle utilise les mêmes capacités que celles utilisées pour le déploiement dans les environnements de test.
 
 
-
-
-
-
 # 3 - Présentation et mise en place des outils
 
-- [x] Docker: Docker est une plateforme open source pour le développement, l'emballage et l'exécution d'applications dans des conteneurs. Les conteneurs Docker permettent aux développeurs d'isoler leurs applications et leurs dépendances de l'infrastructure sous-jacente, ce qui facilite le déploiement et la gestion d'applications dans des environnements variés, tels que les environnements de développement, de test et de production.
+Dans cette section, l'on décrirera de façon précises les outils choisis. L'on expliquera également toute la démarche et la mise en place de ces derniers. L'on parlera également
+
+## **Bazel**
+
+- [x] **Présentation:** Bazel est un système de construction (build system) open source développé par Google. Il est conçu pour permettre la construction d'applications de manière efficace, rapide et reproductible, en particulier pour des projets de grande envergure avec de nombreuses dépendances et configurations. Bazel utilise une approche basée sur des *règles* pour définir comment construire des projets. Les règles Bazel décrivent comment les différentes parties d'un projet sont compilées, liées, testées et déployées. Les règles sont écrites en utilisant une syntaxe de type fonction, qui permet aux développeurs de décrire de manière précise comment les dépendances doivent être résolues, comment le code doit être compilé et comment les artefacts doivent être créés.
+
+- [x] **Raisons du choix:** L'un des principaux avantages de Bazel est sa capacité à effectuer des builds incrémentiels, où seules les parties du projet qui ont été modifiées depuis le dernier build sont reconstruites. Cela peut réduire considérablement *les temps de build*, en particulier pour des projets de grande envergure.Bazel prend en charge plusieurs langages de programmation, y compris C++, Java, Python, et de nombreux autres. Il est également compatible avec plusieurs plateformes, y compris Linux, macOS et Windows. Dans notre cas nous sommes dans un environement linux et les langages concernés par notre application sont: TypeScript pour notre backend nestjs et notre frontend angular et Java pour notre microservice quarkus. Notre MOM RabbitMQ et notre database ne nous interesserons pas dans cette section étant donné le choix que nous avons fait de les exécuter autravers d'image docker vu qu'ils ne nécessite pas de configuration suppélementaire de notre part.
+
+- [x] **Mise en oeuvre:** Bazel construit des logiciels à partir d'un code source organisé dans une arborescence de répertoires appelée espace de travail. Les fichiers sources de l'espace de travail sont organisés dans une hiérarchie imbriquée de paquets, où chaque paquet est un répertoire qui contient un ensemble de fichiers sources apparentés et un fichier BUILD. Le fichier BUILD spécifie les sorties logicielles qui peuvent être construites à partir du code source.
+Un espace de travail est une arborescence de répertoires sur votre système de fichiers qui contient les fichiers sources du logiciel que vous souhaitez construire. Chaque espace de travail possède un fichier texte nommé WORKSPACE qui peut être vide ou contenir des références à des dépendances externes nécessaires à la construction des résultats.
+Dans notre situation, 
+
+!! Les répertoires contenant un fichier appelé WORKSPACE sont considérés comme la racine d'un espace de travail. Par conséquent, Bazel ignore toute arborescence de répertoires dans un espace de travail dont la racine est un sous-répertoire contenant un fichier WORKSPACE, car ils forment un autre espace de travail.
 
 
-- [x] Bazel: C'est un outil de contruction et de tests de logiciels open source. Il est généralement utilisé par les grandes entreprises qui réalisent des projet monorepo. On l'utilisera malgré tout dans notre cas afin de le découvrir et de voir quelle sont les champs des posibilités qu'il offre a notre projet.
+## **SonarCloud**
+- [x] **Présentation:** C'est un service cloud d'analyse de code proposé par la société SonarSource. Il permet aux développeurs et aux équipes de développement de détecter et de corriger les vulnérabilités, les bugs, les erreurs et les problèmes de qualité de code dans leurs applications. SonarCloud utilise une variété de techniques d'analyse statique pour évaluer la qualité du code, y compris l'analyse de la complexité cyclomatique, la détection de code dupliqué, la couverture de code, la conformité aux normes de codage et la détection de vulnérabilités de sécurité connues.
 
-- [x] Test Container: Testcontainers est une bibliothèque qui prend en charge les tests, en fournissant des instances légères et jetables de bases de données courantes, de navigateurs Web Selenium, ou de tout autre élément pouvant fonctionner dans un conteneur Docker.
+- [x] Raisons du choix: En intégrant SonarCloud dans notre processus de développement, on améliore la qualité de notre code, réduit les bugs et les vulnérabilités et on améliore la sécurité globale de notre application.SonarCloud propose des intégrations avec de nombreux outils de développement populaires tels que GitHub, GitLab et Azure DevOps ce qui constitue d'ailleurs l'une des raisons majeurs de son adoption.
 
-- [x] SonarCloud: C'est un service cloud d'analyse de code proposé par la société SonarSource. Il permet aux développeurs et aux équipes de développement de détecter et de corriger les vulnérabilités, les bugs, les erreurs et les problèmes de qualité de code dans leurs applications. SonarCloud utilise une variété de techniques d'analyse statique pour évaluer la qualité du code, y compris l'analyse de la complexité cyclomatique, la détection de code dupliqué, la couverture de code, la conformité aux normes de codage et la détection de vulnérabilités de sécurité connues.
-En intégrant SonarCloud dans notre processus de développement, on améliore la qualité de notre code, réduit les bugs et les vulnérabilités et on améliore la sécurité globale de notre application.
-SonarCloud propose des intégrations avec de nombreux outils de développement populaires tels que GitHub, GitLab et Azure DevOps ce qui constitue d'ailleurs l'une des raisons majeurs de son adoption.
-Pour l'intégrer rien de plus simple:
+- [x] Mise en oeuvre: Pour l'intégrer à notre projet rien de plus simple:
   - Se rendre sur le site officiel de SonarCloud: https://sonarcloud.io;
   - Se connecter via notre compte de versionnage de code en l'occurence *github* dans notre cas;
-  - Selectionner le repertoire concerné;
+  - Selectionner le "repository" concerné;
 
 ![Capture d’écran du 2023-03-28 01-44-37](https://user-images.githubusercontent.com/107374001/228092766-8dae148f-325f-4886-b956-f1a097b056c9.png)
 
@@ -151,7 +157,14 @@ Pour l'intégrer rien de plus simple:
                                                Apperçu du dashboard après prise en compte  
 
 
-Dans l'ensemble, Sonarcloud est un outil puissant qui permet d'améliorer la qualité du code et de s'assurer que votre base de code est maintenable, évolutive et sécurisée.
+On remarque aisement dans l'ensemble que Sonarcloud est un outil puissant qui a permis d'améliorer la qualité du code et de s'assurer que notre base de code est maintenable, évolutive et sécurisée.
+
+## **Jenkins**
+
+## **Skymutator**
+
+## **CI/CD pipeline avec Github actions**
+
 
 # 4 - Observations et commentaires
 
