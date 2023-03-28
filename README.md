@@ -140,7 +140,11 @@ Dans notre situation,
 
 
 ## **Jenkins**
-- [x] **Présentation:** Jenkins est un système d'intégration continue open source largement utilisé pour automatiser les tâches de construction, de test et de déploiement d'applications logicielles. Il permet aux développeurs de vérifier en permanence si leur code est en phase avec le code existant et de détecter les problèmes le plus tôt possible dans le cycle de vie du développement.
+- [x] **Présentation:** Jenkins est un outil open-source d'intégration continue et de déploiement continu (CI/CD) qui permet de construire, tester et déployer des logiciels de manière automatisée. Il est principalement utilisé pour automatiser les tâches répétitives du processus de développement logiciel, telles que la compilation de code source, l'exécution de tests, la construction d'images Docker, le déploiement sur différents environnements, etc.
+
+- [x] **Raisons du choix:** Jenkins offre une grande flexibilité et peut être facilement intégré avec d'autres outils de développement logiciel tels que Git, GitHub, SVN, Jira, etc. Il dispose également d'une large communauté de développeurs et de contributeurs, ce qui lui permet de disposer d'un grand nombre de plugins pour étendre ses fonctionnalités et s'adapter à différents besoins.
+
+En somme, Jenkins est un outil essentiel pour les équipes de développement logiciel qui souhaitent automatiser leur processus de déploiement et de test, afin de pouvoir fournir des logiciels de haute qualité plus rapidement et plus efficacement. Ce qui est notre cas.
 
 
 
