@@ -138,6 +138,12 @@ Dans notre situation,
 !! Les répertoires contenant un fichier appelé WORKSPACE sont considérés comme la racine d'un espace de travail. Par conséquent, Bazel ignore toute arborescence de répertoires dans un espace de travail dont la racine est un sous-répertoire contenant un fichier WORKSPACE, car ils forment un autre espace de travail.
 
 
+
+## **Jenkins**
+- [x] **Présentation:** Jenkins est un système d'intégration continue open source largement utilisé pour automatiser les tâches de construction, de test et de déploiement d'applications logicielles. Il permet aux développeurs de vérifier en permanence si leur code est en phase avec le code existant et de détecter les problèmes le plus tôt possible dans le cycle de vie du développement.
+
+
+
 ## **SonarCloud**
 - [x] **Présentation:** C'est un service cloud d'analyse de code proposé par la société SonarSource. Il permet aux développeurs et aux équipes de développement de détecter et de corriger les vulnérabilités, les bugs, les erreurs et les problèmes de qualité de code dans leurs applications. SonarCloud utilise une variété de techniques d'analyse statique pour évaluer la qualité du code, y compris l'analyse de la complexité cyclomatique, la détection de code dupliqué, la couverture de code, la conformité aux normes de codage et la détection de vulnérabilités de sécurité connues.
 
@@ -159,7 +165,6 @@ Dans notre situation,
 
 On remarque aisement dans l'ensemble que Sonarcloud est un outil puissant qui a permis d'améliorer la qualité du code et de s'assurer que notre base de code est maintenable, évolutive et sécurisée.
 
-## **Jenkins**
 
 ## **Skymutator**
 
