@@ -1,30 +1,30 @@
 # **Logging- tracing-monitoring-observability**
-## Introduction
+
 Ce rapport fait l'objet  de la mise en place et l'utilisation d'outils de journalisation et d'observabilités sur une application Doodle. Pour la réalisation du tutoriel, nous avons fait le choix de suivre un tutoriel sur l'outil Prometheus et un sur grafana.
 
-### Participants
-- David KONAN
-- Lucas LAHOUGUE
-- Noemie LEDET
-- Yawa  NYATSIKOR
-- Albin SENE
+## Participants
+- KONAN David
+- LAHOUGUE Lucas 
+- LEDET Noémie 
+- NYATSIKOR Yawa  
+- SENE Albin 
 
  
-### Description du projet utilisé
+## Description du projet utilisé
 
 N'ayant pas manipulé de docker avant ce cours, nous sommes partis de la base d'un projet dockerisé déjà réalisé par Gwendal Jouneaux et Benoît Combemale à l'université de Rennes. 
 [Lien du projet doodle utilisé avec documentation](https://github.com/nledet/DevOps)
 
 Ce projet mêle un back et un front permettant l'utilisation d'une plateforme de plannification et de sondage. 
 
-###   Utilisation de Prometheus et Grafana
+##  Utilisation de Prometheus et Grafana
 
-#### Liens utiles pour le suivi de ce tutoriel
+### Liens utiles pour le suivi de ce tutoriel
 [Tutoriel d'utilisation de Prometheus](https://prometheus.io/docs/prometheus/latest/getting_started/)
 
 [Tutoriel Prometheus et Grafana - Christian Lempa](https://www.youtube.com/watch?v=9TJx7QTrTyo)
 
-#### Configuration de Prometheus 
+### Configuration de Prometheus 
 Dans notre projet, nous ajoutons un dossier "docker-grafana", le nom n'est pas important. Dans ce dossier, nous créons un dossier "prometheus", qui lui ne peut-être modifié car il utilise l'outil prometheus. Dans ce dossier "prometheus" nous créons un fichier prometheus.yml contenant le code suivant : 
 ```
     global:
@@ -89,7 +89,7 @@ Dans le dossier "docker-grafana", nous créons un fichier "docker-compose.yml", 
 ```
 Nous observons la catégorie volume qui correspond au stockage de nos informations récoltées. La catégorie services permet de configuré les différents outils dont nous aurons besoin. 
 
-#### Mise en place de prometheus et grafana
+### Mise en place de prometheus et grafana
 Pour commencer, il faut lancer le projet avec docker, ici nous nous plaçons dans l'API et nous utilisons la commande suivante : 
 `sudo docker-compose up -d`
 
@@ -106,7 +106,7 @@ Pour obtenir une meilleure visualisation, nous utilisons grafana. Pour ouvrir gr
 
 Pour visualiser, nous séléctionnons import dashboard. Nous allons sur la page dashboard de grafana et nous recherchons le dashboard node exporter full. Nous récupérons son ID soit 1860 et nous le plaçons dans notre import. Nous ajoutons la source : Prometheus-1 
 ![Image de grafana](grafana.png)
-### Analyse de résultats
+## Analyse de résultats
 
 
 
