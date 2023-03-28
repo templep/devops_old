@@ -26,7 +26,7 @@ Ce projet mêle un back et un front permettant l'utilisation d'une plateforme de
 
 #### Mise en place de Prometheus et Grafana
 Dans notre projet, nous ajoutons un dossier "docker-grafana", le nom n'est pas important. Dans ce dossier, nous créons un dossier "prometheus", qui lui ne peut-être modifié car il utilise l'outil prometheus. Dans ce dossier "prometheus" nous créons un fichier prometheus.yml contenant le code suivant : 
-`global:
+```global:
   scrape_interval: 15s 
   
 scrape_configs:
@@ -36,7 +36,7 @@ scrape_configs:
 
   - job_name: 'node_exporter'
     static_configs:
-      - targets: ['node_exporter:9100']`
+      - targets: ['node_exporter:9100']```
 
 Ce fichier permet la configuration de l'utilisation de prometheus. Nous y retrouvons notamment les intervalles d'executions qui vons nous permettre d'obtenir les courbes lors du monitoring par Grafana. Nous configurons prometheus sur le port 9090 pour nous permettre d'extraire les données. 
 ### Analyse de résultats
