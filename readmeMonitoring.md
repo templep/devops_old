@@ -24,7 +24,7 @@ Ce projet mêle un back et un front permettant l'utilisation d'une plateforme de
 
 [Tutoriel Prometheus et Grafana - Christian Lempa](https://www.youtube.com/watch?v=9TJx7QTrTyo)
 
-#### Mise en place de Prometheus et Grafana
+#### Configuration de Prometheus 
 Dans notre projet, nous ajoutons un dossier "docker-grafana", le nom n'est pas important. Dans ce dossier, nous créons un dossier "prometheus", qui lui ne peut-être modifié car il utilise l'outil prometheus. Dans ce dossier "prometheus" nous créons un fichier prometheus.yml contenant le code suivant : 
 ```
     global:
@@ -40,6 +40,58 @@ Dans notre projet, nous ajoutons un dossier "docker-grafana", le nom n'est pas i
           - targets: ['node_exporter:9100']
 ```
 Ce fichier permet la configuration de l'utilisation de prometheus. Nous y retrouvons notamment les intervalles d'executions qui vons nous permettre d'obtenir les courbes lors du monitoring par Grafana. Nous configurons prometheus sur le port 9090 pour nous permettre d'extraire les données. 
+
+
+Dans le dossier "docker-grafana", nous créons un fichier "docker-compose.yml", le nom de ce fichier ne peut être modifié. Nous implémentons le code suivant : 
+```
+    version: '3'
+
+    volumes:
+    prometheus-data:
+        driver: local
+    grafana-data:
+        driver: local
+
+    services:
+    prometheus:
+        image: prom/prometheus:latest
+        container_name: prometheus
+        ports:
+        - "9090:9090"
+        volumes:
+        - ./prometheus:/etc/prometheus
+        - prometheus-data:/prometheus
+        restart: unless-stopped
+        command:
+        - '--config.file=/etc/prometheus/prometheus.yml'
+        - '--storage.tsdb.path=/prometheus'
+        - '--storage.tsdb.retention.time=365d'
+
+
+    grafana:
+        image: grafana/grafana:latest
+        container_name: grafana
+        ports:
+        - "6060:3000"
+        volumes:
+        - grafana-data:/var/lib/grafana
+        restart: unless-stopped
+
+    node_exporter:
+        image: quay.io/prometheus/node-exporter:latest
+        container_name: node_exporter
+        command:
+        - '--path.rootfs=/host'
+        pid: host
+        restart: unless-stopped
+        volumes:
+        - '/:/host:ro,rslave'
+```
+Nous observons la catégorie volume qui correspond au stockage de nos informations récoltées. La catégorie services permet de configuré les différents outils dont nous aurons besoin. 
+
+#### Mise en place de prometheus et grafana
+
+
 ### Analyse de résultats
 
 
