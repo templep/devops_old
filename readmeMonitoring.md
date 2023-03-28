@@ -90,8 +90,13 @@ Dans le dossier "docker-grafana", nous créons un fichier "docker-compose.yml", 
 Nous observons la catégorie volume qui correspond au stockage de nos informations récoltées. La catégorie services permet de configuré les différents outils dont nous aurons besoin. 
 
 #### Mise en place de prometheus et grafana
+Pour commencer, il faut lancer le projet avec docker, ici nous nous plaçons dans l'API et nous utilisons la commande suivante : 
+`sudo docker-compose up -d`
 
+Nous nous plaçons dans "docker-grafana", et nous réalisons de nouveau la même commande. 
 
+Nous allons maintenant à l'adresse : "http://localhost:9090/", nous arrivons sur la page de prometheus. 
+![Image de prometheus](prometheus.png)
 ### Analyse de résultats
 
 
