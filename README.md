@@ -16,6 +16,12 @@ Nous avons pour ce faire à notre disposition toute une flopée d'outils (chacun
 
 - [3 - Présentation et mise en place des outils](#3---présentation-et-mise-en-place-des-outils)
 
+- [4 - Observations et commentaires](#4---observations-et-commentaires)
+
+- [5 - Guide de lancement](#5---guide-de-lancement)
+
+- [6 - Démo](#6---demo)
+
 # 1 - Présentation du projet
 
 Pour ce tutoriel, nous utiliserons un projet réalisé dans le cadre du cours d'Architecture Logiciel.
@@ -35,6 +41,7 @@ L'on dispose donc:
 L'ensemble de ses microservice sont déployés au sein de containers docker.
 
 
+
 # 2 - Intégration Continue
 
 
@@ -42,22 +49,22 @@ L'intégration continue est une pratique de développement logiciel dans laquell
 
 Une fois qu’on sait ce qu’est l'intégration continue de façon globale,  faire en sorte que tout cela fonctionne sans accroc, c'est évidemment un peu plus complexe que cela. Nous allons dans la suite nous  concentrer sur les pratiques clés qui font d'une intégration continue une totale réussite.
 
- **- Maintenir un référentiel unique pour le projet**
+ ## **- Maintenir un référentiel unique pour le projet**
  
 Celà peut paraitre anodin mais les projets logiciels impliquent de nombreux fichiers qui doivent être orchestrés ensemble pour construire un produit. Garder la trace de tous ces fichiers représente un effort considérable, en particulier lorsque plusieurs personnes sont impliquées. Il n'est donc pas surprenant qu'au fil des ans, les équipes de développement de logiciels aient créé des outils pour gérer tout cela. Ces outils, appelés outils de gestion du code source, font partie intégrante de la plupart des projets de développement. Il suffit donc de s'assurer que l'on dispose d'un système de gestion du code source décent. Le coût n'est pas un problème car il existe des outils open-source de bonne qualité. Le référentiel open source de prédilection étant Github, c'est celui que nous utiliserons dans ce TP.
 
- **- Automatiser la phase du build**
+ ## **- Automatiser la phase du build**
 
 Transformer du code source en un système opérationnel peut souvent être un processus compliqué impliquant la compilation, le déplacement de fichiers, le chargement de schémas dans les bases de données, etc. Cependant, comme la plupart des tâches de cette partie du développement logiciel, ce processus peut être automatisé et devrait l'être. Demander à des personnes de taper des commandes étranges ou de cliquer sur des boîtes de dialogue est une perte de temps et un terrain propice aux erreurs.On doit donc s'assurer de pouvoir construire et lancer notre système à l'aide de ces scripts en utilisant une seule commande.
  
-  **- Rendre notre build auto testable**
+ ## **- Rendre notre build auto testable**
   
 Traditionnellement, une compilation signifie compiler, lier et tout ce qui est nécessaire pour qu'un programme s'exécute. Un programme peut s'exécuter, mais cela ne signifie pas qu'il fait ce qu'il faut. Les langages modernes à typage statique permettent de détecter de nombreux bogues, mais beaucoup d'autres passent à travers les mailles du filet.
 
 Un bon moyen de détecter les bogues plus rapidement et plus efficacement est d'inclure des tests automatisés dans le processus de construction.Ce que nous ferons un peu plus bas.
 
   
-**- Tout le monde commit sur le main chaque jours**
+## **- Tout le monde commit sur le main chaque jours**
 
 Comme vu en cours le devops c'est plus que des outils, "c'est une philosophie" et également un ensemble de bonnes pratiques parmi lesquelles figure la communication au sein de l'équipe.  L'intégration est avant tout une question de communication. L'intégration permet aux développeurs d'informer les autres développeurs des modifications qu'ils ont apportées. Une communication fréquente permet aux gens d'être informés rapidement de l'évolution des changements.
 
@@ -65,38 +72,95 @@ La seule condition préalable pour qu'un développeur s'engage sur le main est q
 En procédant fréquemment de la sorte, les développeurs découvrent rapidement s'il existe un conflit entre deux développeurs.
 
     
-**- Chaque 'Commit' doit enclencher un Build sur la machine d'intégration**
+## **- Chaque 'Commit' doit enclencher un Build sur la machine d'intégration**
+
+En utilisant des livraisons quotidiennes, une équipe obtient fréquemment des versions testées. Cela devrait signifier que la branche main reste saine. Dans la pratique, cependant, il y a toujours des problèmes. L'une des raisons est que souvent les developpeurs speuvent oublier d'effectuer les mises à jour et les compilations avant de valider. Les différences d'environnement entre les machines des développeurs en sont une autre.
+
+Par conséquent, on doit pouvoir s'assurer que les constructions régulières sont effectuées sur une machine d'intégration et que la livraison n'est considérée comme effectuée que si cette construction d'intégration réussit. Étant donné que le développeur qui effectue la validation est responsable de cette opération, il doit surveiller la version principale afin de pouvoir la corriger en cas de défaillance. 
+
+Il y a deux façons principales de s'assurer de cela : en utilisant **une construction manuelle** ou **un serveur d'intégration continue**.
+
+L'approche manuelle est la plus simple à décrire. Il s'agit essentiellement d'un processus similaire à la construction locale qu'un développeur effectue avant la livraison dans le référentiel. Le développeur se rend à la machine d'intégration, vérifie la tête de la ligne principale (qui contient maintenant sa dernière livraison) et lance la construction d'intégration. Il garde un œil sur sa progression, et si la compilation réussit, il en a terminé avec sa livraison.
+
+Un serveur d'intégration continue agit comme un moniteur du référentiel. Chaque fois qu'un commit contre le référentiel se termine, le serveur extrait automatiquement les sources sur la machine d'intégration, lance une compilation et notifie le résultat de la compilation à l'auteur du commit. L'auteur de la validation n'a pas terminé tant qu'il n'a pas reçu la notification généralement un courriel.
     
- Fix Broken Builds Immediately
+## **- Corriger immédiatement les erreurs de Build**
 
-**- Rendre rapide l'étape du build **
+Un élément clé de la construction continue est que si la construction principale échoue, elle doit être corrigée immédiatement. L'intérêt de travailler avec l'intégration continue est que vous développez toujours sur une base stable connue. Ce n'est pas une mauvaise chose que la version principale tombe en panne, bien que si cela se produit tout le temps, cela suggère que les gens ne sont pas assez attentifs à la mise à jour et à la construction locale avant la validation. Cependant, lorsque la version principale est défaillante, il est important qu'elle soit corrigée rapidement.
+
+## **- Rendre rapide l'étape du Build**
+
+L'objectif de l'intégration continue est de fournir un retour d'information rapide. Rien n'est plus dommageable pour une activité d'intégration continue qu'une compilation qui prend beaucoup de temps.  La plupart des developpeurs considèrent qu'un Build qui prend une heure est totalement déraisonnable. Cependant, certaines équipes rêvraient de pouvoir le faire aussi rapidement et il nous arrive encore de rencontrer des cas où il est très difficile d'atteindre cette vitesse.
+
+Pour la plupart des projets, cependant, la ligne directrice XP d'une construction en dix minutes est parfaitement raisonnable. La plupart de nos projets modernes y parviennent. Cela vaut la peine de concentrer les efforts pour y parvenir, car chaque minute de réduction du temps de construction est une minute gagnée pour chaque développeur à chaque fois qu'il effectue une validation. 
+
+Si vous êtes confronté à un temps de construction d'une heure, passer à une construction plus rapide peut sembler une perspective décourageante. Il peut même être décourageant de travailler sur un nouveau projet et de penser à la façon de garder les choses rapides. Pour les applications d'entreprise, en tout cas, nous avons constaté que le goulot d'étranglement habituel est le test - en particulier les tests qui impliquent des services externes tels qu'une base de données.
     
-**- Tester dans un Clone de l'environnement de production **
+## **- Tester dans un Clone de l'environnement de production**
+
+L'objectif des tests est d'éliminer, dans des conditions contrôlées, tout problème que le système rencontrera en production. L'environnement dans lequel le système de production fonctionnera joue un rôle important à cet égard. Si vous testez dans un environnement différent, chaque différence entraîne un risque que ce qui se passe pendant les tests ne se produise pas en production.
+
+C'est pourquoi on doit configurer notre environnement de test de manière à ce qu'il imite le plus fidèlement possible notre environnement de production. on utilise par exemple le même logiciel de base de données, avec les mêmes versions, la même version du système d'exploitation. On met aussi toutes les bibliothèques appropriées qui se trouvent dans l'environnement de production dans l'environnement de test, même si le système ne les utilise pas réellement. Utilisez les mêmes adresses IP et les mêmes ports, utilisez le même matériel.
     
- **- Permettre à tout le monde d'obtenir facilement le dernier executable **
+## **- Permettre à tout le monde d'obtenir facilement le dernier executable**
+
+L'une des parties les plus difficiles du développement de logiciels est de s'assurer que l'on construit le bon logiciel. Nous avons constaté qu'il est très difficile de spécifier à l'avance ce que l'on veut et d'être correct ; les gens trouvent beaucoup plus facile de voir quelque chose qui n'est pas tout à fait correct et de dire comment il faut le changer. Les processus de développement agile s'attendent explicitement à cette partie du comportement humain et en tirent parti.
+
+Pour que cela fonctionne, toute personne impliquée dans un projet logiciel devrait pouvoir obtenir le dernier exécutable et être en mesure de l'exécuter : pour des démonstrations, des tests exploratoires ou simplement pour voir ce qui a changé cette semaine.
     
-**- Tous les développeur doivent être en mesure de voir ce qui se passe**
-    
-**- Automatiser le déploiement  **
+## **- Tous les développeur doivent être en mesure de voir ce qui se passe**
+
+L'intégration continue est une question de communication. Il faut donc s'assurer que tout le monde peut facilement voir l'état du système et les changements qui y ont été apportés.
+
+L'une des choses les plus importantes à communiquer est l'état de la construction de la ligne principale.De nombreuses équipes aiment rendre cela encore plus évident en connectant un affichage continu au système de construction - les lumières qui s'allument en vert lorsque la construction fonctionne, ou en rouge si elle échoue, sont populaires. Les lampes de lave rouges et vertes sont particulièrement courantes. Elles indiquent non seulement l'état de la compilation, mais aussi depuis combien de temps elle se trouve dans cet état. Des bulles sur une lampe rouge indiquent que la construction est en panne depuis trop longtemps.
+
+## **- Automatiser le déploiement**
+
+Pour faire de l'intégration continue, on a besoin de plusieurs environnements, un pour exécuter les tests de validation, un ou plusieurs pour exécuter les tests secondaires. Puisqu'on déplace des exécutables entre ces environnements plusieurs fois par jour,on souhaiterais le faire automatiquement. Il est donc important d'avoir des scripts qui nous permettront de déployer facilement l'application dans n'importe quel environnement.
+
+Une conséquence naturelle de cela est qu'on devra également avoir des scripts qui nous permettent de déployer en production avec la même facilité.Il s'agit également d'une option peu coûteuse puisqu'elle utilise les mêmes capacités que celles utilisées pour le déploiement dans les environnements de test.
 
 
 
 
 
 
-# 3 - Présentation et mise en place des outils 
+# 3 - Présentation et mise en place des outils
 
-- [x] Bazel, Build and test software: C'est un outil de contruction et de tests de logiciels open source. Il est généralement utilisé par les grandes entreprises qui réalisent des projet monorepo. On l'utilisera malgré tout dans notre cas afin de le découvrir et de voir quelle sont les champs des posibilités qu'il offre a notre projet.
+- [x] Docker: Docker est une plateforme open source pour le développement, l'emballage et l'exécution d'applications dans des conteneurs. Les conteneurs Docker permettent aux développeurs d'isoler leurs applications et leurs dépendances de l'infrastructure sous-jacente, ce qui facilite le déploiement et la gestion d'applications dans des environnements variés, tels que les environnements de développement, de test et de production.
+
+
+- [x] Bazel: C'est un outil de contruction et de tests de logiciels open source. Il est généralement utilisé par les grandes entreprises qui réalisent des projet monorepo. On l'utilisera malgré tout dans notre cas afin de le découvrir et de voir quelle sont les champs des posibilités qu'il offre a notre projet.
 
 - [x] Test Container: Testcontainers est une bibliothèque qui prend en charge les tests, en fournissant des instances légères et jetables de bases de données courantes, de navigateurs Web Selenium, ou de tout autre élément pouvant fonctionner dans un conteneur Docker.
 
-- [x] SonarQube: SonarQube est une plateforme open-source pour l'inspection continue de la qualité du code. Elle fournit des outils pour analyser le code à la recherche de bogues, de vulnérabilités et d'odeurs de code, ainsi que des métriques pour mesurer la qualité du code et en assurer le suivi dans le temps. SonarQube prend en charge un large éventail de langages de programmation, notamment Java, C#, JavaScript, PHP, Python, etc.
+- [x] SonarCloud: C'est un service cloud d'analyse de code proposé par la société SonarSource. Il permet aux développeurs et aux équipes de développement de détecter et de corriger les vulnérabilités, les bugs, les erreurs et les problèmes de qualité de code dans leurs applications. SonarCloud utilise une variété de techniques d'analyse statique pour évaluer la qualité du code, y compris l'analyse de la complexité cyclomatique, la détection de code dupliqué, la couverture de code, la conformité aux normes de codage et la détection de vulnérabilités de sécurité connues.
+En intégrant SonarCloud dans notre processus de développement, on améliore la qualité de notre code, réduit les bugs et les vulnérabilités et on améliore la sécurité globale de notre application.
+SonarCloud propose des intégrations avec de nombreux outils de développement populaires tels que GitHub, GitLab et Azure DevOps ce qui constitue d'ailleurs l'une des raisons majeurs de son adoption.
+Pour l'intégrer rien de plus simple:
+  - Se rendre sur le site officiel de SonarCloud: https://sonarcloud.io;
+  - Se connecter via notre compte de versionnage de code en l'occurence *github* dans notre cas;
+  - Selectionner le repertoire concerné;
 
-SonarQube peut être intégré à votre pipeline d'intégration continue et de livraison continue (CI/CD) pour analyser automatiquement la qualité du code dans le cadre de votre processus de construction. Il peut également être utilisé par les développeurs pour effectuer une analyse locale du code et recevoir un retour sur la qualité du code avant de valider les modifications.
+![Capture d’écran du 2023-03-28 01-44-37](https://user-images.githubusercontent.com/107374001/228092766-8dae148f-325f-4886-b956-f1a097b056c9.png)
 
-Outre l'analyse du code, SonarQube fournit également des tableaux de bord et des rapports pour vous aider à visualiser les tendances en matière de qualité du code, à suivre les progrès et à identifier les domaines à améliorer. Il s'intègre également à d'autres outils tels que Git, Jenkins et les IDE afin d'offrir une expérience transparente aux développeurs.
+                                               Apperçu du dashboard avant 
+                                               
+![Capture d’écran du 2023-03-28 01-45-37](https://user-images.githubusercontent.com/107374001/228093202-0120c4a0-9763-4a5e-8838-7824dd26f270.png)
+                                               
+                                               Apperçu du dashboard après prise en compte  
 
-Dans l'ensemble, SonarQube est un outil puissant qui permet d'améliorer la qualité du code et de s'assurer que votre base de code est maintenable, évolutive et sécurisée.
+
+Dans l'ensemble, Sonarcloud est un outil puissant qui permet d'améliorer la qualité du code et de s'assurer que votre base de code est maintenable, évolutive et sécurisée.
+
+# 4 - Observations et commentaires
+
+
+# 5 - Guide de lancement
+
+
+# 6 - Démo
+
 
 
 
