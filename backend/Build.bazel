@@ -1,96 +1,39 @@
-load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
-load("@npm//@bazel/typescript:index.bzl", "ts_config", "ts_project")
+load("@aspect_rules_swc//swc:defs.bzl", "swc_transpiler")
+load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
+load("@aspect_rules_js//js:defs.bzl", "js_binary")
+load("@bazel_skylib//lib:partial.bzl", "partial")
+load("@npm//:defs.bzl", "npm_link_all_packages")
 
-# Define a Bazel target for building the application
-# This depends on the `node_modules` directory and the TypeScript compilation target
-# The `public` filegroup is also included to copy the static assets to the build directory
-nodejs_binary(
-    name = "backend",
-    entry_point = "//src/main.ts",
-    data = [
-        "//package.json",
-        "//yarn.lock",
-        ":public",
-    ],
-    args = ["--config=production"],
-    env = {
-        "NODE_ENV": "production",
-    },
-    deps = [
-        "//:src",
-        "@npm//typescript",
-    ],
-)
+npm_link_all_packages(name = "node_modules")
 
-ts_config(
-    name = "config",
-    src = "tsconfig.json",
-    deps = [],
-)
-
+# For more information about using swc to transpile please see the ts_project_transpiler example
 ts_project(
-    name = "my_code",
-    srcs = glob(["*.ts"]),
-    tsconfig = "config",
-    deps = [],
+    name = "swc",
+    srcs = [
+        "src/app.controller.ts",
+        "src/app.module.ts",
+        "src/app.service.ts",
+        "src/main.ts",
+    ],
+    declaration = True,
+    transpiler = partial.make(
+        swc_transpiler,
+        swcrc = ".swcrc",
+    ),
+    deps = [
+        ":node_modules/@nestjs/common",
+        ":node_modules/@nestjs/core",
+        ":node_modules/@types/node",
+    ],
 )
 
-
-
-
-# Define the Node.js binary that will run the application
-nodejs_binary(
-    name = "backend",
-    entry_point = "//src/main.ts",
+js_binary(
+    name = "bin",
     data = [
-        "//package.json",
+        ":swc",
+
+        # Added by swc during transpilation and used at runtime
+        ":node_modules/regenerator-runtime",
     ],
-    args = ["--config=production"],
-    env = {
-        "NODE_ENV": "production",
-    },
+    entry_point = "src/main.js",
 )
-
-# Define the TypeScript configuration for the application
-ts_config(
-    name = "tsconfig",
-    src = "src",
-    compiler_options = {
-        "target": "es2017",
-        "module": "commonjs",
-        "declaration": True,
-        "outDir": "dist",
-        "sourceMap": True,
-        "esModuleInterop": True,
-        "moduleResolution": "node",
-        "strict": True,
-        "experimentalDecorators": True,
-        "emitDecoratorMetadata": True,
-        "skipLibCheck": True,
-    },
-    deps = [
-        "@npm//@types/node",
-        "@npm//@nestjs/common",
-        "@npm//@nestjs/core",
-        "@npm//reflect-metadata",
-    ],
-)
-
-# Define the Bazel targets for building the application
-ts_library(
-    name = "src",
-    srcs = (["src/**/*.ts"]),
-    deps = [
-        "@npm//@nestjs/common",
-        "@npm//@nestjs/core",
-    ],
-    tsconfig = ":tsconfig",
-)
-
-# Define a Bazel target to copy static assets (e.g. public folder) to the build directory
-filegroup(
-    name = "public",
-    srcs = (["public/**"]),
-)
-
-

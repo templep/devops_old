@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.0.4",
+    "@angular/bazel": "^15.2.4",
     "@angular/cli": "~15.0.4",
     "@angular/compiler-cli": "^15.0.0",
     "@stryker-mutator/core": "^6.4.2",

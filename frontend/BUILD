@@ -1,0 +1,18 @@
+load("@npm//:defs.bzl", "npm_link_all_packages")
+load(":defs.bzl", "ng_app", "ng_config")
+
+package(default_visibility = ["//visibility:public"])
+
+# Link npm packages
+npm_link_all_packages(name = "node_modules")
+
+# The Angular application
+ng_app(
+    name = "app",
+    project_name = "angular",
+    deps = ["//projects/lib-a"],
+)
+
+ng_config(
+    name = "ng-config",
+)
