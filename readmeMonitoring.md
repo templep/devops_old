@@ -109,6 +109,23 @@ Pour visualiser, nous sélectionnons *import dashboard*. Nous allons sur la page
 ## Analyse de résultats
 
 
+Expliquer : 
+CPU Busy 
+Sys Load (5m avg)
+sys load (15m avg)
+ram used
+swap used
+root fs used 
+cup cores 
+uptimes 
+rootfs total 
+ram total 
+swap total 
+cpu basic 
+network traffic basic 
+memory basic 
+disk space used basic 
+
 
 
 
