@@ -97,6 +97,15 @@ Nous nous plaçons dans "docker-grafana", et nous réalisons de nouveau la même
 
 Nous allons maintenant à l'adresse : "http://localhost:9090/", nous arrivons sur la page de prometheus. 
 ![Image de prometheus](prometheus.png)
+
+Ici, nous pouvons observer la représentation graphique de certaines "metrics". 
+![Image de prometheus](pro.png)
+
+Pour obtenir une meilleure visualisation, nous utilisons grafana. Pour ouvrir grafana nous ouvrons : "http://localhost:6060/". Nous arrivons sur la page d'accueil de grafana. Nous choisissons : add data source -> prometheus. Nous ajoutons : "http://prometheus:9090/" en tant que source. 
+
+
+Pour visualiser, nous séléctionnons import dashboard. Nous allons sur la page dashboard de grafana et nous recherchons le dashboard node exporter full. Nous récupérons son ID soit 1860 et nous le plaçons dans notre import. Nous ajoutons la source : Prometheus-1 
+![Image de grafana](grafana.png)
 ### Analyse de résultats
 
 
