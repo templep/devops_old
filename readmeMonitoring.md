@@ -114,17 +114,12 @@ L'affichage offert par Grafana nous permet d'observer les performances de notre 
 - **RAM Used :** La RAM est la mémoire vive de notre machine. Ici, on peut voir qu'elle est utilisée à 37% par l'application.
 - **SWAP Used :** Le SWAP est l'utilisation d'une partie du disque dur d'une machine pour stocker temporairement des données qui ne sont pas utilisées activement sur la mémoire vive, lorsque celle-ci vient à manquer dans notre machine. Dans notre cas, le SWAP n'est pas utilisé, certainement car il n'y en a pas besoin parce qu'il y a assez de RAM. 
 - **Root FS Used :** L'utilisation du Root FS est le pourcentage d'espace disque utilisé par les fichiers et les répertoires situés dans le système de fichiers racine d'une machine. Ici, il est de 66,3%. Il faut faire attention à ce pourcentage car s'il devient plein, il peut devenir impossible d'écrire des fichiers ce qui peut donc empêcher le bon fonctionnement de certains services du système.
-
-
- 
-
-reste à expliquer :
-cup cores (déjà un peu expliqué dans sys load)
-uptimes 
-rootfs total 
-swap total 
-cpu basic 
-network traffic basic 
+- **cup cores:**
+- **uptimes:** Cette métrique nous permet de savoir si notre service est accessible. Nous pouvons ainsi déterminer facilement si le service n'est plus fonctionnel et ou non accessible par les utilisations et intervenir afin de régler le problème.
+- **rootfs total:**
+- **swap total:**
+- **cpu basic:**
+- **network traffic basic:**
 
 
 
