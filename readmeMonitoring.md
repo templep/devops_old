@@ -107,14 +107,15 @@ Pour obtenir une meilleure visualisation, nous utilisons grafana. Pour ouvrir gr
 Pour visualiser, nous sélectionnons *import dashboard*. Nous allons sur la page dashboard de grafana et nous recherchons le dashboard *node exporter full*. Nous récupérons son ID soit **1860** et nous le plaçons dans notre import. Nous ajoutons la source : **Prometheus-1** 
 ![Image de grafana](grafana.png)
 ## Analyse de résultats
-
+Ce dashboard obtenu nous permet de surveiller le processus de notre application. Nous retrouvons donc différents informations conrcernant le processeur, le disque la mémoire.En effet différent métrique nous montre comment le processus utilise  les ressources de notre machine.
+- **CPU Busy:** Ce premier diagramme nous montre que
+le processus qui gére l'application utilise 14% processeur depuis son lancement. Nous remarquons  également que ce pourcentage reste dans le vert,nous pouvons dire que notre application n'utilise pas beaucoup le CPU. Nous trouvons cette métrique  très interressante parce qu' il nous indique en temps réél la quantité de CPU qu'utilise notre porocessus et peut nous alerter si ce pourcentage augmente trop voire est dans le rouge  afin de recherche très rapidement d'où vient le problème.
+- **Sys Load (5 m avg)**
+- **Sys Load (5 m avg)**
+- **ram used**
+- **swap used** 
 
 Expliquer : 
-CPU Busy 
-Sys Load (5m avg)
-sys load (15m avg)
-ram used
-swap used
 root fs used 
 cup cores 
 uptimes 
