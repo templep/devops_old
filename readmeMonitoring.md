@@ -106,26 +106,20 @@ Pour obtenir une meilleure visualisation, nous utilisons grafana. Pour ouvrir gr
 
 Pour visualiser, nous sélectionnons *import dashboard*. Nous allons sur la page dashboard de grafana et nous recherchons le dashboard *node exporter full*. Nous récupérons son ID soit **1860** et nous le plaçons dans notre import. Nous ajoutons la source : **Prometheus-1** 
 ![Image de grafana](grafana.png)
-## Analyse de résultats
-L'affichage offert par grafana nous permet d'observer les performances de notre projet. Nous pouvons observer l'utilisation du processeur (CPU Buzy), ainsi, nous pouvons étudier le projet pour voir si des optimisations sont nécessaires. Nous avons également accès à des indicateurs sur la mémoire utilisé : **RAM Used, RAM Total, memory basic, disk space used basic**. En fonction du projet et du suivi que nous souhaitons réalisé ces données sont plus ou moins importantes.
+## Analyse des résultats
+L'affichage offert par Grafana nous permet d'observer les performances de notre projet. Nous pouvons observer l'utilisation du processeur (CPU Buzy). Ainsi, nous pouvons étudier le projet pour voir si des optimisations sont nécessaires. Nous avons également accès à des indicateurs sur la mémoire utilisée : **RAM Used, RAM Total, Memory Basic et Disk Space Used Basic**. En fonction du projet et du suivi que nous souhaitons réaliser, ces données sont plus ou moins importantes.
 
-- **CPU Busy:** Ce premier diagramme nous montre que
-le processus qui gére l'application utilise 14% processeur depuis son lancement. Nous remarquons  également que ce pourcentage reste dans le vert,nous pouvons dire que notre application n'utilise pas beaucoup le CPU. Nous trouvons cette métrique  très interressante parce qu' il nous indique en temps réél la quantité de CPU qu'utilise notre porocessus et peut nous alerter si ce pourcentage augmente trop voire est dans le rouge  afin de recherche très rapidement d'où vient le problème.
-- **Sys Load (5 m avg)**
-- **Sys Load (5 m avg)**
-- **ram used**
-- **swap used** 
-
+- **CPU Busy :** Ce premier diagramme nous montre que l'application utilise le processeur 14% du temps depuis son lancement. Le CPU Busy Time correspond à la somme des durées durant lesquelles le processeur exécute des instructions. Nous remarquons également que ce pourcentage reste dans le vert. Nous pouvons dire que notre application n'utilise pas beaucoup le CPU. Nous trouvons cette métrique  très intéressante parce qu'elle nous indique en temps réél la quantité de CPU qu'utilise notre processus et peut nous alerter si ce pourcentage augmente trop voire s'il est dans le rouge afin de rechercher très rapidement d'où vient le problème.
+- **Sys Load :** La charge système correspond au % du CPU utilisé par des processus. L'affichage nous donne deux valeurs : **Sys Load (5m avg)** et **Sys Load (5m avg)**. Cela correspond donc à l'utilisation moyenne en pourcentage ces 5 et 15 dernières minutes. Ici, ces valeurs sont de 37,1% (5m) et 37% (15m) ce qui montre que le pourcentage du CPU utilisé au fil du temps ne varie quasiment pas. Notre CPU a 8 coeurs (voir **CPU Cores** en haut à droite de la capture d'écran) ce qui lui permet de répartir les instructions. Si notre CPU avait eu 4 coeurs, les valeurs auraient avoisiné les 74%. Avec 2 coeurs, elles auraient été de presque 150% ce qui aurait donc ralenti les processus.
+- **RAM Used :** La RAM est la mémoire vive de notre machine. Ici, on peut voir qu'elle est utilisée à 37% par l'application.
+- **SWAP Used :** Le SWAP est l'utilisation d'une partie du disque dur d'une machine pour stocker temporairement des données qui ne sont pas utilisées activement sur la mémoire vive, lorsque celle-ci vient à manquer dans notre machine. Dans notre cas, le SWAP n'est pas utilisé, certainement car il n'y en a pas besoin parce qu'il y a assez de RAM. 
+- **Root FS Used :** L'utilisation du Root FS est le pourcentage d'espace disque utilisé par les fichiers et les répertoires situés dans le système de fichiers racine d'une machine. Ici, il est de 66,3%. Il faut faire attention à ce pourcentage car s'il devient plein, il peut devenir impossible d'écrire des fichiers ce qui peut donc empêcher le bon fonctionnement de certains services du système.
 
 
  
 
-Expliquer : 
-Sys Load (5m avg)
-sys load (15m avg)
-swap used
-root fs used 
-cup cores 
+reste à expliquer :
+cup cores (déjà un peu expliqué dans sys load)
 uptimes 
 rootfs total 
 swap total 
