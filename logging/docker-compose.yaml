@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  fluentd:
+    container_name: fluentd
+    user: root
+    image: fluent/fluentd:v1.11-debian
+    volumes:
+      - /var/lib/docker/containers:/fluentd/log/containers
+      - ./fluent.conf:/fluentd/etc/fluent.conf
+      - ./logs:/output/
+    logging:
+      driver: "local"
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana:/var/lib/grafana
+
+  # loki:
+  #   container_name: loki
+  #   image: grafana/loki:latest
+  #   ports:
+  #     - "3100:3100"
+
+  # promtail:
+  #   container_name: promtail
+  #   image: grafana/promtail:latest
+  #   volumes:
+  #     - /var/lib/docker/containers:/var/lib/docker/containers
+  #     - ./promtail/promtail.yml:/etc/promtail/promtail.yml
+  #   command: -config.file=/etc/promtail/promtail.yml
