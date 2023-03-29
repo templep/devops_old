@@ -108,23 +108,19 @@ Pour visualiser, nous sélectionnons *import dashboard*. Nous allons sur la page
 ![Image de grafana](grafana.png)
 ## Analyse de résultats
 
+L'affichage offert par grafana nous permet d'observer les performances de notre projet. Nous pouvons observer l'utilisation du processeur (CPU Buzy), ainsi, nous pouvons étudier le projet pour voir si des optimisations sont nécessaires. Nous avons également accès à des indicateurs sur la mémoire utilisé : **RAM Used, RAM Total, memory basic, disk space used basic**. En fonction du projet et du suivi que nous souhaitons réalisé ces données sont plus ou moins importantes. 
 
 Expliquer : 
-CPU Busy 
 Sys Load (5m avg)
 sys load (15m avg)
-ram used
 swap used
 root fs used 
 cup cores 
 uptimes 
 rootfs total 
-ram total 
 swap total 
 cpu basic 
 network traffic basic 
-memory basic 
-disk space used basic 
 
 
 
