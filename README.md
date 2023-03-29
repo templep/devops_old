@@ -146,6 +146,9 @@ Dans notre situation,
 
 En somme, Jenkins est un outil essentiel pour les équipes de développement logiciel qui souhaitent automatiser leur processus de déploiement et de test, afin de pouvoir fournir des logiciels de haute qualité plus rapidement et plus efficacement. Ce qui est notre cas.
 
+![Capture d’écran du 2023-03-29 01-03-10](https://user-images.githubusercontent.com/107374001/228599503-d5db387a-62f5-42a4-87f7-179182efd727.png)
+
+
 
 
 ## **SonarCloud**
