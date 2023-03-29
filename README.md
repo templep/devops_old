@@ -1,6 +1,6 @@
-# DevOps_Tuto
+# Tutoriel de DevOps
 
-# **Intégration continue, Analyse statique et Automatisation des tests**
+# **Thème: Intégration continue, Analyse statique et Automatisation des tests**
 
 ## **Description**
 Ce tutoriel entre dans le cadre des travaux pratiques du cours de DevOps vu en ESIR 2 (SI).
@@ -13,6 +13,8 @@ Nous avons pour ce faire à notre disposition toute une flopée d'outils (chacun
 - [1 - Présentation du projet](#1---présentation-du-projet)
 
 - [2 - Intégration Continue](#2---intégration-continue)
+
+- [3 - Analyse statique](#3---analyse-statique)
 
 - [3 - Présentation et mise en place des outils](#3---présentation-et-mise-en-place-des-outils)
 
