@@ -1,0 +1,21 @@
+apiVersion: skaffold/v1
+kind: Config
+build:
+  artifacts:
+    - image: myDockerRepository/store
+      context: ../store
+      jib: {}
+    - image: myDockerRepository/invoice
+      context: ../invoice
+      jib: {}
+    - image: myDockerRepository/notification
+      context: ../notification
+      jib: {}
+    - image: myDockerRepository/product
+      context: ../product
+      jib: {}
+  tagPolicy:
+    envTemplate:
+      template: "{{.IMAGE_NAME}}:latest"
+deploy:
+  kustomize: {}

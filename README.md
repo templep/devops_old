@@ -241,5 +241,60 @@ Une fois l'installation terminée, vous pouvez vérifier que les différents com
     ```kubectl get pods -n istio-system```
 Cette commande vous permettra de voir les différents composants Istio ainsi que Grafana, Prometheus, Kiali et Zipkin en cours d'exécution.
 
+## V- Déployer la pile de microservices sur GKE
+
+Maintenant que nous avons configuré Istio et installé les outils d'observabilité sur notre cluster GKE, il est temps de déployer notre pile de microservices Kaia-service. Pour cela, nous allons utiliser des manifestes Kubernetes qui décrivent les différents composants de notre application. Dans cette partie, nous allons créer ces manifestes et les appliquer à notre cluster.
+
+### V.1- Créer les manifestes Kubernetes
+
+Le déploiement de JHipster sur Kubernetes est une tâche relativement simple, grâce à la génération automatique des fichiers YAML Kubernetes à partir d'un fichier JDL (JHipster Domain Language). Pour cela, vous pouvez créer un nouveau fichier JDL avec les spécifications de déploiement souhaitées, comme le type de déploiement, les dossiers d'application, le référentiel Docker, le type de découverte de service, et d'autres options. 
+
+Par exemple, vous pouvez créer un fichier JDL nommé "deployment.jdl" contenant les spécifications suivantes :
+```
+// will be created under 'kubernetes' folder
+deployment {
+  deploymentType kubernetes
+  appsFolders [store, invoice, notification, product]
+  dockerRepositoryName "<your-docker-repository-name>"
+  serviceDiscoveryType no
+  istio true
+  kubernetesServiceType Ingress
+  kubernetesNamespace jhipster
+  ingressDomain "<istio-ingress-gateway-external-ip>.nip.io"
+  ingressType gke
+}
+```
+
+Dans ce fichier JDL, nous avons activé Istio et défini le domaine d'entrée sur l'adresse IP externe de la passerelle d'entrée Istio que nous avons notée précédemment. Pour mapper un DNS pour l'adresse IP, nous pouvons utiliser un service DNS générique comme nip.io. Une fois que le fichier JDL est prêt, vous pouvez exécuter à partir du dossier racine la commande suivante :
+    ```jhipster jdl deployment.jdl```
+
+Cela créera un nouveau dossier, "kubernetes", avec tous les manifestes Kubernetes requis tels que les déploiements, les services, les services virtuels Istio, les passerelles, etc., pour toutes les applications, bases de données et surveillance.
+
+Chacun des services disposera également d'un service virtuel Istio et d'une règle de destination pour définir les politiques de trafic. Par exemple, le service de facturation aura la règle de destination suivante :
+```
+
+```
+
+### V.2- Déployer sur GKE
+
+Avant de déployer notre application sur GKE, nous devons créer et envoyer les images Docker au registre. Pour cela, nous allons utiliser les commandes Jib fournies par JHipster. Naviguez vers chacun des dossiers de microservices et exécutez les commandes suivantes :
+```
+cd store && ./gradlew bootJar -Pprod jib -Djib.to.image=myDockerRepository/store
+cd invoice && ./gradlew bootJar -Pprod jib -Djib.to.image=myDockerRepository/invoice
+cd notification && ./gradlew bootJar -Pprod jib -Djib.to.image=myDockerRepository/notification
+cd product && ./gradlew bootJar -Pprod jib -Djib.to.image=myDockerRepository/product
+
+```
+
+Une fois les images Docker créées et poussées vers le registre, nous pouvons déployer notre application sur GKE à l'aide du script fourni par JHipster. Accédez au dossier kubernetes créé par JHipster et exécutez la commande suivante :
+    ```
+    cd kubernetes
+    ./kubectl-apply.sh -f   
+
+    ```
+Une fois les déploiements effectués, il faut attendre que les pods soient en statut RUNNING . Les liens utiles seront imprimés sur le terminal ; notez-les. Vous pouvez maintenant accéder à l'application à http://store.jhipster.34.79.34.217.nip.io l'URI donné et vous connecter avec les informations d'identification par défaut.
+
+
+
 
 
