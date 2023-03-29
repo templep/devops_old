@@ -29,6 +29,16 @@ The bots we used and described during this project are mostly bots helping with 
 (source: https://youtu.be/BsgnLwPMqWM)
 
 # Tools
+
 - [RenovateBot](./renovatebot.md)
 - [Dependabot](./dependabot.md)
 - [Imgbot](./imgbot.md)
+
+
+# Overall Feedback
+
+
+- The bots are very useful and help us a lot in our daily work.
+- The ease of use of the bots is very good. Just add the bot to your repository and it will do the rest. If you want to configure it, you can do it easily.
+- The bots are very useful for the DevOps philosophy. They help us to automate and to respect the DevOps philosophy.
+- It helps mostly with repetitive tasks. Or on things that depend on the environment (like the dependencies for example).

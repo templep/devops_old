@@ -92,7 +92,4 @@ With the following `.imgbotconfig` file:
 }
 ```
 
-Here is the result:
-
-<img src="./docs/imgbot/aggressive.png" width="500">
 
