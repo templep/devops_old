@@ -188,8 +188,36 @@ On remarque aisement dans l'ensemble que Sonarcloud est un outil puissant qui a 
 
 # 5 - Guide de lancement
 
+Vous souhaitez réimplémenter notre application et avoir accès à ces différentes interface???
+Rien de plus simple:
 
-# 6 - Démo
+- Cloner le répertoire actuel. Vous pouvez le faire en vous servant de la commande suivante:
+
+          - git clone
+
+- Pour des dépendances particulières du backend vous devez vous rendre dans le répertoire du backend et installez npm
+
+
+         - sudo npm install 
+
+- Pour lancer ensuite l'application rdv à la racine du projet et effectuer la commande suivante:
+  
+        - docker-compose up
+ 
+- Ensuite rendez vous sur l'interface utilisateur situez à l'addresse suivante: localhost:4200/
+
+- Envie de vous connecter?? Vous pouvez initialiser la base de données en excétutant dans un autre terminal les commandes suivantes:
+
+       - cd backend/test
+       - bash dev_init_db_specific_apis.sh
+
+- Ensuite connectez vous avec les identifiants suivants:
+
+       username: 1
+       password: onepiece
+       
+- Profitez ensuite de la plateforme pour créer des utilisateurs et des associations a volonté
+ 
 
 
 
