@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "buildkite-test-collector": "^1.4.2"
+  }
+}
