@@ -7,7 +7,7 @@ WORKDIR /albarry/src/app
 COPY package*.json ./
 
 # Install deps inside container 
-RUN npm install
+RUN npm install --engine-strict=false
 
 # Bundle App Sources
 COPY . .
