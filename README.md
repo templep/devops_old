@@ -131,37 +131,36 @@ Dans cette section, l'on décrirera de façon précises les outils choisis. L'on
 
 ## **Bazel**
 
-- [x] **Présentation:** Bazel est un système de construction (build system) open source développé par Google. Il est conçu pour permettre la construction d'applications de manière efficace, rapide et reproductible, en particulier pour des projets de grande envergure avec de nombreuses dépendances et configurations. Bazel utilise une approche basée sur des *règles* pour définir comment construire des projets. Les règles Bazel décrivent comment les différentes parties d'un projet sont compilées, liées, testées et déployées. Les règles sont écrites en utilisant une syntaxe de type fonction, qui permet aux développeurs de décrire de manière précise comment les dépendances doivent être résolues, comment le code doit être compilé et comment les artefacts doivent être créés.
+- ### **Présentation** 
 
-- [x] **Raisons du choix:** L'un des principaux avantages de Bazel est sa capacité à effectuer des builds incrémentiels, où seules les parties du projet qui ont été modifiées depuis le dernier build sont reconstruites. Cela peut réduire considérablement *les temps de build*, en particulier pour des projets de grande envergure.Bazel prend en charge plusieurs langages de programmation, y compris C++, Java, Python, et de nombreux autres. Il est également compatible avec plusieurs plateformes, y compris Linux, macOS et Windows. Dans notre cas nous sommes dans un environement linux et les langages concernés par notre application sont: TypeScript pour notre backend nestjs et notre frontend angular et Java pour notre microservice quarkus. Notre MOM RabbitMQ et notre database ne nous interesserons pas dans cette section étant donné le choix que nous avons fait de les exécuter autravers d'image docker vu qu'ils ne nécessite pas de configuration suppélementaire de notre part.
+Bazel est un système de construction (build system) open source développé par Google. Il est conçu pour permettre la construction d'applications de manière efficace, rapide et reproductible, en particulier pour des projets de grande envergure avec de nombreuses dépendances et configurations. Bazel utilise une approche basée sur des *règles* pour définir comment construire des projets. Les règles Bazel décrivent comment les différentes parties d'un projet sont compilées, liées, testées et déployées. Les règles sont écrites en utilisant une syntaxe de type fonction, qui permet aux développeurs de décrire de manière précise comment les dépendances doivent être résolues, comment le code doit être compilé et comment les artefacts doivent être créés.
 
-- [x] **Mise en oeuvre:** Bazel construit des logiciels à partir d'un code source organisé dans une arborescence de répertoires appelée espace de travail. Les fichiers sources de l'espace de travail sont organisés dans une hiérarchie imbriquée de paquets, où chaque paquet est un répertoire qui contient un ensemble de fichiers sources apparentés et un fichier BUILD. Le fichier BUILD spécifie les sorties logicielles qui peuvent être construites à partir du code source.
+- ### **Raisons du choix** 
+
+L'un des principaux avantages de Bazel est sa capacité à effectuer des builds incrémentiels, où seules les parties du projet qui ont été modifiées depuis le dernier build sont reconstruites. Cela peut réduire considérablement *les temps de build*, en particulier pour des projets de grande envergure.Bazel prend en charge plusieurs langages de programmation, y compris C++, Java, Python, et de nombreux autres. Il est également compatible avec plusieurs plateformes, y compris Linux, macOS et Windows. Dans notre cas nous sommes dans un environement linux et les langages concernés par notre application sont: TypeScript pour notre backend nestjs et notre frontend angular et Java pour notre microservice quarkus. Notre MOM RabbitMQ et notre database ne nous interesserons pas dans cette section étant donné le choix que nous avons fait de les exécuter autravers d'image docker vu qu'ils ne nécessite pas de configuration suppélementaire de notre part.
+
+- ### **Mise en oeuvre** 
+
+- #### Les Buid avec Bazel
+
+Bazel construit des logiciels à partir d'un code source organisé dans une arborescence de répertoires appelée espace de travail. Les fichiers sources de l'espace de travail sont organisés dans une hiérarchie imbriquée de paquets, où chaque paquet est un répertoire qui contient un ensemble de fichiers sources apparentés et un fichier BUILD. Le fichier BUILD spécifie les sorties logicielles qui peuvent être construites à partir du code source.
 Un espace de travail est une arborescence de répertoires sur votre système de fichiers qui contient les fichiers sources du logiciel que vous souhaitez construire. Chaque espace de travail possède un fichier texte nommé WORKSPACE qui peut être vide ou contenir des références à des dépendances externes nécessaires à la construction des résultats.
 Dans notre situation, 
 
 !! Les répertoires contenant un fichier appelé WORKSPACE sont considérés comme la racine d'un espace de travail. Par conséquent, Bazel ignore toute arborescence de répertoires dans un espace de travail dont la racine est un sous-répertoire contenant un fichier WORKSPACE, car ils forment un autre espace de travail.
 
-CI AVEC BAZEL
-
-
-## **Jenkins**
-- [x] **Présentation:** Jenkins est un outil open-source d'intégration continue et de déploiement continu (CI/CD) qui permet de construire, tester et déployer des logiciels de manière automatisée. Il est principalement utilisé pour automatiser les tâches répétitives du processus de développement logiciel, telles que la compilation de code source, l'exécution de tests, la construction d'images Docker, le déploiement sur différents environnements, etc.
-
-- [x] **Raisons du choix:** Jenkins offre une grande flexibilité et peut être facilement intégré avec d'autres outils de développement logiciel tels que Git, GitHub, SVN, Jira, etc. Il dispose également d'une large communauté de développeurs et de contributeurs, ce qui lui permet de disposer d'un grand nombre de plugins pour étendre ses fonctionnalités et s'adapter à différents besoins.
-
-En somme, Jenkins est un outil essentiel pour les équipes de développement logiciel qui souhaitent automatiser leur processus de déploiement et de test, afin de pouvoir fournir des logiciels de haute qualité plus rapidement et plus efficacement. Ce qui est notre cas.
-
-![Capture d’écran du 2023-03-29 01-03-10](https://user-images.githubusercontent.com/107374001/228599503-d5db387a-62f5-42a4-87f7-179182efd727.png)
-
-
+- #### Ah Oui Une interface pour la CI et l'automatisation des tests
 
 
 ## **SonarCloud**
-- [x] **Présentation:** C'est un service cloud d'analyse de code proposé par la société SonarSource. Il permet aux développeurs et aux équipes de développement de détecter et de corriger les vulnérabilités, les bugs, les erreurs et les problèmes de qualité de code dans leurs applications. SonarCloud utilise une variété de techniques d'analyse statique pour évaluer la qualité du code, y compris l'analyse de la complexité cyclomatique, la détection de code dupliqué, la couverture de code, la conformité aux normes de codage et la détection de vulnérabilités de sécurité connues.
+- ### **Présentation** 
+C'est un service cloud d'analyse de code proposé par la société SonarSource. Il permet aux développeurs et aux équipes de développement de détecter et de corriger les vulnérabilités, les bugs, les erreurs et les problèmes de qualité de code dans leurs applications. SonarCloud utilise une variété de techniques d'analyse statique pour évaluer la qualité du code, y compris l'analyse de la complexité cyclomatique, la détection de code dupliqué, la couverture de code, la conformité aux normes de codage et la détection de vulnérabilités de sécurité connues.
 
-- [x] Raisons du choix: En intégrant SonarCloud dans notre processus de développement, on améliore la qualité de notre code, réduit les bugs et les vulnérabilités et on améliore la sécurité globale de notre application.SonarCloud propose des intégrations avec de nombreux outils de développement populaires tels que GitHub, GitLab et Azure DevOps ce qui constitue d'ailleurs l'une des raisons majeurs de son adoption.
+- ### **Raisons du choix** 
+En intégrant SonarCloud dans notre processus de développement, on améliore la qualité de notre code, réduit les bugs et les vulnérabilités et on améliore la sécurité globale de notre application.SonarCloud propose des intégrations avec de nombreux outils de développement populaires tels que GitHub, GitLab et Azure DevOps ce qui constitue d'ailleurs l'une des raisons majeurs de son adoption.
 
-- [x] Mise en oeuvre: Pour l'intégrer à notre projet rien de plus simple:
+- ### **Mise en oeuvre**
+Pour l'intégrer à notre projet rien de plus simple:
   - Se rendre sur le site officiel de SonarCloud: https://sonarcloud.io;
   - Se connecter via notre compte de versionnage de code en l'occurence *github* dans notre cas;
   - Selectionner le "repository" concerné;
@@ -172,15 +171,14 @@ En somme, Jenkins est un outil essentiel pour les équipes de développement log
                                                
 ![Capture d’écran du 2023-03-28 01-45-37](https://user-images.githubusercontent.com/107374001/228093202-0120c4a0-9763-4a5e-8838-7824dd26f270.png)
                                                
-                                               Apperçu du dashboard après prise en compte  
+                                               Apperçu du dashboard avec vue sur le code
 
 
-On remarque aisement dans l'ensemble que Sonarcloud est un outil puissant qui a permis d'améliorer la qualité du code et de s'assurer que notre base de code est maintenable, évolutive et sécurisée.
+
+On remarque aisement dans l'ensemble que Sonarcloud est un outil puissant qui nous permet d'améliorer la qualité du code et de s'assurer que notre base de code est maintenable, évolutive et sécurisée.
 
 
-## **Skymutator**
-
-## **CI/CD pipeline avec Github actions**
+## **CI pipeline avec Github actions**
 
 
 # 4 - Observations et commentaires
