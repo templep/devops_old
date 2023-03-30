@@ -40,7 +40,9 @@ L'on dispose donc:
 
 - Un microservice Quarkus qui implémente le consumer pour la queue Rabbitmq. Ce microservice est chargé de la logique pour l'envoie des mails;
 
-L'ensemble de ses microservice sont déployés au sein de containers docker.
+L'ensemble de ses microservice sont déployés au sein de  containers docker.
+
+![Capture d’écran du 2023-01-31 08-33-22](https://user-images.githubusercontent.com/107374001/228955326-dfd6aff4-030e-4188-8ee5-7faf5dab2a6e.png)
 
 
 
