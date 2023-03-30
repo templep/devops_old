@@ -12,13 +12,13 @@ services:
     logging:
       driver: "local"
 
-  grafana:
-    container_name: grafana
-    image: grafana/grafana:latest
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./grafana:/var/lib/grafana
+  # grafana:
+  #   container_name: grafana
+  #   image: grafana/grafana:latest
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - ./grafana:/var/lib/grafana
 
   # loki:
   #   container_name: loki
