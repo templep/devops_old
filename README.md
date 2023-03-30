@@ -1,14 +1,18 @@
-# UR1/ESIR DevOps Course
-This repository contains the material and content of the DevOps course at the engineering school ESIR of the University of Rennes 1. 
+# DevOps : monitoring, logging, ...
 
-## Year 2022-2023
+Ce projet s'appuie sur l'application créée en cours de développement web du premier semestre et conteneuriser en cours d'architecture logiciel.
+Nous avons décidé de créer 3 branches différentes afin de pouvoir partir sur 3 possibilités différentes :
+branches :
 
-### Scheduling
+  - test_graffana : TODO
+  - timeResponse : permet d'afficher dans la console le temps mis par les appels du front vers le back.
+  - ??? : TODO
 
-- Introduction to the course and DevOps: Oct. 10th, 2022
-- Quick overview of DevSecOps and MLSecOps: Oct. 13th, 2022
-- Final presentations: Dec. 7th, 2022 (8h-10h)
+Chaque branche dispose d'un readme expliquant plus en détail ses fonctionnalités.
 
-### Material
+# Fonctionnement
 
-The introduction to the course and DevOps can be found [here](https://people.irisa.fr/Benoit.Combemale/course/esir/esir3/). 
+Afin de correctement faire fonctionner le projet, nous avons dû grandement le modifier dans sa structure. Ainsi, certains bugs sont présents et les fonctionnalités initiales du projet ne sont plus toutes fonctionnelles.
+
+Pour lancer le projet, il faut lancer le docker compose puis se connecter sur le localhost:80.
+On peut ensuite créer un utilisateur en cliquant sur Register, puis se connecter en cliquant sur login (il est impératif de créer un utilisateur avant de se connecter, car la BDD est vide lors du lancement du projet).
