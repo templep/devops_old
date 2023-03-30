@@ -5,7 +5,7 @@ WORKDIR /albarry/frontend/src/app
 COPY package*.json ./
 
 Run npm install -g npm@9.6.3
-RUN npm ci --engine-strict=false
+RUN npm ci --engine-strict=false --force
 RUN npm install -g @angular/cli
 
 COPY . .
