@@ -9,20 +9,20 @@
 
 ESIR2 Spé INFO, Option SI, année 2022-2023
 
-# Tutoriel mise en place d'un outil d'infrastrucure as code
+# Tutoriel mise en place d'un outil d'Infrastrucure as Code
 
-Avant qu'est-ce qu'un outil d'infrastructure as code ? Il s'agit d'un framework permettant de mettre en place l'ensemble des serveurs, des micro-services, des base de données, etc. via un code, et non via des commandes dans un terminal.
+Avant tout qu'est-ce qu'un outil d'Infrastructure as Code ? Il s'agit d'un framework permettant de mettre en place l'ensemble des serveurs, des micro-services, des base de données, etc. via du code, et non via des commandes dans un terminal.
 
-Par exemple, pour mettre en place un site internet, avec une base de données et un pare-feu, il faut d'abords créer et lancer une base de données via les commandes MySQL, en définissant le port, les identifiants et une table par défaut. Ensuite créer un serveur http, par exemple avec Apache et enfin configurer le pare-feu via la commandes "iptables".
-Toute ces étapes sont longues et difficilement répétables. Nous pouvons penser à faire un script bash par exemple mais cela rend la tache très complexe.
+Par exemple, pour mettre en place un site internet, avec une base de données et un pare-feu, il faut d'abord créer et lancer une base de données via les commandes MySQL, en définissant le port, les identifiants et une table par défaut. Ensuite créer un serveur http, par exemple avec Apache et enfin configurer le pare-feu via la commandes "iptables".
+Toutes ces étapes sont longues et difficilement répétables. Nous pouvons penser à faire un script bash par exemple mais cela rend la tache très complexe.
 
-C'est ici que les outils d'infrastructure as code sont très pratiques. Ils vont permettrent d'effectuer ces étapes de déploiment en les décrivants dans un code. Il sera donc très aisé de répéter toute ces étapes dans un nouvel environnement où l'application doit être déployée.
+C'est ici que les outils d'Infrastructure as Code sont très pratiques. Ils vont permettre d'effectuer ces étapes de déploiment en les décrivant dans du code. Il sera donc très aisé de répéter toutes ces étapes dans un nouvel environnement où l'application doit être déployée.
 
 Très bien, mais quel framework choisir ?
 
 ## 1 - Choix du Framework
 
-Il existe de nombreux framework d'infrastrucutre as code. Parmis les plus connus nous pouvons citer :
+Il existe de nombreux framework d'infrastrucutre as code. Parmi les plus connus nous pouvons citer :
 - Ansible
 - Terraform
 - Puppet
@@ -45,7 +45,7 @@ Pour ce tutoriel, nous avons repris un projet développé en cours d'AL/WEB. Il 
 - Un serveur de visualisation de données : Grafana
 - Et un reverse proxy Nginx
 
-L'ensemble de ces micro-services sont déployés sur des dockers et tous ces dockers sont gérés par un docker-compose.
+L'ensemble de ces micro-services est déployé sur des dockers et tous ces dockers sont gérés par un docker-compose.
 
 Lien du projet initial : https://github.com/Thomega35/TP1_WEB/tree/DockerKiki
 
@@ -94,9 +94,9 @@ Maintenant dans les parties suivantes nous allons :
 
 - (5.2) Créer deux volumes Docker pour stocker les données de la base de données et de RabbitMQ.
 
-- (5.3) Ecrire le code de déploiement de chaque micro-service Docker.
+- (5.3) Écrire le code de déploiement de chaque micro-service Docker.
 
-    Cela ce fait en deux parties :
+    Cela se fait en deux parties :
 
         - Création de l'image Docker
 
@@ -124,7 +124,7 @@ Grâce à ce réseau, les containers pourront communiquer entre eux. Il suffira 
 
 ### 5.2 - Docker Volume
 
-Un volume sert à stocker des données pour qu'elles persistes même si les containers sont supprimés.
+Un volume sert à stocker des données pour qu'elles persistent même si les containers sont supprimés.
 
 Pour les créer, nous utilisons la ressource Docker Volume :
 
@@ -147,7 +147,7 @@ Ils seront utilisés plus tard dans le code et référencés par leur nom (*volu
 
 ### 5.3 - Déploiement des micro-services
 
-Pour chaque micro-service, le code sera donné. Cependant le contenu de ces codes relèvent plus du fonctionnement de l'application que de la mise en place de Terraform, il n'y aura d'explication de ces derniers dans ce document mais le ReadMe du projet d'origine donne toutes les explications (voir : ReadMe.md dans le dossier terraformproject)
+Pour chaque micro-service, le code sera donné. Cependant le contenu de ces codes relèvent plus du fonctionnement de l'application que de la mise en place de Terraform, il n'y aura pas d'explication de ces derniers dans ce document mais le README du projet d'origine donne toutes les explications (voir : README.md dans le dossier terraformproject)
 
 Aussi l'ensemble de ce projet Terraform peut-être retrouvé dans le dossier : `terraformproject`.
 
@@ -374,7 +374,7 @@ terraform apply
 ```
 
 Il est maintenant possible d'accéder à l'application via l'adresse `http://localhost/`.
-(voire : ReadMe.md dans le dossier terraformproject)
+(voire : README.md dans le dossier terraformproject)
 
 ## 7 - Fonctionnement de Terraform
 
@@ -414,8 +414,8 @@ La commande `terraform destroy` permet de détruire l'infrastructure.
 
 ### 7.6 - Terraform state
 
-La commande `terraform state` permet de gérer l'état de l'infrastructure. Elle permet de voir l'état actuel de l'infrastructure, de le sauvegarder, de le restaurer, etc.
+La commande `terraform state` permet de gérer l'état de l'infrastructure. Elle permet de voir l'état actuel de l'infrastructure, de la sauvegarder, de la restaurer, etc.
 
 ## 8 - Conclusion
 
-Pour conclure, ce tutoriel a permis de montrer comment créer une infrastructure avec Terraform à partir d'un projet déjà existant. Il a aussi montré comment créer des ressources Docker avec Terraform. Terraform est un outil très puissant et ce tutoriel n'est pas exaustife sur toutes les possibilités qu'il offre.
+Pour conclure, ce tutoriel a permis de montrer comment créer une infrastructure avec Terraform à partir d'un projet déjà existant. Il a, en même temps, été montré comment créer des ressources Docker avec Terraform. Terraform est un outil très puissant et ce tutoriel n'est qu'une petite partie de tout ce que peut offrir Terraform.
