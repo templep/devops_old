@@ -2,16 +2,16 @@ apiVersion: skaffold/v1
 kind: Config
 build:
   artifacts:
-    - image: myDockerRepository/store
+    - image: kaia4vente/store
       context: ../store
       jib: {}
-    - image: myDockerRepository/invoice
+    - image: kaia4vente/invoice
       context: ../invoice
       jib: {}
-    - image: myDockerRepository/notification
+    - image: kaia4vente/notification
       context: ../notification
       jib: {}
-    - image: myDockerRepository/product
+    - image: kaia4vente/product
       context: ../product
       jib: {}
   tagPolicy:

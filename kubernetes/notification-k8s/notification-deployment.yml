@@ -46,7 +46,7 @@ spec:
               done
       containers:
         - name: notification-app
-          image: myDockerRepository/notification
+          image: kaia4vente/notification
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: prod

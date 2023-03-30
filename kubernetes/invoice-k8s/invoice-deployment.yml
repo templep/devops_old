@@ -46,7 +46,7 @@ spec:
               done
       containers:
         - name: invoice-app
-          image: myDockerRepository/invoice
+          image: kaia4vente/invoice
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: prod

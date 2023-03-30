@@ -7,7 +7,7 @@ metadata:
     app: invoice-postgresql
 type: Opaque
 data:
-  postgresql-password: MTA2ZWIwYWNhZmQyNDg2YzE1NzE5NDk2NzEwOGY1MWZmMDE5YjU3NGNjNjFlMDU0ODc5MTdkMmQzZmZm
+  postgresql-password: ZDkyZjVmOGE3ZTRlOGViZjRhYWFkNWE4NzUxNmEyMjY1ZmJmNTQ1ZTY2NjE3NjI5YTJmMWM5OGJiMTcz
 ---
 apiVersion: apps/v1
 kind: Deployment

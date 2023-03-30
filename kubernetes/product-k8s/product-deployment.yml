@@ -46,7 +46,7 @@ spec:
               done
       containers:
         - name: product-app
-          image: myDockerRepository/product
+          image: kaia4vente/product
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: prod

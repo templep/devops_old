@@ -5,14 +5,14 @@
 You will need to push your image to a registry. If you have not done so, use the following commands to tag and push the images:
 
 ```
-$ docker image tag store myDockerRepository/store
-$ docker push myDockerRepository/store
-$ docker image tag invoice myDockerRepository/invoice
-$ docker push myDockerRepository/invoice
-$ docker image tag notification myDockerRepository/notification
-$ docker push myDockerRepository/notification
-$ docker image tag product myDockerRepository/product
-$ docker push myDockerRepository/product
+$ docker image tag store kaia4vente/store
+$ docker push kaia4vente/store
+$ docker image tag invoice kaia4vente/invoice
+$ docker push kaia4vente/invoice
+$ docker image tag notification kaia4vente/notification
+$ docker push kaia4vente/notification
+$ docker image tag product kaia4vente/product
+$ docker push kaia4vente/product
 ```
 
 ## Deployment

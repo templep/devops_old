@@ -2,7 +2,7 @@
 deployment {
   deploymentType kubernetes
   appsFolders [store, invoice, notification, product]
-  dockerRepositoryName "myDockerRepository"
+  dockerRepositoryName "kaia4vente"
   serviceDiscoveryType no
   istio true
   kubernetesServiceType Ingress
