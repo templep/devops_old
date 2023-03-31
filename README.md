@@ -278,6 +278,9 @@ Rien de plus simple:
  
  
  # 5 - Références
+ 
+ - Bazel https://bazel.build/
+ - Sonar https://www.sonarsource.com/products/sonarqube/
 
 
 
