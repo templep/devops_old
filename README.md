@@ -14,13 +14,13 @@ Nous avons pour ce faire à notre disposition toute une flopée d'outils (chacun
 
 - [2 - Intégration Continue](#2---intégration-continue)
 
-- [3 - Outils pour la CI et l'automatisation des Tests: BAZEL](#3---outils-pour-la-CI-et-l-automatisation-des-tests-BAZEL)
+- [3 - Outils pour la CI et l'automatisation des Tests:BAZEL](#3---outils-pour-la-CI-et-l-automatisation-des-tests-:-BAZEL)
 
 - [4 - Analyse statique](#4---analyse-statique)
 
-- [5 - Outils pour l'analyse statique: Sonarcloud] (#5---outils-pour-l-analyse-statique-sonarcloud)
+- [5 - Outils pour l'analyse statique:Sonarcloud](#5---outils-pour-l-analyse-statique-:-sonarcloud)
 
-- [6 - Observations et commentaires] (#6---observations-et-commentaires)
+- [6 - Observations et commentaires](#6---observations-et-commentaires)
 
 - [7 - Guide de lancement des applis](#7---guide-de-lancement-des-applis)
 
@@ -218,6 +218,8 @@ Nous allons par la suite créer une pipeline qui aura pour tâche principale le 
 
 
 # 4 - Analyse Statique 
+L'analyse statique en VV (Validation et Vérification) est une technique de vérification de logiciels qui consiste à analyser le code source d'un programme sans l'exécuter, afin d'identifier les erreurs 
+potentielles et les violations de normes de programmation. Contrairement à l'analyse dynamique qui exécute le programme et vérifie son comportement, l'analyse statique se concentre sur le code lui-même et permet de détecter des erreurs avant même que le programme ne soit compilé ou exécuté.
 
 # 5 - Outils pour l'analyse statique: Sonarcloud 
 
