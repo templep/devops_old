@@ -32,7 +32,7 @@ L'on dispose donc:
 
 - D'un backend chargé de toutes les opérations CRUD (Create, Retreive, Update, Delete) sur les membres des associations. Ce dernier est developpé en **NestJs**;
 
-- Une base de données PostgreSQL pour le stockage (une image docker dans notre cas); 
+- Une base de données PostgreSQL pour le stockage (une image  docker dans notre cas); 
 
 - D'un frontend naturellement pour l'aspect visuel du site web réalisé en **Angular**;
 
