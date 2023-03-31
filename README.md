@@ -113,7 +113,7 @@ Tester différents paramètres de configuration pour optimiser les performances 
 Cela peut aider à améliorer les temps de réponse, à réduire la charge sur les serveurs et à améliorer la fiabilité globale du système.
 
 ### Tutoriel
-[tuto]
+[Cliquez ici pour voir le tutoriel A/B TEST](./documentation/ABTEST/ABTEST.md)
 
 ## CANARY RELEASES
 Consiste à déployer une nouvelle version d'une application sur une petite partie de l'infrastructure, avant de la déployer sur l'ensemble de l'infrastructure.
@@ -136,7 +136,7 @@ Cela permet de corriger rapidement les problèmes et d'améliorer la qualité gl
 En surveillant de près les performances de la version, il est possible d'identifier les problèmes potentiels et de mieux comprendre comment la nouvelle version affecte le système dans son ensemble.
 
 ### Tutoriel
-[tuto]
+[Cliquez ici pour voir le tutoriel CANARY RELEASE](./documentation/canary/canary.md)
 
 ## Conclusion
 
