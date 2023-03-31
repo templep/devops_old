@@ -4,7 +4,7 @@ Ce projet s'appuie sur l'application créée en cours de développement web du p
 Nous avons décidé de créer 3 branches différentes afin de pouvoir partir sur 3 possibilités différentes :
 branches :
 
-  - test_graffana : TODO
+  - test_graffana : permet d'affichier via grafana des metriques concernant l'utilisation de la machine par le projet
   - timeResponse : permet d'afficher dans la console le temps mis par les appels du front vers le back.
   - ??? : TODO
 
