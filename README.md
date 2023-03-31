@@ -42,8 +42,7 @@ L'on dispose donc:
 
 L'ensemble de ses microservice sont déployés au sein de  containers docker.
 
-![Capture d’écran du 2023-01-31 08-33-22](https://user-images.githubusercontent.com/107374001/228955326-dfd6aff4-030e-4188-8ee5-7faf5dab2a6e.png)
-
+![Capture d’écran du 2023-03-30 22-17-18](https://user-images.githubusercontent.com/107374001/229088644-ba669043-4747-4467-b92a-30876a78eeea.png)
 
 
 # 2 - Intégration Continue
@@ -151,19 +150,33 @@ Dans notre situation,
 
 Voici en gros la procédure à adopter quand on veux mettre en place bazel au sein de notre projet
 
-    1- On commence tout d'abord par créer un fichier WORKSPACE à la racine de notre projet pour définir les dépendances externes dont notre projet a besoin.
+    1- On commence tout d'abord par créer un fichier WORKSPACE à la racine de notre projet pour définir les dépendances externes dont notre projet a
+    besoin.
 
-    2- On Crée ensuite un fichier BUILD à chaque niveau de notre arborescence de fichiers pour décrire les cibles à construire à ce niveau et les dépendances dont ces cibles ont besoin.
 
-    3- On peu par après se servir de la documentation officielle de Bazel pour connaître la syntaxe et les règles de construction appropriées pour votre langage de programmation et votre framework. Comme mentionnez ici les règles de construction sont différentes d'un langage à un autres et pour certains langages ils faut effectuer des recherches un plus poussée afin de trouver les règles adéquates. 
+    2- On Crée ensuite un fichier BUILD à chaque niveau de notre arborescence de fichiers pour décrire les cibles à construire à ce niveau et les
+    dépendances dont ces cibles ont besoin.
 
-    4- Il faut s'assurer d'éviter les dépendances implicites autant que possible en utilisant des règles explicites et en spécifiant des dépendances spécifiques.
 
-    5- Utilison ensuite les commandes de débogage Bazel telles que bazel query et bazel build --explain pour déterminer les problèmes potentiels dans votre fichier de build. Cette étape est nécéssaire parce qu'il n'est pas si évident de parvenir a créer un fichier de build adéquat du premier coup. Croyez nous on a essayé. 
+    3- On peu par après se servir de la documentation officielle de Bazel pour connaître la syntaxe et les règles de construction appropriées pour votre
+    langage de programmation et votre framework. Comme mentionnez ici les règles de construction sont différentes d'un langage à un autres et pour certains
+    langages ils faut effectuer des recherches un plus poussée afin de trouver les règles adéquates. 
+
+
+    4- Il faut s'assurer d'éviter les dépendances implicites autant que possible en utilisant des règles explicites et en spécifiant des dépendances
+    spécifiques.
+
+
+    5- Utilison ensuite les commandes de débogage Bazel telles que bazel query et bazel build --explain pour déterminer les problèmes potentiels dans votre
+    fichier de build. Cette étape est nécéssaire parce qu'il n'est pas si évident de parvenir a créer un fichier de build adéquat du premier coup. Croyez
+    nous on a essayé. 
+
 
     6- On Teste notre fichier de build sur une variété de plates-formes et de configurations pour s'assurer qu'il fonctionne correctement.
 
-    7- Pour finir utilisons des outils de vérification de la qualité de code tels que **Bazelisk** ou **Buildifier** pour formater automatiquement votre fichier de build et détecter les erreurs de syntaxe ou les problèmes de style.
+
+    7- Pour finir utilisons des outils de vérification de la qualité de code tels que **Bazelisk** ou **Buildifier** pour formater automatiquement votre
+    fichier de build et détecter les erreurs de syntaxe ou les problèmes de style.
 
 
 - #### Ah Oui Une interface pour la CI et l'automatisation des tests
@@ -197,6 +210,7 @@ On remarque aisement dans l'ensemble que Sonarcloud est un outil puissant qui no
 
 ## **CI pipeline avec Github actions**
 
+Abordons également 
 
 # 4 - Observations et commentaires
 
@@ -208,7 +222,7 @@ Rien de plus simple:
 
 - Cloner le répertoire actuel. Vous pouvez le faire en vous servant de la commande suivante:
 
-          - git clone
+          - git clone https://github.com/albarry2000/devops.git
 
 - Pour des dépendances particulières du backend vous devez vous rendre dans le répertoire du backend et installez npm
 
