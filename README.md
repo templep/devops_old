@@ -244,6 +244,6 @@ Rien de plus simple:
 - N'hésitez pas à tester les fonctionalités de la plateforme
 
 
-
+- ### **Merci** 
 
 
