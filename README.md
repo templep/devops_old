@@ -282,6 +282,23 @@ Rien de plus simple:
  - Bazel https://bazel.build/
  - Sonar https://www.sonarsource.com/products/sonarqube/
 
+- Detailed failure reports and hassle free assertions Scott test reporter
+https://github.com/dodie/scott
+- Testcontainers to test different environments on the developer's machine
+https://www.testcontainers.org/
+- Cross Browser Testing, Selenium Testing, and Mobile Testing
+https://saucelabs.com/
+- Perfecto - Cloud-based Devops Testing
+https://www.perfecto.io/
+- mutation testing
+https://github.com/hcoles/pitest
+
+- automatic unit test amplification
+https://github.com/STAMP-project/dspot
+https://arxiv.org/pdf/1811.08330.pdf
+
+- mutation testing in JS
+https://stryker-mutator.io/
 
 
 
