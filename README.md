@@ -14,7 +14,7 @@ Nous avons pour ce faire à notre disposition toute une flopée d'outils (chacun
 
 - [2 - Intégration Continue](#2---intégration-continue)
 
-- [3 - Outils pour la CI et l'automatisation des Tests:BAZEL](#3---outils-pour-la-CI-et-l-automatisation-des-tests-:-BAZEL)
+- [3 - Outils pour la CI et l'automatisation des Tests: BAZEL](#3---outils-pour-la-CI-et-l-'-automatisation-des-Tests-:-BAZEL)
 
 - [4 - Analyse statique](#4---analyse-statique)
 
@@ -208,7 +208,21 @@ Une fois sur buildkite on va s'assurer de le lier a notre reertoire github
 
 ![Capture d’écran du 2023-03-30 22-29-25](https://user-images.githubusercontent.com/107374001/229186205-22bd1e2f-c594-4afe-94ad-688532d11b10.png)
 
-On suit les différentes instructions 
+On suit les différentes instructions qui sont bien détaillée lors de l'installation.
+
+## La notion d'agent
+
+L'agent c'est en gros la machine qui va lancer les différentes opérations de builds ou de tests
+
+Il est configuratble lors de la création de la pipeline
+
+
+
+## La CI Programmée
+
+Buildkit permet également de programmer un build. Cette fonctionnalité peu s'avérer interresante quand on souhaite programmer des tests de façon régulier
+
+![scheduled](https://user-images.githubusercontent.com/107374001/229240141-2823cd6e-8ae6-4aee-aadb-0e714eeeeee2.png)
 
 
 ## **CI pipeline avec Github actions**
@@ -250,6 +264,22 @@ On remarque aisement dans l'ensemble que Sonarcloud est un outil puissant qui no
  
 
 # 6 - Observations et commentaires
+
+out le long de ce TP nous avions pour objectifs de'expliquer le processus de La CI de l'automatisation des tests tout en le mettant en place au sein de projets au choix.
+Nous avions pour celà une panoplie d'outils à notre disposition. Nous avons pris le soin d'en choisir un par catégorie de façon a permettre une meilleure implémentation 
+Nous avons néamoins dans notre demarche de choix du étudier un ensemble d'outils avant de décider l'adoption d'un en particulier.
+
+Nous pouvons affirmer qu'à ce stade, ce compte rendu de TP met en avant:
+
+- [x] La présentation des notions de CI et d'analyse statique
+
+- [x] Les concepts présents dans notions qui nous intéresse
+
+- [x] Le processus de mise en oeuvre de ces technos
+
+En ce qui concerne la démarche on a beaucoup hésitez sur le choix du projet sur lequel l'on désirait mettre en place la CI.
+Le TP a été réalisé en majorité sur un seul ordinateurs (pour des soucis de matériels des deux autres membres du groupe)
+
 
 
 # 7 - Guide de lancement des applis
