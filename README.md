@@ -3,7 +3,7 @@
 # **Thème: Intégration continue, Analyse statique et Automatisation des tests**
 
 ## **Description**
-Ce tutoriel entre dans le cadre des travaux pratiques du cours  de DevOps vu en ESIR 2 (SI).
+Ce tutoriel entre dans le cadre des travaux pratiques du cours de DevOps vu en ESIR 2 (SI).
 
 Dans ce dernier, nous réaliserons au sein d'un projet au choix, toute la démarche d'intégration continue, d'analyse statique et d'automatisation des tests.
 Nous avons pour ce faire à notre disposition toute une flopée d'outils (chacun entrant dans une catégorie spécifique) que nous essayerons d'adopter dans la mise en oeuvre de la CI, de l'analyse statique de code ainsi que de l'automatisation des tests
@@ -20,9 +20,8 @@ Nous avons pour ce faire à notre disposition toute une flopée d'outils (chacun
 
 - [4 - Observations et commentaires](#4---observations-et-commentaires)
 
-- [5 - Guide de lancement](#5---guide-de-lancement)
+- [5 - Guide de lancement des applis](#5---guide-de-lancement-des-applis)
 
-- [6 - Démo](#6---demo)
 
 # 1 - Présentation du projet
 
@@ -32,7 +31,7 @@ L'on dispose donc:
 
 - D'un backend chargé de toutes les opérations CRUD (Create, Retreive, Update, Delete) sur les membres des associations. Ce dernier est developpé en **NestJs**;
 
-- Une base de données PostgreSQL pour le stockage (une image  docker dans notre cas); 
+- Une base de données PostgreSQL pour le stockage (une image docker dans notre cas); 
 
 - D'un frontend naturellement pour l'aspect visuel du site web réalisé en **Angular**;
 
@@ -44,12 +43,12 @@ L'ensemble de ses microservice sont déployés au sein de  containers docker.
 
 ![Capture d’écran du 2023-03-30 22-17-18](https://user-images.githubusercontent.com/107374001/229088644-ba669043-4747-4467-b92a-30876a78eeea.png)
 
-A côté de ce projets nous avons également un ensemble de microservices dans différents langage (du go,du python, du JS) qui affichent juste HelloWord. Vous nous direz simpliste non? Oui effectivement pour rappel le but est de mettre en place l'intégration continue l'automatisation des tests ainsi que de mettre en place une d'un système  d'analyse statique.
+A côté de ce projets nous avons également un ensemble de microservices dans différents langage (du go,du python, du JS) qui affichent juste HelloWord. Vous nous direz simpliste non? Oui effectivement pour rappel le but est de mettre en place l'intégration continue l'automatisation des tests ainsi que de mettre en place une d'un système d'analyse statique.
 
 # 2 - Intégration Continue
 
 
-L'intégration continue est une pratique de développement logiciel dans laquelle les membres d'une équipe intègrent leur travail fréquemment, en général chaque personne intègre au moins une fois par jour ce qui conduit à plusieurs intégrations par jour. Chaque intégration est vérifiée par une construction automatisée (y compris des tests) afin  de détecter les erreurs d'intégration le plus rapidement possible. De nombreuses équipes estiment que cette approche permet de réduire considérablement les problèmes d'intégration et de développer plus rapidement des logiciels cohérents.
+L'intégration continue est une pratique de développement logiciel dans laquelle les membres d'une équipe intègrent leur travail fréquemment, en général chaque personne intègre au moins une fois par jour ce qui conduit à plusieurs intégrations par jour. Chaque intégration est vérifiée par une construction automatisée (y compris des tests) afin de détecter les erreurs d'intégration le plus rapidement possible. De nombreuses équipes estiment que cette approche permet de réduire considérablement les problèmes d'intégration et de développer plus rapidement des logiciels cohérents.
 
 Une fois qu’on sait ce qu’est l'intégration continue de façon globale,  faire en sorte que tout cela fonctionne sans accroc, c'est évidemment un peu plus complexe que cela. Nous allons dans la suite nous  concentrer sur les pratiques clés qui font d'une intégration continue une totale réussite.
 
@@ -191,8 +190,21 @@ C'est là qu'intervient **buidkite**
 
 ### Présentation de Buildkite
 
+Buildkite est une plateforme d'automatisation de tests et de déploiements pour les équipes de développement logiciel. Elle permet aux développeurs de créer, tester et déployer leur code de manière efficace et fiable.
+
+Buildkite offre une grande flexibilité et peut être utilisé avec une variété de langages de programmation, d'outils de développement et de systèmes de gestion de code source. Les utilisateurs peuvent créer des pipelines de déploiement pour automatiser toutes les étapes du processus de développement, de la compilation à la distribution.
+
+Buildkite est également connu pour sa facilité d'utilisation, sa prise en charge des tests parallèles et son intégration transparente avec d'autres outils populaires tels que GitHub, GitLab et Bitbucket.
+Rendons nous sur le site: https://buildkite.com/
+On créé un compte et une organisation(Le nom de notre projet fera l'affaire )
+Ensuite on a le choix entre créer une pipeline ou faire de l'analyse de tests
 ![Capture d’écran du 2023-03-30 22-29-03](https://user-images.githubusercontent.com/107374001/229184827-7bfc908e-fc64-425f-84ff-96af77f5be78.png)
 
+Une fois sur buildkite on va s'assurer de le lier a notre reertoire github 
+
+![Capture d’écran du 2023-03-30 22-29-25](https://user-images.githubusercontent.com/107374001/229186205-22bd1e2f-c594-4afe-94ad-688532d11b10.png)
+
+On suit les différentes instructions 
 
 
 ## **CI pipeline avec Github actions**
