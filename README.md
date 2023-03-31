@@ -28,7 +28,7 @@
     - [VIII.3- Points d'amélioration](#viii3-points-d-amélioration)
 - [IX- Références](#ix-références)
 
-## I- Introduction
+## I- Introduction 
 
 ### I.1- Présentation de l'application "Kaia Vente"
 
@@ -204,6 +204,10 @@ Si cela n'est pas le cas, vous pouvez définir le cluster GKE que vous venez de 
 
 ### IV.2- Installer Istio sur le cluster
 
+Istio est une solution de service mesh open source qui permet de connecter, sécuriser et contrôler les services d'une application cloud native. En utilisant Istio, les développeurs peuvent se concentrer sur la logique métier de leur application, tandis qu'Istio gère les aspects liés à la communication et à la sécurité des services.
+
+Les avantages d'Istio pour une architecture cloud microservices sont nombreux. Istio offre une visibilité complète sur la communication entre les services, ce qui permet de diagnostiquer rapidement les problèmes et de surveiller les performances de l'application. Istio permet également de renforcer la sécurité des communications entre les services en utilisant des fonctionnalités telles que le chiffrement des données, la gestion des certificats et la gestion des identités. Enfin, Istio facilite la mise en place de politiques de trafic, qui permettent de contrôler finement le trafic réseau entre les services.
+
 Avant de commencer l'installation d'Istio, il est recommandé de définir la variable d'environnement ISTIO_VERSION avec la version souhaitée d'Istio. Pour cet exemple, nous utiliserons la version 1.13.4 en lançant la commande suivante :
     ```export ISTIO_VERSION=1.13.4```
 
@@ -270,10 +274,7 @@ Dans ce fichier JDL, nous avons activé Istio et défini le domaine d'entrée su
 
 Cela créera un nouveau dossier, "kubernetes", avec tous les manifestes Kubernetes requis tels que les déploiements, les services, les services virtuels Istio, les passerelles, etc., pour toutes les applications, bases de données et surveillance.
 
-Chacun des services disposera également d'un service virtuel Istio et d'une règle de destination pour définir les politiques de trafic. Par exemple, le service de facturation aura la règle de destination suivante :
-```
-
-```
+Chacun des services disposera également d'un service virtuel Istio et d'une règle de destination pour définir les politiques de trafic.
 
 ### V.2- Déployer sur GKE
 
