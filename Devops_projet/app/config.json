@@ -1,0 +1,7 @@
+{
+  "auths": {
+    "https://index.docker.io/v1/": {
+      "auth": "ZGNrcl9wYXRfSmpnclc0RTAwV3pTd0hwN3BhZEY5eVl1R3p3"
+    }
+  }
+}

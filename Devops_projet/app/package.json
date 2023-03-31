@@ -1,0 +1,25 @@
+{
+  "name": "web_app",
+  "version": "1.0.0",
+  "description": "Etapes",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.4"
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "author": "tandre",
+  "license": "ISC",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/t0ndre/Devops_projet.git"
+  },
+  "bugs": {
+    "url": "https://github.com/t0ndre/Devops_projet/issues"
+  },
+  "homepage": "https://github.com/t0ndre/Devops_projet#readme"
+}
