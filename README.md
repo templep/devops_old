@@ -16,13 +16,15 @@ Nous avons pour ce faire à notre disposition toute une flopée d'outils (chacun
 
 - [3 - Outils pour la CI et l'automatisation des TESTS: BAZEL](#3---Outils-pour-la-CI-et-l-automatisation-des-TESTS-BAZEL)
 
-- [4 - Analyse statique](#3---analyse-statique)
+- [4 - Analyse statique](#4---analyse-statique)
 
-- [5 - Observations et commentaires](#4---observations-et-commentaires)
+- [5 - Outils pour l'analyse STATIQUE: SonarCloud] (#5---Outils-pour-l-analyse-statique-sonarcloud)
 
-- [6 - Guide de lancement des applis](#5---guide-de-lancement-des-applis)
+- [6 - Observations et commentaires] (#6---Observations-et-commentaires)
 
-- [7 - Références](#6---références)
+- [7 - Guide de lancement des applis](#6---guide-de-lancement-des-applis)
+
+- [8 - Références](#7---références)
 
 
 # 1 - Présentation du projet
@@ -217,7 +219,8 @@ Nous allons par la suite créer une pipeline qui aura pour tâche principale le 
 
 # 4 - Analyse Statique 
 
-# 4  - Outils pour l'analyse statique:SonarCloud 
+# 5  - Outils pour l'analyse statique: SonarCloud 
+
 ## **SonarCloud**
 - ### **Présentation** 
 C'est un service cloud d'analyse de code proposé par la société SonarSource. Il permet aux développeurs et aux équipes de développement de détecter et de corriger les vulnérabilités, les bugs, les erreurs et les problèmes de qualité de code dans leurs applications. SonarCloud utilise une variété de techniques d'analyse statique pour évaluer la qualité du code, y compris l'analyse de la complexité cyclomatique, la détection de code dupliqué, la couverture de code, la conformité aux normes de codage et la détection de vulnérabilités de sécurité connues.
@@ -244,10 +247,10 @@ Pour l'intégrer à notre projet rien de plus simple:
 On remarque aisement dans l'ensemble que Sonarcloud est un outil puissant qui nous permet d'améliorer la qualité du code et de s'assurer que notre base de code est maintenable, évolutive et sécurisée.
  
 
-# 4 - Observations et commentaires
+# 6 - Observations et commentaires
 
 
-# 5 - Guide de lancement
+# 7 - Guide de lancement des applis
 
 Vous souhaitez réimplémenter notre application et avoir accès à ces différentes interface???
 Rien de plus simple:
@@ -280,7 +283,7 @@ Rien de plus simple:
 - Profitez ensuite de la plateforme pour créer des utilisateurs et des associations a volonté
  
  
- # 5 - Références
+ # 8 - Références
  
  - Bazel https://bazel.build/
  - Sonar https://www.sonarsource.com/products/sonarqube/
