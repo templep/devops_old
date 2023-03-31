@@ -44,6 +44,7 @@ L'ensemble de ses microservice sont déployés au sein de  containers docker.
 
 ![Capture d’écran du 2023-03-30 22-17-18](https://user-images.githubusercontent.com/107374001/229088644-ba669043-4747-4467-b92a-30876a78eeea.png)
 
+A côté de ce projets nous avons également un ensemble de microservices dans différents langage (du go,du python, du JS) qui affichent juste HelloWord. Vous nous direz simpliste non? Oui effectivement pour rappel le but est de mettre en place l'intégration continue l'automatisation des tests ainsi que de mettre en place une d'un système d'analyse statique.
 
 # 2 - Intégration Continue
 
@@ -124,9 +125,9 @@ Pour faire de l'intégration continue, on a besoin de plusieurs environnements, 
 Une conséquence naturelle de cela est qu'on devra également avoir des scripts qui nous permettent de déployer en production avec la même facilité.Il s'agit également d'une option peu coûteuse puisqu'elle utilise les mêmes capacités que celles utilisées pour le déploiement dans les environnements de test.
 
 
-# 3 - Présentation et mise en place des outils
+# 3 - Outils pour la CI et l'automaisation des TESTS: BAZEL
 
-Dans cette section, l'on décrirera de façon précises les outils choisis. L'on expliquera également toute la démarche et la mise en place de ces derniers. L'on parlera également
+Dans cette section, l'on décrirera de façon précises les outils choisis pour la CI. L'on expliquera également toute la démarche et la mise en place de ces derniers.
 
 ## **Bazel**
 
@@ -171,7 +172,13 @@ On Teste notre fichier de build sur une variété de plates-formes et de configu
 ### Etape 7 
 Pour finir utilisons des outils de vérification de la qualité de code tels que **Bazelisk** ou **Buildifier** pour formater automatiquement votre fichier de build et détecter les erreurs de syntaxe ou les problèmes de style.
 
-- #### Ah Oui Une interface pour la CI et l'automatisation des tests
+- ## Ah Oui Une interface pour la CI et l'automatisation des tests
+
+
+
+## **CI pipeline avec Github actions**
+
+Evidement l'on ne pouvait aborder cette section sans mettre en avant Github actions
 
 
 ## **SonarCloud**
@@ -198,11 +205,7 @@ Pour l'intégrer à notre projet rien de plus simple:
 
 
 On remarque aisement dans l'ensemble que Sonarcloud est un outil puissant qui nous permet d'améliorer la qualité du code et de s'assurer que notre base de code est maintenable, évolutive et sécurisée.
-
-
-## **CI pipeline avec Github actions**
-
-Abordons également 
+ 
 
 # 4 - Observations et commentaires
 
