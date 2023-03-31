@@ -1,8 +1,7 @@
 # DevOps : monitoring, logging, ...
 
-Ce projet s'appuie sur l'application créée en cours de développement web du premier semestre et conteneuriser en cours d'architecture logiciel.
-Nous avons décidé de créer 3 branches différentes afin de pouvoir partir sur 3 possibilités différentes :
-branches :
+Ce projet s'appuie sur l'application créée en cours de développement web du premier semestre et conteneurisé en cours d'architecture logiciel.
+Nous avons décidé de créer 3 branches différentes afin de pouvoir partir sur 3 possibilités différentes et nous repartir la charge de travail :
 
   - grafana_metrics : permet d'affichier via grafana des metriques concernant l'utilisation de la machine par le projet
   - timeResponse : permet d'afficher dans la console le temps mis par les appels du front vers le back.
