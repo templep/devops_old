@@ -411,15 +411,12 @@ En suivant ces suggestions et en explorant d'autres outils, vous pouvez amélior
 - [Kiali](https://www.kiali.io/)
 - [Zipkin](https://zipkin.io/)
 
-Nous tenons également à remercier l'auteur original du tutoriel que nous avons utilisé comme base pour cette rédaction, qui est disponible sur le site web d'Okta : https://developer.okta.com/blog/2022/06/09/cloud-native-java-microservices-with-istio.
-Nous avons fait l'effort de le rendre plus explicite et plus facile à suivre, en ajoutant des explications et des captures d'écran supplémentaires.
-Merci à vous.
 
 ## X- Auteurs
 
-- [ANGORA KOUAME](https://www.linkedin.com/in/mohamed-amine-el-khaira-5b1b3b1b3/)
-- [KONE OUMAR](https://www.linkedin.com/in/mohamed-amine-el-khaira-5b1b3b1b3/)
-- [TAPE WALI](https://www.linkedin.com/in/mohamed-amine-el-khaira-5b1b3b1b3/)
+- [ANGORA KOUAME](https://github.com/akai-code/)
+- [KONE OUMAR](https://github.com/koneWoumar/)
+- [TAPE WALI](https://github.com/twzbja/)
 
 
 
