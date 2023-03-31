@@ -294,6 +294,7 @@ Une fois les images Docker créées et poussées vers le registre, nous pouvons 
 
 Une fois les déploiements effectués, il faut attendre que les pods soient en statut RUNNING . Les liens utiles seront imprimés sur le terminal ; notez-les. Vous pouvez maintenant accéder à l'application à http://store.jhipster.34.79.34.217.nip.io l'URI donné et vous connecter avec les informations d'identification par défaut.
 
+![store](docs/img/store.png)
 
 ## VI- Surveillance et observabilité
 
@@ -334,7 +335,7 @@ Istio utilise Zipkin pour la collecte et l'analyse des traces des requêtes entr
 
 Pour accéder à l'interface web de Zipkin, vous pouvez cliquer sur le lien imprimé sur le terminal après avoir déployé votre application à l'aide de la commande ./kubectl-apply.sh -f. Le lien ressemble à ceci:
     ```http://zipkin.istio-system.<IP-ADDRESS>.nip.io```
-Remplacez **<IP-ADDRESS>** par l'adresse IP de votre cluster Kubernetes. Si vous utilisez un cluster Kubernetes local, vous pouvez utiliser localhost à la place de l'adresse IP.
+Remplacez **IP-ADDRESS** par l'adresse IP de votre cluster Kubernetes. Si vous utilisez un cluster Kubernetes local, vous pouvez utiliser localhost à la place de l'adresse IP.
 
 Lorsque vous accédez à l'interface web de Zipkin, vous pouvez voir les traces des requêtes entre les différents services de votre application. Vous pouvez également effectuer des recherches pour trouver des traces spécifiques et filtrer les résultats en fonction de différents critères.
 
