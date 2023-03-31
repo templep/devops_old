@@ -10,9 +10,9 @@ Nous avons pour ce faire à notre disposition toute une flopée d'outils (chacun
 
 # Sommaire
 
-- [1 - Présentation du projet](#1---présentation-du-projet)
+- [#1 - Présentation du projet](#1---présentation-du-projet)
 
-- [2 - Intégration Continue](#2---intégration-continue)
+- [# 2 - Intégration Continue](#2---intégration-continue)
 
 - [3 - Analyse statique](#3---analyse-statique)
 
