@@ -1,14 +1,24 @@
-# UR1/ESIR DevOps Course
-This repository contains the material and content of the DevOps course at the engineering school ESIR of the University of Rennes 1. 
+# Tutoriel : Bots in software - DevOps 
 
-## Year 2022-2023
+## Membres : 
+* Thomas Benaloune 
+* Zoé Costan 
+* William Babin 
+* Noémie Gaillard
 
-### Scheduling
+## Introduction
 
-- Introduction to the course and DevOps: Oct. 10th, 2022
-- Quick overview of DevSecOps and MLSecOps: Oct. 13th, 2022
-- Final presentations: Dec. 7th, 2022 (8h-10h)
+Un **bot** est un programme informatique qui fonctionne comme un agent pour un utilisateur ou un autre programme ou qui simule une activité humaine. Les bots sont normalement utilisés pour automatiser certaines tâches. Ils exécutent des tâches et des processus beaucoup *plus rapidement*, de manière *plus précise* et à un *volume plus élevé* que ce que les humains pourraient faire autrement.
 
-### Material
+## Ce que nous avons fait
 
-The introduction to the course and DevOps can be found [here](https://people.irisa.fr/Benoit.Combemale/course/esir/esir3/). 
+Nous avons décidé de travailler sur la présentation de l'installation de deux des bots que vous nous avez fournis et d'en créer un autre (DevOpsBot) pour nous familiariser davantage avec la création d'un bot. Nous allons également créer un .md détaillant les actions que nous pouvons lui donner.
+
+## Links
+* [HOW BOTS CAN SUPPORT COLLABORATION IN SOFTWARE DEVELOPMENT-youtube video](https://youtu.be/BsgnLwPMqWM)
+* https://dependabot.com/
+* https://github.com/renovatebot
+* https://github.com/eclipse/repairnator
+* https://github.com/yegor256/rultor/
+
+
