@@ -33,6 +33,7 @@ The bots we used and described during this project are mostly bots helping with 
 - [RenovateBot](./renovatebot.md)
 - [Dependabot](./dependabot.md)
 - [Imgbot](./imgbot.md)
+- [Repairnator](./repairbot.md)
 
 
 # Overall Feedback
