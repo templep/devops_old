@@ -59,8 +59,7 @@ L'objectif de ce tutoriel est de vous guider dans la création et le déploiemen
 Pour pouvoir suivre ce tutoriel, il est nécessaire de configurer votre environnement de développement. Vous aurez besoin des éléments suivants :
 
 - Un système d'exploitation compatible avec Docker et Kubernetes
-- Docker Desktop installé et configuré sur votre machine
-- Kubernetes installé sur votre machine. Pour cela, vous pouvez utiliser Minikube ou KinD
+- Kubernetes installé sur votre machine. ([kubectl](https://kubernetes.io/docs/tasks/tools/) est une bonne option pour les utilisateurs de Windows et de Mac)
 - Un éditeur de code tel que Visual Studio Code, IntelliJ IDEA, Eclipse ou tout autre éditeur de code que vous êtes à l'aise d'utiliser.
 
 Si vous n'avez pas encore installé ces éléments sur votre machine, veuillez suivre les instructions appropriées pour votre système d'exploitation avant de continuer avec les sections suivantes de ce tutoriel.
@@ -72,9 +71,9 @@ Pour suivre ce tutoriel, vous aurez besoin de plusieurs outils et technologies :
 - Java 11
 - Maven 3.x
 - JHipster 7.x
-- Docker Desktop ou un démon Docker en cours d'exécution (pour exécuter les conteneurs Docker)
+- Docker ([Docker](https://www.docker.com/get-started/))
 - Un compte Google Cloud Platform (GCP) pour créer un cluster Kubernetes sur Google Kubernetes Engine (GKE)
-- kubectl, l'outil en ligne de commande Kubernetes, installé sur votre machine
+- Node.js ([Node.js](https://nodejs.org/en/download/))
 
 ## III- Générer la pile de microservices avec JHipster
 
@@ -309,11 +308,11 @@ Pour accéder à Grafana, ouvrez votre navigateur et accédez à l'URL suivante 
 
 Après avoir déployé votre application à l'aide de la commande ./kubectl-apply.sh -f, les liens utiles pour accéder à l'application et à Grafana seront imprimés sur le terminal. Vous pouvez accéder à Grafana en cliquant sur le lien correspondant, qui ressemble à ceci :
     ```http://grafana.istio-system.<IP-ADDRESS>.nip.io```.
-Remplacez <IP-ADDRESS> par l'adresse IP de votre cluster Kubernetes. Si vous utilisez un cluster Kubernetes local, vous pouvez utiliser localhost à la place de l'adresse IP.
+Remplacez **IP-ADDRESS** par l'adresse IP de votre cluster Kubernetes. Si vous utilisez un cluster Kubernetes local, vous pouvez utiliser localhost à la place de l'adresse IP.
 
 Une fois que vous avez accédé à l'interface de Grafana, il est deja configuré avec un tableau de bord Istio par défaut (Istio Service Dashboad). Vous pouvez voir les métriques de votre application dans ce tableau de bord. Vous pouvez également créer vos propres tableaux de bord en utilisant les métriques collectées par Prometheus. Pour cela, vous pouvez utiliser l'interface de requête de Prometheus pour créer des requêtes personnalisées et les ajouter à un tableau de bord.
 
-![Grafan](docs/images/grafana.png)
+![Grafan](docs/img/grafana.png)
 
 ### VI.2- Accéder à Kiali pour visualiser la topologie du service mesh
 
@@ -321,13 +320,13 @@ Kiali est un outil de visualisation open source pour Istio qui permet de visuali
 
 Pour accéder à l'interface web de Kiali, vous pouvez cliquer sur le lien imprimé sur le terminal après avoir déployé votre application à l'aide de la commande ./kubectl-apply.sh -f. Le lien ressemble à ceci:
     ```http://kiali.istio-system.<IP-ADDRESS>.nip.io```.
-Remplacez <IP-ADDRESS> par l'adresse IP de votre cluster Kubernetes. Si vous utilisez un cluster Kubernetes local, vous pouvez utiliser localhost à la place de l'adresse IP.
+Remplacez **IP-ADDRESS** par l'adresse IP de votre cluster Kubernetes. Si vous utilisez un cluster Kubernetes local, vous pouvez utiliser localhost à la place de l'adresse IP.
 
 Lorsque vous accédez à l'interface web de Kiali, vous pouvez voir la topologie de votre service mesh et les relations entre les différents services. Vous pouvez également afficher des graphiques pour les statistiques de trafic, les temps de réponse, les erreurs et les latences, ainsi que pour les requêtes envoyées et reçues par chaque service.
 
 L'avantage de cette méthode est que vous pouvez facilement visualiser la topologie de votre service mesh et les relations entre les différents services. Vous pouvez utiliser cette information pour diagnostiquer les problèmes de performance et de fiabilité, ainsi que pour améliorer la qualité de votre application. En utilisant Kiali avec Istio, vous pouvez surveiller et visualiser les interactions entre les microservices de votre application, ce qui peut vous aider à améliorer la performance et la fiabilité de votre application.
 
-![Kiali](docs/images/kiali.png)
+![Kiali](docs/img/Kiali.png)
 
 ### VI.3- Accéder à Zipkin pour visualiser les traces des requêtes
 
@@ -335,13 +334,13 @@ Istio utilise Zipkin pour la collecte et l'analyse des traces des requêtes entr
 
 Pour accéder à l'interface web de Zipkin, vous pouvez cliquer sur le lien imprimé sur le terminal après avoir déployé votre application à l'aide de la commande ./kubectl-apply.sh -f. Le lien ressemble à ceci:
     ```http://zipkin.istio-system.<IP-ADDRESS>.nip.io```
-Remplacez <IP-ADDRESS> par l'adresse IP de votre cluster Kubernetes. Si vous utilisez un cluster Kubernetes local, vous pouvez utiliser localhost à la place de l'adresse IP.
+Remplacez **<IP-ADDRESS>** par l'adresse IP de votre cluster Kubernetes. Si vous utilisez un cluster Kubernetes local, vous pouvez utiliser localhost à la place de l'adresse IP.
 
 Lorsque vous accédez à l'interface web de Zipkin, vous pouvez voir les traces des requêtes entre les différents services de votre application. Vous pouvez également effectuer des recherches pour trouver des traces spécifiques et filtrer les résultats en fonction de différents critères.
 
 L'avantage de cette méthode est que vous pouvez facilement visualiser les traces des requêtes à travers les différents services de votre application. Vous pouvez utiliser cette information pour diagnostiquer les problèmes de performance et de fiabilité, ainsi que pour améliorer la qualité de votre application. En utilisant Zipkin avec Istio, vous pouvez collecter et analyser les données de trace pour améliorer les performances et la fiabilité de vos microservices.
 
-![Zipkin](docs/images/zipkin.png)
+![Zipkin](docs/img/Zipkin.png)
 
 ## VII- Nettoyer le cluster GCP
 
