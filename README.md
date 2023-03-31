@@ -12,3 +12,8 @@ This repository contains the material and content of the DevOps course at the en
 ### Material
 
 The introduction to the course and DevOps can be found [here](https://people.irisa.fr/Benoit.Combemale/course/esir/esir3/). 
+
+
+# Repertoire groupe AB-Testing/Fuzzing/Canary-Testing (IoT)
+
+Notre groupe est composé de Hilliou Marine / Gravec Théo / Chagneau Yohan / Lemane Clément.
