@@ -5,13 +5,13 @@ Nous avons décidé de créer 3 branches différentes afin de pouvoir partir sur
 
   - grafana_metrics : permet d'affichier via grafana des metriques concernant l'utilisation de la machine par le projet
   - timeResponse : permet d'afficher dans la console le temps mis par les appels du front vers le back.
-  - ??? : TODO
+  - fluentd : collecte de logs à l'aide de fluentd
 
 Chaque branche dispose d'un readme expliquant plus en détail ses fonctionnalités.
 
 # Fonctionnement
 
-Afin de correctement faire fonctionner le projet, nous avons dû grandement le modifier dans sa structure. Ainsi, certains bugs sont présents et les fonctionnalités initiales du projet ne sont plus toutes fonctionnelles.
+Afin de correctement faire fonctionner le projet, nous avons dû grandement le modifier dans sa structure. Ainsi, certains bugs sont présents et les fonctionnalités initiales du projet ne sont plus toutes présentes.
 
 Pour lancer le projet, il faut lancer le docker compose puis se connecter sur le localhost:80.
 On peut ensuite créer un utilisateur en cliquant sur Register, puis se connecter en cliquant sur login (il est impératif de créer un utilisateur avant de se connecter, car la BDD est vide lors du lancement du projet).
