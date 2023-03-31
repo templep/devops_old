@@ -22,6 +22,8 @@ Nous avons pour ce faire à notre disposition toute une flopée d'outils (chacun
 
 - [5 - Guide de lancement des applis](#5---guide-de-lancement-des-applis)
 
+- - [6 - Références](#6---références)
+
 
 # 1 - Présentation du projet
 
@@ -274,6 +276,8 @@ Rien de plus simple:
        
 - Profitez ensuite de la plateforme pour créer des utilisateurs et des associations a volonté
  
+ 
+ # 5 - Références
 
 
 
