@@ -1,39 +1,32 @@
-load("@aspect_rules_swc//swc:defs.bzl", "swc_transpiler")
-load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
-load("@aspect_rules_js//js:defs.bzl", "js_binary")
-load("@bazel_skylib//lib:partial.bzl", "partial")
-load("@npm//:defs.bzl", "npm_link_all_packages")
+load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
 
-npm_link_all_packages(name = "node_modules")
-
-# For more information about using swc to transpile please see the ts_project_transpiler example
-ts_project(
-    name = "swc",
-    srcs = [
-        "src/app.controller.ts",
-        "src/app.module.ts",
-        "src/app.service.ts",
-        "src/main.ts",
-    ],
-    declaration = True,
-    transpiler = partial.make(
-        swc_transpiler,
-        swcrc = ".swcrc",
-    ),
+nodejs_binary(
+    name = "app",
+    entry_point = "src/main.ts",
+    data = glob(["**/*.json", "**/*.env"]),
     deps = [
-        ":node_modules/@nestjs/common",
-        ":node_modules/@nestjs/core",
-        ":node_modules/@types/node",
+        "@npm//@nestjs/core",
+        "@npm//@nestjs/common",
+        "@npm//@nestjs/platform-express",
+        "@npm//@nestjs/swagger",
+        "@npm//rxjs",
+        "@npm//reflect-metadata",
+        "@npm//class-transformer",
+        "@npm//class-validator",
     ],
 )
 
-js_binary(
-    name = "bin",
-    data = [
-        ":swc",
+load("@io_bazel_rules_docker//docker:docker.bzl", "docker_build")
 
-        # Added by swc during transpilation and used at runtime
-        ":node_modules/regenerator-runtime",
+docker_build(
+    name = "docker",
+    context = ".",
+    dockerfile = "Dockerfile",
+    base = "@io_bazel_rules_docker//images:alpine",
+    args = {
+        "NODE_VERSION": "16",
+    },
+    deps = [
+        ":app",
     ],
-    entry_point = "src/main.js",
 )
