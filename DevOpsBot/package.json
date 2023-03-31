@@ -1,0 +1,15 @@
+{
+  "type": "module",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "discord": "^0.8.2",
+    "discord.js": "^14.8.0",
+    "fs": "^0.0.1-security",
+    "node-fetch": "^3.3.0",
+    "openai": "^3.2.1",
+    "sloc": "^0.1.11",
+    "sqlite": "^4.1.2",
+    "sqlite3": "^5.1.6",
+    "ytdl-core": "^4.11.3"
+  }
+}
