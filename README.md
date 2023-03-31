@@ -18,13 +18,13 @@ Nous avons pour ce faire à notre disposition toute une flopée d'outils (chacun
 
 - [4 - Analyse statique](#4---analyse-statique)
 
-- [5 - Outils pour l'analyse STATIQUE: SonarCloud] (#5---Outils-pour-l-analyse-statique-sonarcloud)
+- [5 - Outils pour l'analyse statique: Sonarcloud] (#5---Outils-pour-l-analyse-statique-sonarcloud)
 
 - [6 - Observations et commentaires] (#6---Observations-et-commentaires)
 
-- [7 - Guide de lancement des applis](#6---guide-de-lancement-des-applis)
+- [7 - Guide de lancement des applis](#7---guide-de-lancement-des-applis)
 
-- [8 - Références](#7---références)
+- [8 - Références](#8---références)
 
 
 # 1 - Présentation du projet
@@ -219,7 +219,7 @@ Nous allons par la suite créer une pipeline qui aura pour tâche principale le 
 
 # 4 - Analyse Statique 
 
-# 5  - Outils pour l'analyse statique: SonarCloud 
+# 5  - Outils pour l'analyse statique: Sonarcloud 
 
 ## **SonarCloud**
 - ### **Présentation** 
