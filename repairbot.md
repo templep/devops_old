@@ -40,9 +40,38 @@ notifications:
 ```
 
 - Commit and push the .travis.yml file
+
+## 📝 Usage
+
 - Create a pull request with a failing build for your repository.
 - On the [Travis panel](https://app.travis-ci.com/) you should see something like this :
 
 ![Travis CI Install](docs/repairnator/travis_build_failed.png)
 
 - If a patch is found by Repairnator, a pull request will be created with the proposed patch (from docs : approx 1/1000 builds).
+
+## 📦 Other possible setup
+Repairnator can be used differently than using a Github App :
+> **Command Line :**
+> 
+> You can use Repairnator as a command line tool, see the [documentation](https://github.com/eclipse/repairnator/blob/master/doc/README.md)
+> 
+> You can use it by running a maven command that specify the build you want to check. It is also possible to use a docker image directly instead of running a maven command.
+
+> **Travis Scanner :**
+> 
+> You can use Repairnator as a Travis Scanner, see the [documentation](https://github.com/eclipse/repairnator/blob/master/doc/README.md)
+> 
+> It will continuously scan your Travis builds and create pull requests if a patch is found.
+
+> **Flacoco Scanner :**
+> 
+> You can use Repairnator as a Flacoco Scanner, see the [documentation](https://github.com/eclipse/repairnator/blob/master/doc/README.md)
+> 
+> Similar to Travis Scanner, it will instead continuously scan for pull requests and check for failing build and create pull requests if a patch is found.
+
+> **Jenkins plugin :**
+> 
+> You can use Repairnator as a Jenkins plugin, see the [documentation](https://github.com/eclipse/repairnator/blob/master/doc/repairnator-jenkins-plugin.md)
+> 
+> It will continuously scan your Jenkins builds and create pull requests if a patch is found for a failing build.
