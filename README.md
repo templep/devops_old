@@ -14,13 +14,13 @@ Nous avons pour ce faire à notre disposition toute une flopée d'outils (chacun
 
 - [2 - Intégration Continue](#2---intégration-continue)
 
-- [3 - Outils pour la CI et l'automatisation des TESTS: BAZEL](#3---Outils-pour-la-CI-et-l-automatisation-des-TESTS-BAZEL)
+- [3 - Outils pour la CI et l'automatisation des Tests: BAZEL](#3---outils-pour-la-CI-et-l-automatisation-des-tests-BAZEL)
 
 - [4 - Analyse statique](#4---analyse-statique)
 
-- [5 - Outils pour l'analyse statique: Sonarcloud] (#5---Outils-pour-l-analyse-statique-sonarcloud)
+- [5 - Outils pour l'analyse statique: Sonarcloud] (#5---outils-pour-l-analyse-statique-sonarcloud)
 
-- [6 - Observations et commentaires] (#6---Observations-et-commentaires)
+- [6 - Observations et commentaires] (#6---observations-et-commentaires)
 
 - [7 - Guide de lancement des applis](#7---guide-de-lancement-des-applis)
 
@@ -128,7 +128,7 @@ Pour faire de l'intégration continue, on a besoin de plusieurs environnements, 
 Une conséquence naturelle de cela est qu'on devra également avoir des scripts qui nous permettent de déployer en production avec la même facilité.Il s'agit également d'une option peu coûteuse puisqu'elle utilise les mêmes capacités que celles utilisées pour le déploiement dans les environnements de test.
 
 
-# 3 - Outils pour la CI et l'automatisation des TESTS: BAZEL
+# 3 - Outils pour la CI et l'automatisation des Tests: BAZEL
 
 Dans cette section, l'on décrirera de façon précises les outils choisis pour la CI. L'on expliquera également toute la démarche et la mise en place de ces derniers.
 
@@ -219,7 +219,7 @@ Nous allons par la suite créer une pipeline qui aura pour tâche principale le 
 
 # 4 - Analyse Statique 
 
-# 5  - Outils pour l'analyse statique: Sonarcloud 
+# 5 - Outils pour l'analyse statique: Sonarcloud 
 
 ## **SonarCloud**
 - ### **Présentation** 
