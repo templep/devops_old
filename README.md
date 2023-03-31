@@ -10,19 +10,19 @@ Nous avons pour ce faire à notre disposition toute une flopée d'outils (chacun
 
 # Sommaire
 
-- [#1 - Présentation du projet](#1---présentation-du-projet)
+- [1 - Présentation du projet](#1---présentation-du-projet)
 
-- [# 2 - Intégration Continue](#2---intégration-continue)
+- [2 - Intégration Continue](#2---intégration-continue)
 
-- [3 - Outils pour la CI et l'automaisation des TESTS: BAZEL](#3---3 - Outils-pour-la-CI-et-l-automaisation-des-TESTS-BAZEL)
+- [3 - Outils pour la CI et l'automatisation des TESTS: BAZEL](#3---Outils-pour-la-CI-et-l-automatisation-des-TESTS-BAZEL)
 
 - [4 - Analyse statique](#3---analyse-statique)
 
 - [5 - Observations et commentaires](#4---observations-et-commentaires)
 
-- [5 - Guide de lancement des applis](#5---guide-de-lancement-des-applis)
+- [6 - Guide de lancement des applis](#5---guide-de-lancement-des-applis)
 
-- [6 - Références](#6---références)
+- [7 - Références](#6---références)
 
 
 # 1 - Présentation du projet
@@ -126,7 +126,7 @@ Pour faire de l'intégration continue, on a besoin de plusieurs environnements, 
 Une conséquence naturelle de cela est qu'on devra également avoir des scripts qui nous permettent de déployer en production avec la même facilité.Il s'agit également d'une option peu coûteuse puisqu'elle utilise les mêmes capacités que celles utilisées pour le déploiement dans les environnements de test.
 
 
-# 3 - Outils pour la CI et l'automaisation des TESTS: BAZEL
+# 3 - Outils pour la CI et l'automatisation des TESTS: BAZEL
 
 Dans cette section, l'on décrirera de façon précises les outils choisis pour la CI. L'on expliquera également toute la démarche et la mise en place de ces derniers.
 
@@ -215,6 +215,9 @@ Evidement l'on ne pouvait aborder cette section sans mettre en avant Github acti
 Nous allons par la suite créer une pipeline qui aura pour tâche principale le build de nos images docker contenues dans notre fichier docker-compose.
 
 
+# 4 - Analyse Statique 
+
+# 4  - Outils pour l'analyse statique:SonarCloud 
 ## **SonarCloud**
 - ### **Présentation** 
 C'est un service cloud d'analyse de code proposé par la société SonarSource. Il permet aux développeurs et aux équipes de développement de détecter et de corriger les vulnérabilités, les bugs, les erreurs et les problèmes de qualité de code dans leurs applications. SonarCloud utilise une variété de techniques d'analyse statique pour évaluer la qualité du code, y compris l'analyse de la complexité cyclomatique, la détection de code dupliqué, la couverture de code, la conformité aux normes de codage et la détection de vulnérabilités de sécurité connues.
