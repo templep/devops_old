@@ -44,7 +44,7 @@ L'ensemble de ses microservice sont déployés au sein de  containers docker.
 
 ![Capture d’écran du 2023-03-30 22-17-18](https://user-images.githubusercontent.com/107374001/229088644-ba669043-4747-4467-b92a-30876a78eeea.png)
 
-A côté de ce projets nous avons également un ensemble de microservices dans différents langage (du go,du python, du JS) qui affichent juste HelloWord. Vous nous direz simpliste non? Oui effectivement pour rappel le but est de mettre en place l'intégration continue l'automatisation des tests ainsi que de mettre en place une d'un système d'analyse statique.
+A côté de ce projets nous avons également un ensemble de microservices dans différents langage (du go,du python, du JS) qui affichent juste HelloWord. Vous nous direz simpliste non? Oui effectivement pour rappel le but est de mettre en place l'intégration continue l'automatisation des tests ainsi que de mettre en place une d'un système  d'analyse statique.
 
 # 2 - Intégration Continue
 
