@@ -241,7 +241,7 @@ Rien de plus simple:
        password: onepiece
        
 - Profitez ensuite de la plateforme pour créer des utilisateurs et des associations a volonté
-- N'hésitez pas à tester les fonctionalités
+- N'hésitez pas à tester les fonctionalités de la plateforme
 
 
 
