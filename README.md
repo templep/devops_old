@@ -279,10 +279,10 @@ Chacun des services disposera également d'un service virtuel Istio et d'une rè
 
 Avant de déployer notre application sur GKE, nous devons créer et envoyer les images Docker au registre. Pour cela, nous allons utiliser les commandes Jib fournies par JHipster. Naviguez vers chacun des dossiers de microservices et exécutez les commandes suivantes :
 ```
-cd store && ./gradlew bootJar -Pprod jib -Djib.to.image=myDockerRepository/store
-cd invoice && ./gradlew bootJar -Pprod jib -Djib.to.image=myDockerRepository/invoice
-cd notification && ./gradlew bootJar -Pprod jib -Djib.to.image=myDockerRepository/notification
-cd product && ./gradlew bootJar -Pprod jib -Djib.to.image=myDockerRepository/product
+cd store && ./gradlew bootJar -Pprod jib -Djib.to.image=kaia4service/store
+cd invoice && ./gradlew bootJar -Pprod jib -Djib.to.image=kaia4service/invoice
+cd notification && ./gradlew bootJar -Pprod jib -Djib.to.image=kaia4service/notification
+cd product && ./gradlew bootJar -Pprod jib -Djib.to.image=kaia4service/product
 
 ```
 
@@ -290,9 +290,140 @@ Une fois les images Docker créées et poussées vers le registre, nous pouvons 
     ```
     cd kubernetes
     ./kubectl-apply.sh -f   
-
     ```
+
 Une fois les déploiements effectués, il faut attendre que les pods soient en statut RUNNING . Les liens utiles seront imprimés sur le terminal ; notez-les. Vous pouvez maintenant accéder à l'application à http://store.jhipster.34.79.34.217.nip.io l'URI donné et vous connecter avec les informations d'identification par défaut.
+
+
+## VI- Surveillance et observabilité
+
+Lorsque vous travaillez avec des microservices, il est important d'avoir une visibilité sur leur performance et leur santé. Dans cette section, nous allons configurer les outils de surveillance et d'observabilité fournis par Istio pour nos microservices.
+
+### VI.1- Accéder à Grafana pour visualiser les métriques
+
+Grafana est un outil de visualisation et de surveillance qui permet d'afficher des graphiques et des tableaux de bord pour les métriques collectées par Prometheus. Nous allons utiliser Grafana pour visualiser les métriques de nos microservices.
+
+Pour accéder à Grafana, ouvrez votre navigateur et accédez à l'URL suivante : 
+    
+
+Après avoir déployé votre application à l'aide de la commande ./kubectl-apply.sh -f, les liens utiles pour accéder à l'application et à Grafana seront imprimés sur le terminal. Vous pouvez accéder à Grafana en cliquant sur le lien correspondant, qui ressemble à ceci :
+    ```http://grafana.istio-system.<IP-ADDRESS>.nip.io```.
+Remplacez <IP-ADDRESS> par l'adresse IP de votre cluster Kubernetes. Si vous utilisez un cluster Kubernetes local, vous pouvez utiliser localhost à la place de l'adresse IP.
+
+Une fois que vous avez accédé à l'interface de Grafana, il est deja configuré avec un tableau de bord Istio par défaut (Istio Service Dashboad). Vous pouvez voir les métriques de votre application dans ce tableau de bord. Vous pouvez également créer vos propres tableaux de bord en utilisant les métriques collectées par Prometheus. Pour cela, vous pouvez utiliser l'interface de requête de Prometheus pour créer des requêtes personnalisées et les ajouter à un tableau de bord.
+
+![Grafan](docs/images/grafana.png)
+
+### VI.2- Accéder à Kiali pour visualiser la topologie du service mesh
+
+Kiali est un outil de visualisation open source pour Istio qui permet de visualiser la topologie de votre service mesh et les relations entre les différents services. Il fournit des informations détaillées sur la circulation du trafic dans votre service mesh, y compris les statistiques de trafic, les temps de réponse, les erreurs et les latences.
+
+Pour accéder à l'interface web de Kiali, vous pouvez cliquer sur le lien imprimé sur le terminal après avoir déployé votre application à l'aide de la commande ./kubectl-apply.sh -f. Le lien ressemble à ceci:
+    ```http://kiali.istio-system.<IP-ADDRESS>.nip.io```.
+Remplacez <IP-ADDRESS> par l'adresse IP de votre cluster Kubernetes. Si vous utilisez un cluster Kubernetes local, vous pouvez utiliser localhost à la place de l'adresse IP.
+
+Lorsque vous accédez à l'interface web de Kiali, vous pouvez voir la topologie de votre service mesh et les relations entre les différents services. Vous pouvez également afficher des graphiques pour les statistiques de trafic, les temps de réponse, les erreurs et les latences, ainsi que pour les requêtes envoyées et reçues par chaque service.
+
+L'avantage de cette méthode est que vous pouvez facilement visualiser la topologie de votre service mesh et les relations entre les différents services. Vous pouvez utiliser cette information pour diagnostiquer les problèmes de performance et de fiabilité, ainsi que pour améliorer la qualité de votre application. En utilisant Kiali avec Istio, vous pouvez surveiller et visualiser les interactions entre les microservices de votre application, ce qui peut vous aider à améliorer la performance et la fiabilité de votre application.
+
+![Kiali](docs/images/kiali.png)
+
+### VI.3- Accéder à Zipkin pour visualiser les traces des requêtes
+
+Istio utilise Zipkin pour la collecte et l'analyse des traces des requêtes entre les microservices. Zipkin est un outil open source qui permet de tracer les requêtes HTTP à travers les différents services d'une application.
+
+Pour accéder à l'interface web de Zipkin, vous pouvez cliquer sur le lien imprimé sur le terminal après avoir déployé votre application à l'aide de la commande ./kubectl-apply.sh -f. Le lien ressemble à ceci:
+    ```http://zipkin.istio-system.<IP-ADDRESS>.nip.io```
+Remplacez <IP-ADDRESS> par l'adresse IP de votre cluster Kubernetes. Si vous utilisez un cluster Kubernetes local, vous pouvez utiliser localhost à la place de l'adresse IP.
+
+Lorsque vous accédez à l'interface web de Zipkin, vous pouvez voir les traces des requêtes entre les différents services de votre application. Vous pouvez également effectuer des recherches pour trouver des traces spécifiques et filtrer les résultats en fonction de différents critères.
+
+L'avantage de cette méthode est que vous pouvez facilement visualiser les traces des requêtes à travers les différents services de votre application. Vous pouvez utiliser cette information pour diagnostiquer les problèmes de performance et de fiabilité, ainsi que pour améliorer la qualité de votre application. En utilisant Zipkin avec Istio, vous pouvez collecter et analyser les données de trace pour améliorer les performances et la fiabilité de vos microservices.
+
+![Zipkin](docs/images/zipkin.png)
+
+## VII- Nettoyer le cluster GCP
+
+Après avoir terminé le tutoriel et testé l'application, il est important de nettoyer votre cluster GCP pour éviter des frais supplémentaires inutiles. Voici les étapes à suivre pour supprimer votre cluster :
+
+1. Exécutez la commande suivante pour supprimer tous les déploiements, services, ingress, gateway, virtualservices, et tous les autres objets Kubernetes créés par Istio et JHipster : 
+    ```./kubectl-delete.sh -f```
+
+2. Supprimez votre cluster à l'aide de la commande suivante :
+    ```gcloud container clusters delete <CLUSTER-NAME>```
+Remplacez <CLUSTER-NAME> par le nom de votre cluster.
+
+## VIII- Conclusion
+
+### VIII.1- Résumé des étapes
+
+Ce tutoriel vous a montré comment déployer une application Java basée sur microservices en utilisant JHipster et Istio sur un cluster Google Cloud Platform (GCP). Voici un résumé des principales étapes que vous avez suivies :
+
+1. Installer les prérequis : Docker, Java, JHipster, Istio et Google Cloud SDK
+
+2. Générer une application de base avec JHipster
+
+3. Configurer Istio pour déployer l'application sur un cluster GCP
+
+4. Déployer l'application sur le cluster GCP en utilisant Kubernetes et Istio
+
+5. Tester l'application
+
+6. Surveiller et observer l'application en utilisant Grafana, Zipkin et Kiali
+
+7. Nettoyer le cluster GCP en supprimant tous les objets Kubernetes et en supprimant le cluster
+
+### VIII.2- Points forts et points faibles
+
+L'utilisation de JHipster et Istio pour développer et déployer des applications basées sur microservices présente plusieurs avantages, notamment :
+
+- Une génération de code rapide et efficace avec JHipster
+- Une gestion du trafic flexible et évolutive avec Istio
+- Une observabilité et une surveillance avancées avec Grafana, Zipkin et Kiali
+- Une facilité de déploiement sur un cluster Kubernetes avec Istio
+
+Cependant, l'utilisation de JHipster et Istio peut également présenter certains inconvénients, tels que :
+
+- Une complexité accrue du code généré par JHipster
+- Une complexité accrue de la configuration de l'application avec Istio
+- Des coûts supplémentaires pour l'utilisation d'un cluster GCP
+
+### VIII.3- Points d'amélioration
+
+Il existe plusieurs points d'amélioration pour ce tutoriel, notamment :
+
+- Ajouter plus de détails sur les configurations et les paramètres avancés pour Istio et Kubernetes
+- Explorer d'autres outils d'observabilité et de surveillance, tels que Prometheus et Jaeger
+- Expliquer comment intégrer l'application avec d'autres services cloud, tels que Firebase ou AWS
+- etc.
+
+En suivant ces suggestions et en explorant d'autres outils, vous pouvez améliorer votre application et votre expérience de développement.
+
+## IX- Références
+
+- [JHipster](https://www.jhipster.tech/)
+- [Istio](https://istio.io/)
+- [Kubernetes](https://kubernetes.io/)
+- [Google Cloud Platform](https://cloud.google.com/)
+- [Docker](https://www.docker.com/)
+- [Grafana](https://grafana.com/)
+- [Kiali](https://www.kiali.io/)
+- [Zipkin](https://zipkin.io/)
+
+Nous tenons également à remercier l'auteur original du tutoriel que nous avons utilisé comme base pour cette rédaction, qui est disponible sur le site web d'Okta : https://developer.okta.com/blog/2022/06/09/cloud-native-java-microservices-with-istio.
+Nous avons fait l'effort de le rendre plus explicite et plus facile à suivre, en ajoutant des explications et des captures d'écran supplémentaires.
+Merci à vous.
+
+## X- Auteurs
+
+- [ANGORA KOUAME](https://www.linkedin.com/in/mohamed-amine-el-khaira-5b1b3b1b3/)
+- [KONE OUMAR](https://www.linkedin.com/in/mohamed-amine-el-khaira-5b1b3b1b3/)
+- [TAPE WALI](https://www.linkedin.com/in/mohamed-amine-el-khaira-5b1b3b1b3/)
+
+
+
+
+
 
 
 
