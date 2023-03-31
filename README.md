@@ -102,7 +102,7 @@ Avant de générer notre application avec JHipster, il est important de comprend
 
 Plus précisément, nous allons utiliser une architecture en couches avec des microservices qui communiquent entre eux via des API REST. L'architecture de l'application "Kaia Vente" est décrite dans le diagramme ci-dessous :
 
-![Architecture de l'application Kaia Vente](docs/images/kaia-vente-architecture.png)
+![Architecture de l'application Kaia Vente](docs/img/kaia-vente-architecture.png)
 
 Cette architecture permet de découpler les différents composants de l'application et de les développer et les déployer indépendamment les uns des autres, ce qui permet une évolutivité horizontale en fonction des besoins. L'architecture en couches permet également de séparer les responsabilités de chaque couche, ce qui facilite la maintenance et l'extension de l'application.
 
