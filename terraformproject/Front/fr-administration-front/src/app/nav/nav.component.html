@@ -1,0 +1,25 @@
+<br>
+
+<div class="navbar">
+
+    <div *ngIf="isLogged" align="right">
+        <button (click)="logout()">Déconnection</button>
+    </div>
+    
+    <ul *ngIf="isLogged">
+    
+        <li><div>
+            <button (click)="goEditProfil()">Modifier profil</button>
+        </div></li>
+    
+        <li><div>
+            <button (click)="goListUsers()">Menu utilisateur</button>
+        </div></li>
+    
+        <li><div>
+            <button (click)="goListAssociations()">Menu associations</button>
+        </div></li>
+    
+    </ul>
+
+</div>

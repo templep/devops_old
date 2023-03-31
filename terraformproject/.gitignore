@@ -1,0 +1,6 @@
+fr-administration/mydatabase.db
+Locust/Data/__pycache__/locustfile.cpython-310.pyc
+Terraform/terraform.tfstate
+Terraform/terraform.tfstate.backup
+Terraform/.terraform.lock.hcl
+Terraform/.terraform/*

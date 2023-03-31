@@ -1,0 +1,48 @@
+<br><br>
+
+<div class="main" align="center">
+    
+    <p>Nom : <input type="text" [(ngModel)]="name"></p>
+
+    <br>
+
+    <div>
+
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> id </th>
+                <td mat-cell *matCellDef="let user"> {{user.id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="lastname">
+                <th mat-header-cell *matHeaderCellDef> Lastname </th>
+                <td mat-cell *matCellDef="let user"> {{user.lastname}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="firstname">
+                <th mat-header-cell *matHeaderCellDef> Firstname </th>
+                <td mat-cell *matCellDef="let user"> {{user.firstname}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="age">
+                <th mat-header-cell *matHeaderCellDef> Age </th>
+                <td mat-cell *matCellDef="let user"> {{user.age}} </td>
+            </ng-container>
+            
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="clickRow(row)" [class.select]="isSelect(row)"></tr>
+
+        </table>
+
+    </div>
+
+    <br><br>
+
+    <p>
+        <button class="buttons" (click)="goBack()">Annuler</button>
+        <button class="buttons" (click)="createAssociation()">Creer</button>
+    </p>
+
+</div>
+
