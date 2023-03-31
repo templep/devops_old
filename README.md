@@ -174,11 +174,31 @@ Pour finir utilisons des outils de vérification de la qualité de code tels que
 
 - ## Ah Oui Une interface pour la CI et l'automatisation des tests
 
+Comme mentioné précédement, bazel possède un bon nombre d'outils géniaux pour assurer la CI. Nous vous présenterons par la suite **buildkite**.
+Une fois que votre projet est correctement configuré avec tous les différents fichiers de build et votre fichier workspace à la racine, nous n'avons plus qu'a lancer la commande :
+             
+             bazel build // ...
+ Cette dernnière compilera l'ensemble du projet. De même que pour les tests on execute la commande 
+            
+            bazel test //...
+
+Après execution de ces commandes vous obtiendrai dans votre console le message suivant:
+
+![Capture d’écran du 2023-03-31 18-54-50](https://user-images.githubusercontent.com/107374001/229182738-e856fd1c-6a7e-43e8-a04f-461fa200a0f9.png)
+
+Si vous faites partie des élus qui l'on eu du premier coup chapeau. Si ce n'est pas le cas assurez vous d'adaptez correctement vos fichiers de builds précédent. Certains pourraient se demander pourquoi reparle t-on de ça dans cette section alors qu'on l'a vu précédement. Et bien si vous avez deja exécuté ces commandes dans votre terminal vous avez du vous rendre compte que ça n'a rien de plaisant pour les ordinateurs les moins performants comme ceux de notre équipe de TP, celà nous prenait des vingtaines de minutes et tout celà sans garantie de résultat. Et donc  existe t-il une solution plus adéquate dans ce genre de situation?
+C'est là qu'intervient **buidkite**
+
+### Présentation de Buildkite
+
+![Capture d’écran du 2023-03-30 22-29-03](https://user-images.githubusercontent.com/107374001/229184827-7bfc908e-fc64-425f-84ff-96af77f5be78.png)
+
 
 
 ## **CI pipeline avec Github actions**
 
-Evidement l'on ne pouvait aborder cette section sans mettre en avant Github actions
+Evidement l'on ne pouvait aborder cette section sans mettre en avant Github actions. Grace à cette fonctionnalité qu'offre github on peut également mettre en place des pipelines d'integration continue.
+Nous allons par la suite créer une pipeline qui aura pour tâche principale le build de nos images docker contenues dans notre fichier docker-compose.
 
 
 ## **SonarCloud**
@@ -241,9 +261,9 @@ Rien de plus simple:
        password: onepiece
        
 - Profitez ensuite de la plateforme pour créer des utilisateurs et des associations a volonté
-- N'hésitez pas à tester les fonctionalités de la plateforme
+ 
 
 
-- ### **Merci** 
+
 
 
