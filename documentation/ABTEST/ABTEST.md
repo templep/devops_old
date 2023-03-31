@@ -1,8 +1,6 @@
 # Test A/B
 Pour cette partie, nous utiliserons notre simulateur de site marchand.
 
-[photo du site]
-
 Le but sera de tester deux variantes de notre site, une avec un bouton d'ajout au panier bleu et une autre avec un bouton vert.
 
 Pour cela nous utiliserons statsig, un service offrant un panel d'outils de visualisation d'expérience sur notre solution en temps réel.
