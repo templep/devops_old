@@ -14,11 +14,11 @@ Nous avons pour ce faire à notre disposition toute une flopée d'outils (chacun
 
 - [# 2 - Intégration Continue](#2---intégration-continue)
 
-- [3 - Analyse statique](#3---analyse-statique)
+- [3 - Outils pour la CI et l'automaisation des TESTS: BAZEL](#3---3 - Outils-pour-la-CI-et-l-automaisation-des-TESTS-BAZEL)
 
-- [3 - Présentation et mise en place des outils](#3---présentation-et-mise-en-place-des-outils)
+- [4 - Analyse statique](#3---analyse-statique)
 
-- [4 - Observations et commentaires](#4---observations-et-commentaires)
+- [5 - Observations et commentaires](#4---observations-et-commentaires)
 
 - [5 - Guide de lancement des applis](#5---guide-de-lancement-des-applis)
 
