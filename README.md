@@ -3,7 +3,7 @@
 # **Thème: Intégration continue, Analyse statique et Automatisation des tests**
 
 ## **Description**
-Ce tutoriel entre dans le cadre des travaux pratiques du cours de DevOps vu en ESIR 2 (SI).
+Ce tutoriel entre dans le cadre des travaux pratiques du cours  de DevOps vu en ESIR 2 (SI).
 
 Dans ce dernier, nous réaliserons au sein d'un projet au choix, toute la démarche d'intégration continue, d'analyse statique et d'automatisation des tests.
 Nous avons pour ce faire à notre disposition toute une flopée d'outils (chacun entrant dans une catégorie spécifique) que nous essayerons d'adopter dans la mise en oeuvre de la CI, de l'analyse statique de code ainsi que de l'automatisation des tests
