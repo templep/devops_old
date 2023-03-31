@@ -150,22 +150,26 @@ Dans notre situation,
 
 Voici en gros la procédure à adopter quand on veux mettre en place bazel au sein de notre projet
 
-### Etape 1- On commence tout d'abord par créer un fichier WORKSPACE à la racine de notre projet pour définir les dépendances externes dont notre projet a besoin.
+### Etape 1- 
+On commence tout d'abord par créer un fichier WORKSPACE à la racine de notre projet pour définir les dépendances externes dont notre projet a besoin.
+
+### Etape 2- 
+On Crée ensuite un fichier BUILD à chaque niveau de notre arborescence de fichiers pour décrire les cibles à construire à ce niveau et les dépendances dont ces cibles ont besoin.
 
 
-### Etape 2- On Crée ensuite un fichier BUILD à chaque niveau de notre arborescence de fichiers pour décrire les cibles à construire à ce niveau et les dépendances dont ces cibles ont besoin.
+### Etape 3- 
+On peu par après se servir de la documentation officielle de Bazel pour connaître la syntaxe et les règles de construction appropriées pour votre langage de programmation et votre framework. Comme mentionnez ici les règles de construction sont différentes d'un langage à un autres et pour certains langages ils faut effectuer des recherches un plus poussée afin de trouver les règles adéquates. 
 
-
-### Etape 3- On peu par après se servir de la documentation officielle de Bazel pour connaître la syntaxe et les règles de construction appropriées pour votre langage de programmation et votre framework. Comme mentionnez ici les règles de construction sont différentes d'un langage à un autres et pour certains langages ils faut effectuer des recherches un plus poussée afin de trouver les règles adéquates. 
-
-### Etape 4- Il faut s'assurer d'éviter les dépendances implicites autant que possible en utilisant des règles explicites et en spécifiant des dépendances spécifiques.
+### Etape 4- 
+Il faut s'assurer d'éviter les dépendances implicites autant que possible en utilisant des règles explicites et en spécifiant des dépendances spécifiques.
 
 ### Etape 5- Utilison ensuite les commandes de débogage Bazel telles que bazel query et bazel build --explain pour déterminer les problèmes potentiels dans votre fichier de build. Cette étape est nécéssaire parce qu'il n'est pas si évident de parvenir a créer un fichier de build adéquat du premier coup. Croyez nous on a essayé. 
 
-### Etape 6- On Teste notre fichier de build sur une variété de plates-formes et de configurations pour s'assurer qu'il fonctionne correctement.
+### Etape 6- 
+On Teste notre fichier de build sur une variété de plates-formes et de configurations pour s'assurer qu'il fonctionne correctement.
 
-### Etape 7- Pour finir utilisons des outils de vérification de la qualité de code tels que **Bazelisk** ou **Buildifier** pour formater automatiquement votre fichier de build et détecter les erreurs de syntaxe ou les problèmes de style.
-
+### Etape 7- 
+Pour finir utilisons des outils de vérification de la qualité de code tels que **Bazelisk** ou **Buildifier** pour formater automatiquement votre fichier de build et détecter les erreurs de syntaxe ou les problèmes de style.
 
 - #### Ah Oui Une interface pour la CI et l'automatisation des tests
 
