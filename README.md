@@ -1,16 +1,17 @@
-# Mise en place du monitoring perso
+# DevOps : monitoring, logging, ...
 
-Sur cette branche, le monitoring s'effectue par l'envoie dans la console d'informations liées au temps que mettent les appels au back-end pour s'effectuer.
+Ce projet s'appuie sur l'application créée en cours de développement web du premier semestre et conteneurisé en cours d'architecture logiciel.
+Nous avons décidé de créer 3 branches différentes afin de pouvoir partir sur 3 possibilités différentes et nous repartir la charge de travail :
 
-L'idée est de pouvoir mesurer le temps de réponse du back-end pour chaques requêtes effetuées. Une amélioration possible serait d'intégrer ce message dans l'interface graphique du monitoring. Avec suffisemment de données, on pourrait envisager de faire des moyennes ou tracer des graphiques. Cependant, notre projet initial sur lequel nous nous sommes basé n'envoie pas beaucoup de requêtes, nous n'avons donc pas assez de données pour en faire réellement quelque chose.
+  - grafana_metrics : permet d'affichier via grafana des metriques concernant l'utilisation de la machine par le projet
+  - timeResponse : permet d'afficher dans la console le temps mis par les appels du front vers le back.
+  - fluentd : collecte de logs à l'aide de fluentd
 
-# Mise en place
+Chaque branche dispose d'un readme expliquant plus en détail ses fonctionnalités.
 
-Il faut lancer le docker compose dans le dossier "dockerCompose_production", puis se connecter à l'aide d'un navigateur à "http://localhost/".
-Cette branche se concentrant sur l'affichage d'informations dans la console, il faut ouvrir la console (F12). Lorsque un appel au back-end se fait dans le projet, une ligne de la forme :
+# Fonctionnement
 
-```
-"TIME pour PREFIXE XX ms.
-```
+Afin de correctement faire fonctionner le projet, nous avons dû grandement le modifier dans sa structure. Ainsi, certains bugs sont présents et les fonctionnalités initiales du projet ne sont plus toutes présentes.
 
-s'affiche dans la console. XX est le temps mis pour le back end à renvoyer l'information demandée, et PREFIXE est le nom de l'oppération (PUT, DELETE, etc.).
+Pour lancer le projet, il faut lancer le docker compose puis se connecter sur le localhost:80.
+On peut ensuite créer un utilisateur en cliquant sur Register, puis se connecter en cliquant sur login (il est impératif de créer un utilisateur avant de se connecter, car la BDD est vide lors du lancement du projet).
