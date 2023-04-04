@@ -1,66 +1,17 @@
-# Collecting Docker Logs using Fluentd
+# DevOps : monitoring, logging, ...
 
-This guide will walk you through the steps to collect Docker logs of your microservices app using Fluentd.
+Ce projet s'appuie sur l'application créée en cours de développement web du premier semestre et conteneurisé en cours d'architecture logiciel.
+Nous avons décidé de créer 3 branches différentes afin de pouvoir partir sur 3 possibilités différentes et nous repartir la charge de travail :
 
-## Prerequisites
+  - grafana_metrics : permet d'affichier via grafana des metriques concernant l'utilisation de la machine par le projet
+  - timeResponse : permet d'afficher dans la console le temps mis par les appels du front vers le back.
+  - fluentd : collecte de logs à l'aide de fluentd
 
-Before you get started, make sure you have the following installed on your system:
+Chaque branche dispose d'un readme expliquant plus en détail ses fonctionnalités.
 
-- Docker
-- Docker Compose
+# Fonctionnement
 
-## Setup
+Afin de correctement faire fonctionner le projet, nous avons dû grandement le modifier dans sa structure. Ainsi, certains bugs sont présents et les fonctionnalités initiales du projet ne sont plus toutes présentes.
 
-### Step 1: Create a Fluentd configuration file
-
-Create a fluent.conf file with the following content:
-
-```
-<source>
-  @type tail
-  format json
-  read_from_head true
-  tag docker.logs
-  path /fluentd/log/containers/*/*-json.log
-  pos_file /tmp/container-logs.pos
-</source>
-
-<match docker.logs>
-  @type file
-  path /output/test.log
-</match>
-```
-### Step 2: Create a Docker Compose file
-
-```
-version: "3"
-
-services:
-  fluentd:
-    container_name: fluentd
-    user: root
-    image: fluent/fluentd:v1.11-debian
-    volumes:
-      - /var/lib/docker/containers:/fluentd/log/containers
-      - ./fluent.conf:/fluentd/etc/fluent.conf
-      - ./logs:/output/
-    logging:
-      driver: "local"
-```
-
-This Docker Compose file sets up a Fluentd service using the fluent/fluentd:v1.11-debian image, with the fluent.conf file mounted as a volume. It also mounts the container log files and a logs directory as volumes, and sets the logging driver to local.
-
-## Usage
-
-```
-docker-compose up
-```
-
-This will start the Fluentd service and begin collecting Docker logs from the running containers. The logs will be stored in the logs directory in the current directory, in a file called test.log.
-
-To stop collecting Docker logs, press Ctrl-C to stop the Docker Compose process.
-
-
-## Conclusion
-
-That's it! You now have a working setup for collecting Docker logs of your microservices app using Fluentd. You can customize the configuration file and Docker Compose file to suit your needs, and use the logs for monitoring, analysis, and debugging purposes.
+Pour lancer le projet, il faut lancer le docker compose puis se connecter sur le localhost:80.
+On peut ensuite créer un utilisateur en cliquant sur Register, puis se connecter en cliquant sur login (il est impératif de créer un utilisateur avant de se connecter, car la BDD est vide lors du lancement du projet).
