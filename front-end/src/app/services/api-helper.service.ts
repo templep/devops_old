@@ -18,10 +18,8 @@ export class ApiHelperService {
     endpoint: string;
     queryParams?: any;
   }): Promise<any> {
-    let time = this.start();
     environment
     let ret = this.request({ endpoint, method: 'GET', queryParams });
-    this.stop("GET : ",time);
     return ret;
   }
 
@@ -34,9 +32,7 @@ export class ApiHelperService {
     data?: any;
     queryParams?: any;
   }): Promise<any> {
-    let time = this.start();
     let ret = this.request({ endpoint, method: 'POST', data, queryParams });
-    this.stop("POST : ",time);
     return ret;
   }
 
@@ -49,9 +45,7 @@ export class ApiHelperService {
     data?: any;
     queryParams?: any;
   }): Promise<any> {
-    let time : number = this.start();
     let ret = this.request({ endpoint, method: 'PUT', data, queryParams });
-    this.stop("PUT : ",time);
     return ret;
   }
 
@@ -64,9 +58,7 @@ export class ApiHelperService {
     data?: any;
     queryParams?: any;
   }): Promise<any> {
-    let time = this.start();
     let ret = this.request({ endpoint, method: 'DELETE', data, queryParams });
-    this.stop("DELETE : ",time);
     return ret;
   }
 
@@ -115,15 +107,6 @@ export class ApiHelperService {
     return await lastValueFrom(req).then((res) => {
       return res.body;
     });
-  }
-
-  private start(): number {
-    let date = new Date();
-    return date.getMilliseconds();
-  }
-
-  private stop(prefixe:string, startTime:number):void {
-    console.log("TIME pour "+prefixe+(this.start()-startTime)+" ms.");
   }
 }
 

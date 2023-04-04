@@ -37,13 +37,13 @@ export class AddAssociationComponent {
     if (name && users) {
       // get all users
       this.api.get({
-        endpoint: '/users'
+        endpoint: 'users'
       }).then((response) => {
         // if user entry is valid (if all entry are in user list
         if (this.isValid(users, response)) {
           // post new association
           this.api.post({
-            endpoint: '/associations',
+            endpoint: 'associations',
             data: {name, users}
           }).then(response => {
             // navigate to dashboard and close dialog

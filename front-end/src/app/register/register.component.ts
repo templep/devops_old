@@ -39,7 +39,7 @@ export class RegisterComponent {
       // if age is a number
       if (typeof (age) == 'number') {
         // send post request
-        this.api.post({endpoint: '/users', data: {firstname, lastname, age, password}})
+        this.api.post({endpoint: 'users', data: {firstname, lastname, age, password}})
         .then(response => {
           // open dialog to inform user
           this.dialog.open(ErrorDialogComponent, {

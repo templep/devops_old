@@ -54,6 +54,7 @@ export class DashboardComponent implements OnInit {
   /************************************************************************************************/
   ngOnInit() {
     // change background
+    console.log("LOADING DASHBOARD")
     document.body.style.background =
       "linear-gradient(125deg, rgba(43,31,70,1) 0%, rgba(104,42,110,1) 100%)";
     document.body.style.backgroundSize = "100%";
