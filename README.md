@@ -40,6 +40,34 @@ Fluentd est un outil open-source de collecte, de traitement et de diffusion de l
 
 Pour utiliser Fluentd pour collecter les logs de nos microservices Docker, nous avons créé un fichier de configuration fluent.conf qui définit les sources et les sorties pour Fluentd. Nous avons ensuite utilisé Docker Compose pour déployer un service Fluentd avec la configuration fluent.conf.
 
+```
+ <source>
+  @type tail
+  format json
+  read_from_head true
+  tag docker.logs
+  path /fluentd/log/containers/*/*-json.log
+  pos_file /tmp/container-logs.pos
+</source>
+<match docker.logs>
+  @type file
+  path /output/test.log
+</match>
+```
+```
+version: "3"
+services:
+  fluentd:
+    container_name: fluentd
+    user: root
+    image: fluent/fluentd:v1.11-debian
+    volumes:
+      - /var/lib/docker/containers:/fluentd/log/containers
+      - ./fluent.conf:/fluentd/etc/fluent.conf
+      - ./logs:/output/
+    logging:
+      driver: "local"
+```
 
 Nous avons ensuite exécuté notre application en utilisant Docker Compose et avons observé les logs collectés par Fluentd dans le répertoire logs.
 
@@ -58,6 +86,7 @@ Cette solution montre comment mettre en place une collecte ainsi qu'un affichage
 
 Prometheus est un outil open source de collecte et de gestion de métriques en temps réel. Prometheus est basé sur des séries temporelles, il interroge des endpoints en exposants des métriques à temps réguliers en minimisant le risque de perturbation (méthode du "pull"). Prometheus offre un grand nombre de compatibilités avec divers langages, systèmes d'exploitations ou outils de visualisation comme grafana. Grafana quant à lui, est une plateforme de visualisation de données open source qui permet de créer des tableaux de bords personnalisés provenant de divers types de sources (prometheus, elasticsearch, graphite, etc). Ses tableaux de bords permettent notamment la visualisation de séries temporelles, ce qui s'avère très utile dans le cadre du monitoring.
 
+![](./dashboard.png)
 
 ## Mise en place
 Pour commencer, on crée un dossier qui contiendra le docker compose de la nouvelle stack de monitoring. Ce [docker compose](./dockerComposer_grafana/docker-compose.yaml) contient les services prometheus qui va venir scraper les données à intervalles réguliers, ainsi que grafana, qui va venir mettre en forme les données pour l'affichage (même si prometheus peut aussi faire de l'affichage, mais grafana est plus agréable pour les yeux selon nous).
@@ -66,8 +95,15 @@ Prometheus seul dans son conteneur ne peut pas fonctionner pleinement, il lui fa
 
 On peut alors lancer la stack avec la commande :
 
+```shell
+sudo docker-compose up -d
+```
+
 Il reste maintenant à configurer la liaison entre prometheus et grafana. Tout d'abord, il faut se connecter dans le [localhost://6060](localhost://6060). Les login et mot de passes à défaut de grafana sont admin/amdin (le mot de passe sera changé à la première connexion). On arrive alors sur l'interface d'accueil de grafana, cliquez ensuite sur "Add your first datasource", sélectionnez prometheus. Il sera alors demandé de renseigner l'URL de prometheus. Comme nous avons un docker compose, nous pouvons passer par l'IP du network, pour la trouver, il faut taper la commande :
 
+```bash
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' prometheus
+```
 
 ⚠️ ne pas oublier de mettre le port 9090 à la suite de l'IP et le http:// avant
 
