@@ -1,0 +1,17 @@
+node_modules/
+.settings
+target/
+test-output/
+.DS_Store
+.classpath
+.project
+package-lock.json
+.git
+dist
+Python/__pycache__/Conf.cpython-38.pyc
+Python/Conf.pyc
+.vs
+env
+Gemfile.lock
+obj/
+bin/

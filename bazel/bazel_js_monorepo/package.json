@@ -1,0 +1,19 @@
+{
+    "name": "bazel_js_monorepo",
+    "version": "0.1.0",
+    "private": true,
+    "devDependencies": {
+        "@bazel/bazelisk": "latest",
+        "@bazel/buildifier": "latest",
+        "@bazel/ibazel": "latest"
+    },
+    "scripts": {
+        "build": "bazel build //...",
+        "test": "bazel test //..."
+    },
+    "dependencies": {
+        "@babel/cli": "^7.21.0",
+        "@babel/core": "^7.21.0",
+        "@babel/preset-env": "^7.20.2"
+    }
+}

@@ -1,0 +1,20 @@
+# Add rules here to build your software
+# See https://docs.bazel.build/versions/main/build-ref.html#BUILD_files
+load("@npm//@babel/cli:index.bzl", "babel")
+babel(
+    name = "compile",
+    data = [
+        "app.js",
+        "es5.babelrc",
+        "@npm//@babel/preset-env",
+    ],
+    outs = ["app.es5.js"],
+    args = [
+        "app.js",
+        "--config-file",
+        "./$(execpath es5.babelrc)",
+        "--out-file",
+        "$(execpath app.es5.js)",
+    ],
+)
+
