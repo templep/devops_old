@@ -9,6 +9,56 @@ Dans cette pull request, nous allons vous montrer divers façons de mettre en pl
 # Mise en place du monitoring perso
 
 # Collecte de logs Docker avec Fluentd
+Dans un contexte DevOps, la collecte des logs est essentielle pour suivre les activités de développement et de déploiement. Dans cette partie, nous allons voir comment utiliser Fluentd pour collecter les logs de nos microservices Docker
+## Fluentd
+
+Fluentd est un outil open-source de collecte, de traitement et de diffusion de logs. Il est particulièrement adapté pour collecter les logs provenant de différents types de sources de données, notamment les applications, les serveurs, les bases de données et les containers Docker. Il peut également être utilisé pour agréger les logs provenant de différentes sources, les traiter et les diffuser à des outils de monitoring et de visualisation.
+
+## Méthode
+
+Pour utiliser Fluentd pour collecter les logs de nos microservices Docker, nous avons créé un fichier de configuration fluent.conf qui définit les sources et les sorties pour Fluentd. Nous avons ensuite utilisé Docker Compose pour déployer un service Fluentd avec la configuration fluent.conf.
+
+
+```
+ <source>
+  @type tail
+  format json
+  read_from_head true
+  tag docker.logs
+  path /fluentd/log/containers/*/*-json.log
+  pos_file /tmp/container-logs.pos
+</source>
+
+<match docker.logs>
+  @type file
+  path /output/test.log
+</match>
+```
+```
+version: "3"
+
+services:
+  fluentd:
+    container_name: fluentd
+    user: root
+    image: fluent/fluentd:v1.11-debian
+    volumes:
+      - /var/lib/docker/containers:/fluentd/log/containers
+      - ./fluent.conf:/fluentd/etc/fluent.conf
+      - ./logs:/output/
+    logging:
+      driver: "local"
+```
+
+Nous avons ensuite exécuté notre application en utilisant Docker Compose et avons observé les logs collectés par Fluentd dans le répertoire logs.
+
+## Limites
+
+Nous avons constaté que Fluentd peut être difficile à configurer et à utiliser pour les débutants. Il nécessite une compréhension approfondie de la configuration et de la syntaxe pour être utilisé correctement. Nous avons également constaté que l'analyse des logs peut être fastidieuse.
+
+## Conclusion
+En conclusion, Fluentd est un outil puissant et polyvalent pour collecter et traiter les logs de nos microservices Docker. Il peut être utilisé pour détecter rapidement les erreurs et les performances lentes et pour agréger les logs provenant de différentes sources. Cependant, son utilisation peut nécessiter une certaine expérience et des connaissances en configuration et en syntaxe.
+
 
 # Affichage de metriques avec grafana
 
